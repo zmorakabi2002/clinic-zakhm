@@ -1,45 +1,59 @@
 "use client";
+
 import Image from "next/image";
 
 export default function AboutDesk() {
   return (
-    <section className="bg-gray-50 py-10 px-6 rtl">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* متن درباره ما */}
-        <div className="md:w-1/2 space-y-6">
-          <h2 className="text-3xl font-bold text-gray-800">درباره ما</h2>
-          <p className="text-gray-700 leading-loose text-base">
-            کلینیک زخم نیک با بهره‌گیری از ارتقای درمان‌های نوین و علمی، تیمی
-            مجرب از پزشکان، پرستاران و کارشناسان زخم، تلاش می‌کند تا بهترین
-            خدمات درمانی را به بیماران ارائه دهد. هدف ما بهبود کیفیت زندگی
-            بیماران با ارائه درمان‌های موثر و مراقبت‌های تخصصی است. ما به درمان
-            زخم‌های مزمن، زخم‌های دیابتی، زخم‌های فشاری و زخم‌های جراحی
-            می‌پردازیم. در کلینیک زخم نیک، بیمار تنها نیست؛ بلکه تیمی از متخصصان
-            در کنار اوست تا مسیر درمان را هموار سازد.
-          </p>
-          <div className="flex gap-4 pt-2">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-              مطالعه بیشتر
-            </button>
-            <button className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 transition">
-              تماس با ما
-            </button>
+    <section className="relative w-full h-[684px] flex justify-center bg-white overflow-hidden">
+      <div className="w-[1150px] flex flex-col">
+        {/* ردیف اصلی: متن چپ / تصویر راست */}
+        <div className="flex items-start justify-between gap-[60px]">
+          {/* ستون چپ: متن + دکمه‌ها با خطوط نارنجی پشتش */}
+          <div className="relative w-[512px] h-[398px] text-right flex flex-col gap-[32px]">
+            <h2 className="text-[32px] font-bold text-[#202b37] text-right leading-[44px] tracking-[1%] h-[44px]">
+              درباره ما
+            </h2>
+
+            <div className="w-[512px] h-[322px] flex flex-col gap-[18px] rotate-0 opacity-100">
+              <p className="font-medium text-[20px] leading-[28px] tracking-[1%] text-justify text-[#414E62] ">
+                کلینیک زخم نیک با بهره‌گیری از ارائه‌ی درمان‌های نوین و علمی،
+                تیمی مجرب از پزشکان، پرستاران و کارشناسان زخم، تلاش می‌کند تا با
+                استفاده از جدیدترین روش‌ها و فناوری‌های روز دنیا، بهترین نتیجه‌ی
+                درمانی را برای بیماران خود فراهم کند. <br /> این مرکز درمان را
+                براساس نوع زخم، شرایط جسمی بدن و عوامل زمینه‌ای، به‌صورت اختصاصی
+                و مرحله‌به‌مرحله برنامه‌ریزی می‌شود. <br /> هدف ما تنها ترمیم
+                زخم نیست، بلکه بازگرداندن سلامت، آسایش و کیفیت زندگی به بیماران
+                است.
+              </p>
+
+              <div className="flex justify-start gap-[32px] w-[331px] h-[52px] ">
+                <button className=" w-[159px] h-[52px] rounded-[50px] px-[26px] py-[12px] gap-[8px] rotate-0 opacity-100 border-[2px] border-[#086391] bg-[#FFFFFF] font-medium text-[20px] leading-[28px] tracking-[1%] text-[#141C24] ">
+                  مطالعه بیشتر
+                </button>
+                <button className="w-[140px] h-[52px] rounded-[50px] px-[26px] py-[12px] gap-[8px] rotate-0 opacity-100 border-[1px]  border-[#FF8039] bg-[#FF8039] font-medium text-[20px] leading-[28px] tracking-[1%] text-[#FFFFFF]">
+                  تماس با ما
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* ستون راست: تصویر */}
+          <div>
+            <Image
+              src="/images/aboutclinic.jpg"
+              alt="تیم کلینیک زخم نیک"
+              width={675}
+              height={456}
+              className="object-cover w-full h-auto"
+              priority
+            />
           </div>
         </div>
 
-        {/* تصویر و کپشن */}
-        <div className="md:w-1/2 text-center">
-          <Image
-            src="/images/aboutclinic.jpg"
-            alt="کلینیک زخم نیک"
-            width={500}
-            height={350}
-            className="rounded-lg mx-auto"
-          />
-          <p className="text-sm text-gray-600 mt-4">
-            نمونه زخم های بهبود یافته کلینیک زخم نیک
-          </p>
-        </div>
+        {/* کپشن جدا و وسط صفحه */}
+        <p className="w-[372px] h-[36px] absolute left-[430.5px] rounded-[20px] px-[8px] py-[4px] gap-[8px] rotate-0 opacity-100">
+          نمونه زخم های بهبود یافته کلینیک زخم نیک
+        </p>
       </div>
     </section>
   );

@@ -1,5 +1,18 @@
-import Herosectiondesk from "./_components/Herosectiondesk";
+import Herosectiondesk from "./_components/HerosectionDesk";
+import HerosectionMobile from "./_components/HerosectionMobile";
 
 export default function Herosection() {
-  return <Herosectiondesk />;
+  return (
+    <>
+      {/* نسخه دسکتاپ */}
+      <div className="hidden md:flex">
+        <Herosectiondesk />
+      </div>
+
+      {/* نسخه موبایل */}
+      <div className="flex md:hidden">
+        <HerosectionMobile />
+      </div>
+    </>
+  );
 }

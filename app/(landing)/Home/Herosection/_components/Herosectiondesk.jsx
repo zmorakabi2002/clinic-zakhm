@@ -7,15 +7,16 @@ export default function HerosectionDesk() {
     <section className=" relative h-[613px] w-full flex justify-center py-[60px] text-white ">
       <div className="w-[1150px] flex items-center justify-between">
         {/* متن سمت راست */}
-        <div className=" max-w-[520px] flex flex-col gap-6">
+        <div className=" h-[431px] w-[663px] mt-[30px] flex flex-col gap-6">
           {/* تیتر */}
           <h1 className=" text-[38px] text-[#f9fafb] leading-[44px] font-bold tracking-[0.015em] text-right whitespace-nowrap">
             هر زخم، یک داستان؛ <br /> ما داستان شما را به پایان خوش می‌رسانیم
           </h1>
 
           {/* توضیح */}
-          <p className="text-[24px] leading-[44px] text-[#e4e7ec] tracking-[0.01em] font-medium text-justify align-middle ">
+          <p className="text-[24px]  leading-[44px] text-[#e4e7ec] tracking-[0.01em] font-medium text-justify align-middle ">
             تیم متخصص ما با تکنولوژی روز دنیا، درمان مرحله‌به‌مرحله و پیگیری
+            <br />
             کامل، شما را همراهی می‌کند.
           </p>
 
@@ -64,7 +65,7 @@ export default function HerosectionDesk() {
         </div>
 
         {/* تصویر سمت چپ */}
-        <div className=" absolute bottom-0 left-0">
+        <div className=" absolute bottom-0 left-0 z-0">
           <Image
             src="/images/p-hero-left.png"
             alt="دکتر کلینیک"
