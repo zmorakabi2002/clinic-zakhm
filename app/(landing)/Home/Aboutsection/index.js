@@ -10,9 +10,9 @@ export default function Aboutsection() {
       </div>
 
       {/* نسخه موبایل */}
-      {/* <div className="flex md:hidden">
+      <div className="flex md:hidden">
         <AboutMobile />
-      </div> */}
+      </div>
     </>
   );
 }

@@ -1,39 +1,47 @@
 "use client";
 
 import Image from "next/image";
+import bg from "../../../../../public/images/about-bg.svg";
+import ButtonRes from "@/app/(landing)/components/button/_components/buttonRes";
 
 export default function AboutDesk() {
+  const styling = {
+    backgroundImage: `url(${bg.src})`,
+    width: "100%",
+    height: "100%",
+  };
   return (
-    <section className="relative w-full h-[684px] flex justify-center bg-white overflow-hidden">
-      <div className="w-[1150px] flex flex-col">
+    <section
+      className="bg-cover bg-no-repeat w-full h-[684px] flex justify-center overflow-hidden "
+      style={styling}
+    >
+      <div className="w-full flex flex-col justify-between pr-[65px]">
         {/* ردیف اصلی: متن چپ / تصویر راست */}
-        <div className="flex items-start justify-between gap-[60px]">
-          {/* ستون چپ: متن + دکمه‌ها با خطوط نارنجی پشتش */}
-          <div className="relative w-[512px] h-[398px] text-right flex flex-col gap-[32px]">
-            <h2 className="text-[32px] font-bold text-[#202b37] text-right leading-[44px] tracking-[1%] h-[44px]">
-              درباره ما
-            </h2>
-
-            <div className="w-[512px] h-[322px] flex flex-col gap-[18px] rotate-0 opacity-100">
-              <p className="font-medium text-[20px] leading-[28px] tracking-[1%] text-justify text-[#414E62] ">
-                کلینیک زخم نیک با بهره‌گیری از ارائه‌ی درمان‌های نوین و علمی،
-                تیمی مجرب از پزشکان، پرستاران و کارشناسان زخم، تلاش می‌کند تا با
-                استفاده از جدیدترین روش‌ها و فناوری‌های روز دنیا، بهترین نتیجه‌ی
-                درمانی را برای بیماران خود فراهم کند. <br /> این مرکز درمان را
-                براساس نوع زخم، شرایط جسمی بدن و عوامل زمینه‌ای، به‌صورت اختصاصی
-                و مرحله‌به‌مرحله برنامه‌ریزی می‌شود. <br /> هدف ما تنها ترمیم
-                زخم نیست، بلکه بازگرداندن سلامت، آسایش و کیفیت زندگی به بیماران
-                است.
-              </p>
-
-              <div className="flex justify-start gap-[32px] w-[331px] h-[52px] ">
-                <button className=" w-[159px] h-[52px] rounded-[50px] px-[26px] py-[12px] gap-[8px] rotate-0 opacity-100 border-[2px] border-[#086391] bg-[#FFFFFF] font-medium text-[20px] leading-[28px] tracking-[1%] text-[#141C24] ">
-                  مطالعه بیشتر
-                </button>
-                <button className="w-[140px] h-[52px] rounded-[50px] px-[26px] py-[12px] gap-[8px] rotate-0 opacity-100 border-[1px]  border-[#FF8039] bg-[#FF8039] font-medium text-[20px] leading-[28px] tracking-[1%] text-[#FFFFFF]">
-                  تماس با ما
-                </button>
+        <div className="flex items-start justify-between gap-[60px] ">
+          {/* ستون چپ: متن + دکمه‌ها */}
+          <div className="w-[512px] text-right flex flex-col h-full gap-[32px] pt-[83px] ">
+            <div>
+              <h2 className="text-[32px] font-bold text-[#202b37] text-right leading-[44px] tracking-[1%] h-[44px]">
+                درباره ما
+              </h2>
+            </div>
+            <div className="w-[512px] h-[400px] flex flex-col  gap-[18px] rotate-0 opacity-100">
+              <div>
+                <p className="font-[Samim] font-normal not-italic text-[20px] leading-[44px] tracking-[1%] text-justify">
+                  کلینیک زخم نیک با بهره‌گیری از ارائه‌ی درمان‌های نوین و علمی،
+                  تیمی مجرب از پزشکان، پرستاران و کارشناسان زخم، تلاش می‌کند تا
+                  با استفاده از جدیدترین روش‌ها و فناوری‌های روز دنیا، بهترین
+                  نتیجه‌ی درمانی را برای بیماران خود فراهم کند. <br /> این مرکز
+                  درمان را براساس نوع زخم، شرایط جسمی بدن و عوامل زمینه‌ای،
+                  به‌صورت اختصاصی و مرحله‌به‌مرحله برنامه‌ریزی می‌شود. <br />{" "}
+                  هدف ما تنها ترمیم زخم نیست، بلکه بازگرداندن سلامت، آسایش و
+                  کیفیت زندگی به بیماران است.
+                </p>
               </div>
+            </div>
+            <div className="flex justify-start gap-8 mt-auto">
+              <ButtonRes lable={" مطالعه بیشتر"} type="second" />
+              <ButtonRes lable={"تماس با ما"} />
             </div>
           </div>
 
@@ -42,18 +50,13 @@ export default function AboutDesk() {
             <Image
               src="/images/aboutclinic.jpg"
               alt="تیم کلینیک زخم نیک"
-              width={675}
-              height={456}
-              className="object-cover w-full h-auto"
+              width={680}
+              height={460}
+              className="object-cover ml-0 mr-auto w-fit mt-[169px] "
               priority
             />
           </div>
         </div>
-
-        {/* کپشن جدا و وسط صفحه */}
-        <p className="w-[372px] h-[36px] absolute left-[430.5px] rounded-[20px] px-[8px] py-[4px] gap-[8px] rotate-0 opacity-100">
-          نمونه زخم های بهبود یافته کلینیک زخم نیک
-        </p>
       </div>
     </section>
   );

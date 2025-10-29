@@ -3,20 +3,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Home } from "lucide-react";
+import ButtonRes from "@/app/(landing)/components/button/_components/buttonRes";
+
+const HEADER_OPTION = [
+  {
+    id: 1,
+    name: "Home",
+    label: "خانه",
+    url: "/",
+    className: "flex justify-between items-center gap-2 text-[#ff5b00] ",
+  },
+  { id: 2, name: "services", label: "خدمات", url: "/services", className: "" },
+  { id: 3, name: "contact", label: "تماس", url: "/contact", className: "" },
+  { id: 4, name: "about", label: "درباره ما", url: "/about", className: "" },
+];
 
 export default function HeaderDesk() {
   return (
-    <header className="w-full  flex justify-center py-4 text-[20px]">
-      <div className=" top-[42px] left-[65px] w-[1150px] h-[100px] bg-[#FFF0E5] rounded-[38px] px-[32px] py-[22px] flex items-center justify-between opacity-100 shadow-sm">
-        {/* Right side - Logدo + Menu */}
+    <header className="w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
+      <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-[32px] px-[14px] bg-[#FFF0E5]">
+        {/* Right side - Logo + Menu */}
         <div className="flex items-center gap-[28px]">
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-[#004b6b] flex items-center justify-center">
-              {/* تصویر لوگو */}
               <Image
                 src="/images/logo.png"
-                alt="لوگو_کلینیک زخم"
+                alt="لوگو کلینیک زخم"
                 width={56}
                 height={56}
               />
@@ -24,25 +37,40 @@ export default function HeaderDesk() {
           </div>
 
           {/* Menu */}
-          <nav className="flex items-center gap-8 text-[#141C24] font-medium">
-            <Link href="/" className="flex items-center gap-2 text-[#ff5b00] ">
-              <Home size={16} />
-              خانه
-            </Link>
-            <Link href="/services">خدمات</Link>
-            <Link href="/contact"> تماس</Link>
-            <Link href="/about">درباره ما</Link>
+          <nav className="hidden md:flex items-center md:gap-8 gap-2 text-[#141C24] font-[Samim] font-bold text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate leading-[38px] tracking-[0.01em]">
+            {HEADER_OPTION.map((item, index) => {
+              return (
+                <Link
+                  key={`${index}-${item.name}`}
+                  href={item.url}
+                  className={item.className}
+                >
+                  {item.name === "Home" && (
+                    <img src="/images/Home.svg" width="32px" height="32px" />
+                  )}
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
         {/* Left side - Buttons */}
-        <div className="flex items-center gap-4">
-          <button className="border-[2px] w-[188px] h-[52px] border-[#004b6b] text-[#141C24] bg-[#FFFFFF] font-medium px-4 py-2 rounded-[50px] ">
-            ثبت نام همکاران
-          </button>
-          <button className="border-[1px] w-[149px] h-[52px] bg-[#ff8039] text-white font-medium px-[26px] py-3 rounded-[50px] ">
-            گرفتن نوبت
-          </button>
+        <div className="flex justify-center items-center gap-4">
+          <div className="  ">
+            <ButtonRes
+              lable={"ثبت نام همکاران "}
+              type="secend"
+              classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate md:w-[187px] w-[148px] "
+            />
+          </div>
+
+          <div className="hidden md:flex ">
+            <ButtonRes
+              lable={"گرفتن نوبت"}
+              classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate"
+            />
+          </div>
         </div>
       </div>
     </header>

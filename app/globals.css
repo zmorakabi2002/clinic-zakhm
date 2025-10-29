@@ -1,14 +1,33 @@
 @import "tailwindcss";
+
 @font-face {
-  font-family: "IRANSans";
-  src: url("/fonts/A-Iranian-Sans/Iranian Sans.ttf") format("ttf");
-  font-weight: normal;
+  font-family: "Samim";
+  src: url("/fonts/samim-font/Samim.woff2") format("woff2"),
+    url("/fonts/samim-font/Samim.woff") format("woff"),
+    url("/fonts/samim-font/Samim.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Samim";
+  src: url("/fonts/samim-font/Samim-Bold.woff2") format("woff2"),
+    url("/fonts/samim-font/Samim-Bold.woff") format("woff"),
+    url("/fonts/samim-font/Samim-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: "IRANSans";
+  font-family: "Samim", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
   direction: rtl;
   text-align: right;
 }
