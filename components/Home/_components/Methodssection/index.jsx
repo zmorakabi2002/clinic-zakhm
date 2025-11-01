@@ -38,3 +38,5 @@ export default function MethodsSection() {
     </div>
   );
 }
+
+// salaaaaam mis zare
