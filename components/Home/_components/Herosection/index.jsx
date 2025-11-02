@@ -75,12 +75,8 @@ export default function Herosection() {
           </div>
         </div>
 
-        {/* بخش چپ: تصویر دکتر 
-        
-        
-        اینو بپرسم ک چرا اعمال نمیکنه 
-        
-        */}
+        {/* بخش چپ: تصویر دکتر
+         */}
         <div className="absolute left-0  ">
           <Image
             src="/images/p-hero-left.png"
