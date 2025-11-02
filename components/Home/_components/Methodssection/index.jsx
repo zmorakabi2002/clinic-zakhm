@@ -29,7 +29,7 @@ export default function MethodsSection() {
           className="w-[365px] !overflow-visible !mx-0"
         >
           {Methods.map((item, i) => (
-            <SwiperSlide key={i} className="mx-0">
+            <SwiperSlide key={i} className="mx-0 pb-4">
               <MethodCard title={item.title} explain={item.explain} />
             </SwiperSlide>
           ))}
@@ -38,8 +38,3 @@ export default function MethodsSection() {
     </div>
   );
 }
-
-// salaaaaam mis zare
-// hello back mis morakabi
-
-// khgkhvkhv
