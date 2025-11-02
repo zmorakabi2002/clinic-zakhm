@@ -6,7 +6,7 @@ import ButtonRes from "@/components/common/button";
 import Servicesection from "@/components/Home/_components/Servicesection";
 import WhyClinic from "@/components/Home/_components/whyClinic";
 import MethodsSection from "@/components/Home/_components/Methodssection";
-
+import Commentssection from "@/components/Home/_components/Commentssection";
 export default function Home() {
   return (
     <div>
@@ -25,6 +25,7 @@ export default function Home() {
       <Servicesection />
       <MethodsSection />
       <WhyClinic />
+      <Commentssection />
     </div>
   );
 }
