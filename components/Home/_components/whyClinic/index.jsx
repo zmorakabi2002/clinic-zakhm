@@ -71,7 +71,7 @@ export default function WhyClinic() {
                   className="flex md:hidden pt-[17px] pb-[12px]"
                 />
               </div>
-              <div className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-center align-middle">
+              <div className="font-samim md:w-[300px] md:h-[38px] h-[48px] w-[146px] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-center align-middle">
                 <p> {item.title}</p>
               </div>
               <div className="hidden md:flex text-[#333333] font-samim font-normal text-[16px] leading-[24px] tracking-[0.01em] text-justify align-middle">
