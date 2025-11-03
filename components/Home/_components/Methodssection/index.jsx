@@ -26,7 +26,7 @@ export default function MethodsSection() {
           spaceBetween={18}
           slidesPerView={"auto"}
           grabCursor={true}
-          className="w-[365px] !overflow-visible !mx-0"
+          className="w-[365px] !overflow-visible !mx-0 "
         >
           {Methods.map((item, i) => (
             <SwiperSlide key={i} className="mx-0 pb-4">

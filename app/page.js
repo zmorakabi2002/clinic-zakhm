@@ -7,7 +7,7 @@ import Servicesection from "@/components/Home/_components/Servicesection";
 import WhyClinic from "@/components/Home/_components/whyClinic";
 import MethodsSection from "@/components/Home/_components/Methodssection";
 import Questions from "@/components/Home/_components/Questions";
-
+import Blogsection from "@/components/Home/_components/Blogsection";
 import Commentssection from "@/components/Home/_components/Commentssection";
 import Footer from "@/components/Home/_components/Footer";
 export default function Home() {
@@ -28,8 +28,9 @@ export default function Home() {
       <Servicesection />
       <MethodsSection />
       <WhyClinic />
-      <Questions />
       <Commentssection />
+      <Questions />
+      <Blogsection />
       <Footer />
     </div>
   );

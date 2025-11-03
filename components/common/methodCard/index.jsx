@@ -9,11 +9,11 @@ export default function MethodCard({ image, title, explain, clickMore }) {
           alt={`Image-${image}`}
           width={365}
           height={182}
-        />{" "}
+        />
       </div>
       <div className="w-[365px] flex flex-col justify-between gap-[17px] px-[18px] py-[12px] ">
         <div className="font-[Samim] font-bold text-[20px] leading-[38px] tracking-[1%] text-right align-middle">
-          <p>وکیوم‌تراپی </p>{" "}
+          <p>وکیوم‌تراپی </p>
         </div>
         <div className="font-[Samim] font-normal text-[16px] leading-[24px] tracking-[1%] text-justify align-middle">
           <p>

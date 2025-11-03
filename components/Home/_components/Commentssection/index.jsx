@@ -28,8 +28,8 @@ const stars = [
 export default function Commentssection() {
   return (
     <div className="h-[498px] mt-[68px] mx-[65px] relative flex flex-col">
-      <div className="flex items-center  relative h-[100%] mt-[77px] gap-20">
-        <div className="flex flex-col gap-[32px] relative ">
+      <div className="flex gap-[85px] items-center relative  h-[100%] mt-[77px]">
+        <div className=" w-[579px] flex flex-col gap-[32px] relative ">
           <p className="font-[samim] font-bold text-[32px] leading-[44px] text-[#141C24] ">
             در مورد کلینیک نیک چه میشنویم؟
           </p>
@@ -38,22 +38,24 @@ export default function Commentssection() {
             نیک دارند.
           </p>
         </div>
-        <div className="relative w-[450px] h-[323px]">
-          {stars.slice(0, 3).map((item, i) => (
-            <div
-              key={i}
-              className="absolute "
-              style={{
-                transformOrigin: "",
-                transform: `translate(${i * -25}px, ${-i * 40}px) rotate(${
-                  i * -5
-                }deg)`,
-                zIndex: 10 - i,
-              }}
-            >
-              <CommentCard userData={item} />
-            </div>
-          ))}
+        <div className="relative w-[485px] h-[323px]">
+          {stars.slice(0, 3).map((item, index) => {
+            return (
+              <div
+                key={`${index}-stars`}
+                className="absolute "
+                style={{
+                  transformOrigin: "",
+                  transform: `translate(${index * -25}px, ${
+                    -index * 40
+                  }px) rotate(${index * -5}deg)`,
+                  zIndex: 10 - index,
+                }}
+              >
+                <CommentCard userData={item} />
+              </div>
+            );
+          })}
         </div>
       </div>
 
