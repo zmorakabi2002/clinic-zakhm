@@ -40,6 +40,7 @@ export default function Questions() {
       <div>
         <Image
           src={"/images/ques.png"}
+          alt="doctor-ques"
           width={800}
           height={600}
           className="hidden lg:flex pt-[52px]"

@@ -21,9 +21,9 @@ export default function CommentCard({ userData }) {
         {userData?.explainText}
       </p>
       <div className="flex gap-[16px] mr-[32px]">
-        {Array.from({ length: userData?.stars }).map((i, index) => {
+        {Array.from({ length: userData?.stars }).map((item, index) => {
           return (
-            <div key={i}>
+            <div key={index}>
               <Image
                 src={"/images/star.svg"}
                 alt="stars"

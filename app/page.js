@@ -9,6 +9,7 @@ import MethodsSection from "@/components/Home/_components/Methodssection";
 import Questions from "@/components/Home/_components/Questions";
 
 import Commentssection from "@/components/Home/_components/Commentssection";
+import Footer from "@/components/Home/_components/Footer";
 export default function Home() {
   return (
     <div>
@@ -29,6 +30,7 @@ export default function Home() {
       <WhyClinic />
       <Questions />
       <Commentssection />
+      <Footer />
     </div>
   );
 }

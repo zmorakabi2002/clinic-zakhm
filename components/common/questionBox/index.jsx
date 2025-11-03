@@ -13,7 +13,12 @@ export default function QuestionBox({ lable, explain }) {
       <div className=" w-full flex justify-between font-samim font-bold text-[16px] md:text-[20px] text-[#344051] leading-[38px] tracking-[0.01em] text-right align-middle">
         <p>{lable}</p>
         <div className="flex justify-center">
-          <Image src={"images/arrow-down.svg"} width={24} height={24} />
+          <Image
+            src={"images/arrow-down.svg"}
+            alt="arrow"
+            width={24}
+            height={24}
+          />
         </div>
       </div>
       <div
