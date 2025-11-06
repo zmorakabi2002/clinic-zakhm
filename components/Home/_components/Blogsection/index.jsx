@@ -32,26 +32,34 @@ const articles = [
 
 export default function Blogsection() {
   return (
-    <div className="w-[1150px] contain-content flex flex-col gap-[32px] mx-[65px]">
+    <div className="contain-content flex flex-col gap-[32px] mx-[65px] mt-[50px] ">
       <p className="font-[samim] font-bold md:text-[32px] text-[24px] leading-[44px] ">
         مجله کلینیک زخم شیراز
       </p>
 
-      <div className="flex gap-[17px] ">
-        <Swiper
-          spaceBetween={100}
-          slidesPerView={"auto"}
-          grabCursor={true}
-          className="w-[372px] !overflow-visible "
-        >
+      <div className=" ">
+        <div className="md:hidden w-[847px]">
+          <Swiper
+            spaceBetween={14}
+            slidesPerView={"auto"}
+            grabCursor={true}
+            className="w-[273px] !overflow-visible !mx-0"
+          >
+            {articles.map((item, index) => {
+              return (
+                <SwiperSlide key={`${index}-article`}>
+                  <ArticleCard cardData={item} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+
+        <div className="md:flex hidden gap-[17px] ">
           {articles.map((item, index) => {
-            return (
-              <SwiperSlide key={`${index}-article`}>
-                <ArticleCard cardData={item} />
-              </SwiperSlide>
-            );
+            return <ArticleCard cardData={item} />;
           })}
-        </Swiper>
+        </div>
       </div>
     </div>
   );

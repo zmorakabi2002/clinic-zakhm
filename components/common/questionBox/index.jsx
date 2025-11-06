@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function QuestionBox({ lable, explain }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       className="md:w-[615.75px] w-[356px] flex flex-col justify-between items-center opacity-100 md:rounded-[42px] rounded-[76px] md:px-8 px-[18px] py-[17px] bg-[#FFF0E5]"
