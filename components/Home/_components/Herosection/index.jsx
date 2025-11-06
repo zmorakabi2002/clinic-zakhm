@@ -16,7 +16,7 @@ export default function Herosection() {
         {/*  متن سمت راست */}
         <div className="h-[300px] md:h-[431px] w-[654px] flex flex-col md:gap-[40px] gap-[16px] mb-[28px] md:mt-[136px] mt-[58px] ">
           {/* تیتر */}
-          <div className="hidden md:flenpmx flex-col justify-between ">
+          <div className="hidden md:flex flex-col justify-between ">
             <h1 className=" w-[654px] h-[88px] font-[Samim] font-bold text-[1.875rem] md:text-[2.125rem] md:gap-[40px] gap-[20px] lg:text-[2.375rem] leading-[44px] tracking-[0.015em] ">
               هر زخم، یک داستان؛ <br /> ما داستان شما را به پایان خوش می‌رسانیم
             </h1>

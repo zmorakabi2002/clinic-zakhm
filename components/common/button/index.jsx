@@ -5,8 +5,8 @@ export default function ButtonRes({
   loading,
   isDisable,
   type = "first",
-  onClick,
-  classStyle = "md:text-[1.25rem] text-[1rem]",
+  onClickButton,
+  classStyle = "md:text-[1.25rem] text-[1rem] md:px-[26px] px-[20px]  ",
 }) {
   return (
     <>
@@ -18,6 +18,7 @@ export default function ButtonRes({
               ? "bg-[#CED2DA] text-[#637083] focus:bg-[#CED2DA]"
               : "bg-[#FF8039] border-[#FF8039] hover:bg-[#FF5B00] text-white focus:bg-[#FF8039]"
           }   flex justify-center items-center font-bold  border-[1px] w-fit md:h-[52px] h-[40px] md:rounded-[50px] rounded-[100px] md:px-[26px] px-[20px] md:py-[12px] py-[8px] gap-2 cursor-pointer ${classStyle}`}
+          onClick={onClickButton}
         >
           {firstIcon ? (
             <img src={firstIcon} alt="firsticon" className="w-[28px]" />
@@ -63,6 +64,7 @@ export default function ButtonRes({
               ? "bg-[#FFFFFF] border-[2px] border-[#CED2DA] text-[#637083] "
               : "bg-[#FFFFFF] border-[#086391] border-[2px] text-[#141C24]  hover:bg-[#FFFFFF] hover:text-[#202B37] hover:border-[#075379] hover:border-[2px] "
           }   flex justify-center items-center  font-bold  border-[2px] focus:bg-[#F2F4F7] focus:border-[#086391] focus:border-[2px] focus:text-[#086391] w-fit md:h-[52px] h-[40px] rounded-[50px] px-[26px] py-[12px] gap-2 cursor-pointer ${classStyle} `}
+          onClick={onClickButton}
         >
           {firstIcon ? (
             <img src={firstIcon} alt="firsticon" className="w-[28px]" />

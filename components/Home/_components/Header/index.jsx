@@ -1,5 +1,6 @@
 "use client";
-
+// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Home } from "lucide-react";
@@ -18,8 +19,13 @@ const HEADER_OPTION = [
 ];
 
 export default function Header() {
+  const router = useRouter();
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/appointmentBooking");
+  };
   return (
-    <header className="w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
+    <header className=" absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-[32px] px-[14px] bg-[#FFF0E5]">
         {/* Right side - Logo + Menu */}
         <div className="flex items-center gap-[28px]">
@@ -68,6 +74,7 @@ export default function Header() {
             <ButtonRes
               lable={"گرفتن نوبت"}
               classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate"
+              onClickButton={handleClick}
             />
           </div>
         </div>

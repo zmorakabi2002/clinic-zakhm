@@ -14,25 +14,25 @@ export default function Questions() {
           <QuestionBox
             lable={"درمان زخم در کلینیک نیک چگونه انجام می‌شود؟"}
             explain={
-              "isOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenenisOpenisOpenisOpenisOpeenisOpenisOpenisOpenisOpeenisOpenisOpenisOpenisOpe"
+              "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             }
           />
           <QuestionBox
             lable={"مدت زمان بهبودی زخم چقدر است؟"}
             explain={
-              "isOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpen"
+              "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             }
           />
           <QuestionBox
             lable={"هزینه درمان زخم چقدر است؟"}
             explain={
-              "isOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpen"
+              "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             }
           />
           <QuestionBox
             lable={"آیا کلینیک با بیمه‌ها همکاری دارد؟"}
             explain={
-              "isOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenisOpenenisOpenisOpenisOpenisOpeenisOpenisOpenisOpenisOpeenisOpenisOpenisOpenisOpe"
+              "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             }
           />
         </div>
