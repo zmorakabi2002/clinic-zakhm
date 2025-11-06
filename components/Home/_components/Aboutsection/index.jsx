@@ -14,10 +14,10 @@ export default function Aboutsection() {
       className=" w-full h-[684px] overflow-hidden flex flex-col justify-center items-center bg-cover bg-no-repeat"
       style={styling}
     >
-      <div className="md:pr-[65px] md:w-full w-[22.25rem] md:flex md:flex-row flex flex-col md:items-start items-center md:justify-between justify-center h-full md:mt-[5.19rem] mt-[1.625rem] ">
-        <div className="md:w-[32rem] w-[22.25rem] flex flex-col md:gap-[0rem] gap-[1.5rem] ">
+      <div className="lg:pr-[65px] md:w-full w-[22.25rem] lg:flex lg:flex-row lg:gap-[1.75rem] flex flex-col lg:items-start items-center lg:justify-between justify-center h-full md:mt-[5.19rem] mt-[1.625rem] ">
+        <div className="md:w-[32rem] w-[22.25rem] flex flex-col md:gap-[0rem] gap-[1.5rem] lg:text-right text-center ">
           <div>
-            <h2 className="font-[Samim] md:text-[2rem] text-[1.5rem] font-bold text-[#202b37] md:text-right text-center md:mb-[2rem] md:leading-[2.75rem] leading-[2.5rem] tracking-[0.0125rem]">
+            <h2 className="font-[Samim] md:text-[2rem] text-[1.5rem] font-bold text-[#202b37] md:mb-[2rem] md:leading-[2.75rem] leading-[2.5rem] tracking-[0.0125rem]">
               درباره ما
             </h2>
           </div>
@@ -34,7 +34,7 @@ export default function Aboutsection() {
               زندگی به بیماران است.
             </p>
           </div>
-          <div className="md:flex hidden md:justify-start justify-center gap-8 mt-auto ">
+          <div className="lg:flex hidden lg:justify-start justify-center gap-8 mt-auto ">
             <ButtonRes lable={" مطالعه بیشتر"} type="second" />
             <ButtonRes lable={"تماس با ما"} />
           </div>
@@ -46,13 +46,13 @@ export default function Aboutsection() {
             alt="تیم کلینیک زخم نیک"
             width={680}
             height={460}
-            className="object-cover ml-0 md:mt-[5.375rem] mt-[1.5rem] md:mb-[0rem] mb-[1.5rem] "
+            className="object-cover ml-0 md:mt-[5.375rem] mt-[1.5rem] lg:mb-[0rem] mb-[1.5rem] "
             priority
           />
         </div>
       </div>
 
-      <div className="flex md:hidden justify-center gap-8 mt-auto mx-[2.625rem] mb-[1.5rem] ">
+      <div className="flex lg:hidden justify-center gap-8 mt-auto mx-[2.625rem]  ">
         <ButtonRes lable={" مطالعه بیشتر"} type="second" />
         <ButtonRes lable={"تماس با ما"} />
       </div>
