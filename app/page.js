@@ -13,8 +13,9 @@ import Footer from "@/components/Home/_components/Footer";
 export default function Home() {
   return (
     <div>
-      <div className=" bg-[#075379]">
-        <Header />
+      <div className=" bg-[#075379] pt-[150px]">
+        {/* <Header /> */}
+
         <Herosection />
       </div>
       <Aboutsection />
@@ -31,7 +32,7 @@ export default function Home() {
       <Commentssection />
       <Questions />
       <Blogsection />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
