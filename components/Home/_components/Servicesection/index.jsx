@@ -99,36 +99,35 @@ export default function ServicesectionDesk() {
           </p>
         </div>
         {/* کارت‌ها */}
-        <div className="flex md:flex-flow-col justify-center md:px-[97.5px] px-[28px] md:flex-wrap">
-          <div className="flex flex-row justify-center  md:flex-flow-col md:flex-wrap md:gap-[8px] gap-[7px] pt-[52px]">
-            {services.map((item, index) => (
-              <div
-                key={`${index}-${item.name}`}
-                className="md:w-[210.6px] w-[173px] md:h-[306px] h-[154px] bg-[#FF9E66] border-[#FF8039] shadow-sm flex flex-col items-center text-center  border-2 rounded-[28px] pt-6 pb-6 px-[18px] gap-2 opacity-100  py-4 hover:shadow-md transition-all duration-300"
-              >
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={100}
-                  height={100}
-                  className=" hidden md:flex md:rounded-[16px] rounded-[12px] object-cover aspect-square"
-                />
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={78}
-                  height={78}
-                  className=" flex md:hidden md:rounded-[16px] rounded-[12px] object-cover aspect-square"
-                />
-                <h3 className="font-samim font-bold md:text-[20px] text-[16px] leading-[38px] tracking-[0.01em] text-center text-[#141C24]">
-                  {item.title}
-                </h3>
-                <p className="hidden md:flex font-samim font-normal text-[14px] leading-[26px] tracking-[0.01em] text-justify align-middle text-[#202B37] ">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
+
+        <div className="flex justify-center flex-wrap md:gap-[7px] gap-[8px] pt-[52px] md:px-[50px] px-[28px]">
+          {services.map((item, index) => (
+            <div
+              key={`${index}-${item.name}`}
+              className="md:w-[210.6px] lg:w-[230px] w-[163px] md:h-[306px] h-[154px] bg-[#FF9E66] border-[#FF8039] shadow-sm flex flex-col items-center text-center  border-2 rounded-[28px] py-[24px] px-[18px] gap-2 opacity-100"
+            >
+              <Image
+                src={item.img}
+                alt={item.title}
+                width={100}
+                height={100}
+                className=" hidden md:flex md:rounded-[16px] rounded-[12px] object-cover aspect-square"
+              />
+              <Image
+                src={item.img}
+                alt={item.title}
+                width={78}
+                height={78}
+                className=" flex md:hidden md:rounded-[16px] rounded-[12px] object-cover aspect-square"
+              />
+              <h3 className="font-samim font-bold md:text-[20px] text-[16px] leading-[38px] tracking-[0.01em] text-center text-[#141C24]">
+                {item.title}
+              </h3>
+              <p className="hidden md:flex font-samim font-normal text-[14px] leading-[26px] tracking-[0.01em] text-justify align-middle text-[#202B37] ">
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

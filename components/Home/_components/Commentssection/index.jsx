@@ -28,8 +28,8 @@ const stars = [
 
 export default function Commentssection() {
   return (
-    <div className="lg:mt-[4.25rem] mt-[3.125rem] lg:mx-[4rem] mx-[1.93rem] flex flex-col ">
-      <div className="lg:h-[418px] h-[505px] lg:flex lg:flex-row lg:gap-[5.31rem] flex flex-col gap-[26px] lg:items-end items-center">
+    <div className="lg:mt-[4.25rem] mt-[3.125rem] lg:mx-[4rem] mx-[1.93rem] flex flex-col">
+      <div className="lg:h-[418px] h-[505px] lg:flex lg:flex-row lg:gap-[0px] flex flex-col gap-[26px] lg:items-end items-center justify-between">
         <div className="lg:w-[36.187rem] w-[22.3rem] lg:h-[312px] h-[120px] flex flex-col justify-center gap-[2rem]">
           <p className="font-[samim] font-bold lg:text-[2rem] text-[1.5rem] lg:leading-[2.75rem] leading-[2.5rem] text-[#141C24] ">
             در مورد کلینیک نیک چه میشنویم؟
