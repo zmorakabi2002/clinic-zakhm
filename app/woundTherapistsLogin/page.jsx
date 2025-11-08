@@ -1,5 +1,8 @@
 "use client";
 
+import DropDown from "@/components/common/dropDown";
+import Input from "@/components/common/input";
+import TelInput from "@/components/common/telInput";
 import { useState } from "react";
 
 export default function Home() {
@@ -12,7 +15,7 @@ export default function Home() {
   const [inputCity, setInputCity] = useState("");
   const [inputcurrentWork, setInputCarrentWork] = useState("");
   return (
-    <div>
+    <div className="pt-40">
       <div>
         <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[1%] text-right">
           فرم ثبت‌نام درمانگران زخم{" "}
@@ -22,7 +25,7 @@ export default function Home() {
           درمانگران نیک کلینیک بپیوندید.{" "}
         </p>
       </div>
-      <div>
+      {/* <div>
         <Input
           lable={"نام و نام خانوادگی "}
           placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
@@ -42,11 +45,15 @@ export default function Home() {
           }
           classStyle="w-[266px] h-[60px]"
         />
-      </div>
+      </div> */}
       <div></div>
       <div></div>
       <div></div>
       <div></div>
+      <DropDown
+        defaultValue={"رشته تحصیلی خود را انتخاب کنید"}
+        labename={"رشته تحصیلی"}
+      />
     </div>
   );
 }
