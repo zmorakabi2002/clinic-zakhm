@@ -24,6 +24,10 @@ export default function Header() {
     e.preventDefault();
     router.push("/appointmentBooking");
   };
+  const handleClicktwo = (e) => {
+    e.preventDefault();
+    router.push("/woundTherapistsLogin");
+  };
   return (
     <header className=" absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-[32px] px-[14px] bg-[#FFF0E5]">
@@ -67,6 +71,7 @@ export default function Header() {
               lable={"ثبت نام همکاران "}
               type="secend"
               classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate md:w-[187px] w-[148px] "
+              onClickButton={handleClicktwo}
             />
           </div>
 

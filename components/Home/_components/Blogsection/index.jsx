@@ -57,7 +57,7 @@ export default function Blogsection() {
 
         <div className="md:flex hidden gap-[17px] ">
           {articles.map((item, index) => {
-            return <ArticleCard cardData={item} />;
+            return <ArticleCard key={index} cardData={item} />;
           })}
         </div>
       </div>
