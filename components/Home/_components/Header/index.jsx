@@ -29,7 +29,7 @@ export default function Header() {
     router.push("/woundTherapistsLogin");
   };
   return (
-    <header className=" absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
+    <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-[32px] px-[14px] bg-[#FFF0E5]">
         {/* Right side - Logo + Menu */}
         <div className="flex items-center gap-[28px]">
@@ -84,6 +84,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }

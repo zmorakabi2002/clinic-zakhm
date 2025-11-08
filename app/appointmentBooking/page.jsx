@@ -15,23 +15,23 @@ export default function Home() {
     setinput(e.target.value);
   };
   return (
-    <div className="px-[26px] md:px-[65px] pt-[182px] flex flex-col items-center ">
-      <div className="flex flex-col items-center gap-[22px]">
-        <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[1%] text-right">
-          رزرو نوبت آنلاین
-        </p>
-        <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">
-          برای دریافت نوبت لطفا فرم زیر را پر کنید.
-        </p>
-      </div>
-      <div className=" flex flex-col gap-[14px]">
-        <div className="md:flex justify-center gap-[32px] pt-[22px]">
+    <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] md:mb-[180px] mb-[59px] flex flex-col items-center  ">
+      <div className="md:w-[706px]">
+        <div className="flex flex-col items-center gap-[22px]  ">
+          <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[1%] text-right">
+            رزرو نوبت آنلاین
+          </p>
+          <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">
+            برای دریافت نوبت لطفا فرم زیر را پر کنید.
+          </p>
+        </div>
+        <div className=" flex flex-wrap gap-[14px] justify-center mt-[22px] ">
           <Input
             lable={"نام و نام خانوادگی "}
             placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
             inputValue={inputValue}
             inputChange={(e) => oninputChange(e, setInputvalue)}
-            className="w-[337px] h-[60px]"
+            className="md:w-[706px] md:h-[60px] w-[360px] h-[52px]"
           />
 
           <TelInput
@@ -43,10 +43,9 @@ export default function Home() {
                 ? oninputChange(e, setNumberInput)
                 : undefined
             }
-            classStyle="w-[266px] h-[60px] "
+            classStyle="md:w-[266px] md:h-[60px] w-[297px] h-[52px] "
           />
-        </div>
-        <div className=" flex flex-col items-center gap-[14px]">
+
           <Input
             lable="عنوان "
             placeHolder={"عنوان را وارد کنید."}
@@ -61,13 +60,12 @@ export default function Home() {
             inputChange={(e) => oninputChange(e, setMessageInput)}
             classStyle="md:w-[706px] h-[176px] w-[360px]"
           />
-          <div className=" ">
-            <ButtonRes
-              lable={"ارسال"}
-              classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[329.5px] px-[161.5px]  "
-              // onClickButton={}
-            />
-          </div>
+
+          <ButtonRes
+            lable={"ارسال"}
+            classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[329.5px] px-[161.5px]  "
+            // onClickButton={}
+          />
         </div>
       </div>
     </div>
