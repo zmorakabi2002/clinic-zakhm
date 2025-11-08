@@ -27,15 +27,15 @@ export default function TelInput({
           maxLength={10}
           onChange={inputChange}
           placeholder={placeHolder}
-          className={`border-[1.5px] rounded-[50px] border-[#CED2DA] pt-1  px-[20px] placeholder:text-[18px] placeholder:text-[#637083] placeholder:flex placeholder: ${classStyle}`}
+          className={`border-[1.5px] rounded-[50px] border-[#CED2DA] pt-1  px-[20px] md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] placeholder:flex placeholder: ${classStyle}`}
         />
         <div className="w-[65px] opacity-100 rounded-[20px] relative text-[15px]">
           <input
             type="text"
             value={inputCodeValue}
             onChange={() => {}}
-            placeHolder={"+98"}
-            className="w-full h-full rounded-[20px] opacity-100 pt-1  px-[10px] border placeholder:text-[18px] placeholder:text-[#637083]  border-[#CED2DA] placeholder:flex placeholder:items-center placeholder:justify-center "
+            placeholder={"+98"}
+            className="md:w-[65px] md:h-[60px] w-[57px] h-[52px]  text-center rounded-[20px] opacity-100 pt-1 px-[10px] border md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] border-[#CED2DA] placeholder:flex placeholder:items-center placeholder:justify-center "
             onClick={(e) => setIsOpen(!isOpen)}
           />
           {isOpen === true && (
