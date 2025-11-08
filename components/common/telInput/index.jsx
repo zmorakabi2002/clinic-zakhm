@@ -5,6 +5,7 @@ export default function TelInput({
   inputValue,
   inputChange,
   classStyle = "",
+  maxNum,
 }) {
   const cityNumCode = [
     { id: 1, city: "IR", code: "+98" },
@@ -24,7 +25,7 @@ export default function TelInput({
         <input
           type="tel"
           value={inputValue}
-          maxLength={10}
+          maxLength={maxNum}
           onChange={inputChange}
           placeholder={placeHolder}
           className={`border-[1.5px] rounded-[50px] border-[#CED2DA] pt-1  px-[20px] placeholder:text-[18px] placeholder:text-[#637083] placeholder:flex placeholder: ${classStyle}`}
