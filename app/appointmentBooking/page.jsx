@@ -11,9 +11,12 @@ export default function Home() {
   const [titleInput, setTitleInput] = useState("");
   const [numberInput, setNumberInput] = useState("");
   const [messageInput, setMessageInput] = useState("");
+  const [errors, setErrors] = useState({});
+
   const oninputChange = (e, setinput) => {
     setinput(e.target.value);
   };
+
   return (
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] md:mb-[180px] mb-[59px] flex flex-col items-center  ">
       <div className="md:w-[706px]">
@@ -64,26 +67,13 @@ export default function Home() {
           <ButtonRes
             lable={"ارسال"}
             classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[329.5px] px-[161.5px]  "
-            // onClickButton={}
+            onClickButton={() => {
+              if (valueErrors()) {
+              }
+            }}
           />
         </div>
       </div>
     </div>
-
-    // <div className="pt-[150px]">
-    //   <Input
-    //     lable="مقادیر "
-    //     placeHolder={"خوب هستین"}
-    //     inputValue={inputValue}
-    //     inputChange={(e) => oninputChange(e, setInputvalue)}
-    //   />
-    //   <Input
-    //     lable="مفاسید "
-    //     placeHolder={"خوب هستین"}
-    //     inputValue={mafasid}
-    //     inputChange={(e) => oninputChange(e, setMafasid)}
-    //   />
-
-    // </div>
   );
 }
