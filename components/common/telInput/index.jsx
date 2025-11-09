@@ -40,7 +40,7 @@ export default function TelInput({
             onClick={(e) => setIsOpen(!isOpen)}
           />
           {isOpen === true && (
-            <div className=" absolute top-[65px] w-full border-[1.5px] border-[#CED2DA] rounded-[10px] flex flex-col gap-3 bg-white p-1">
+            <div className=" absolute top-[65px] w-full border-[1.5px] border-[#CED2DA] rounded-[10px] flex flex-col gap-3 bg-white p-1 z-1">
               {cityNumCode.map((item, index) => {
                 return (
                   <div

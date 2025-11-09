@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function DropDown({ defaultValue, labename }) {
+export default function DropDown({ defaultValue, labename, classStyle = "" }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(defaultValue);
   const options = [
@@ -11,17 +11,17 @@ export default function DropDown({ defaultValue, labename }) {
   ];
 
   return (
-    <div className="w-[375px] flex flex-col m-4 relative ">
-      <p className="font-medium text-[18px] text-[#344051] mb-[8px]">
+    <div className=" flex flex-col relative ">
+      <p className="font-medium md:text-[18px] text-[16px] text-[#344051] mb-[8px] placeholder: ">
         {labename}
       </p>
       <button
-        className={`px-[20px] py-[18px] rounded-[50px] border-[1px] border-[#CED2DA] flex justify-between ${
+        className={`px-[20px] py-[18px] rounded-[50px] border-[1px] border-[#CED2DA] flex justify-between ${classStyle} ${
           open === true && "rounded-b-[0px]"
         }`}
         onClick={(e) => setOpen(!open)}
       >
-        <p className="font-samim font-normal text-[18px] text-[#637083] ">
+        <p className="font-samim font-normal md:text-[18px] text-[14px] text-[#637083] ">
           {selected}
         </p>
         <Image
@@ -33,7 +33,7 @@ export default function DropDown({ defaultValue, labename }) {
         />
       </button>
       <ul
-        className={`border-[1px] border-[#CED2DA] rounded-b-[50px] absolute w-full top-25 ${
+        className={` border-[#CED2DA] absolute w-full top-25 ${classStyle} ${
           open === false && "hidden"
         }`}
       >
@@ -41,7 +41,7 @@ export default function DropDown({ defaultValue, labename }) {
           return (
             <li
               key={`${index}-dropDown`}
-              className="text-[16px] text-[#637083] hover:bg-[#e3ebf7] hover:last:rounded-b-[50px] cursor-pointer py-4 px-8 "
+              className="md:text-[16px] text-[12px] bg-[#ffffff] text-[#637083] hover:bg-[#e3ebf7] last:rounded-b-[50px] cursor-pointer py-4 px-8 "
               onClick={(e) => {
                 setSelected(item.name), setOpen(!open);
               }}
