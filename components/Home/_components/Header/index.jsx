@@ -26,7 +26,7 @@ export default function Header() {
   };
   const handleClicktwo = (e) => {
     e.preventDefault();
-    router.push("/woundTherapistsLogin");
+    router.push("/treatmentTeam");
   };
   return (
     <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
