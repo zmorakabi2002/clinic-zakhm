@@ -17,6 +17,22 @@ export default function Home() {
   const onInputChange = (e, setInput) => {
     setInput(e.target.value);
   };
+  const education = [
+    { id: 1, name: "مهندسی کامپیوتر" },
+    { id: 2, name: "مهندسی پزشکی" },
+    { id: 3, name: "روانشناسی" },
+  ];
+  const Province = [
+    { id: 1, name: "تهران" },
+    { id: 2, name: "فارس" },
+    { id: 3, name: "اصفهان" },
+  ];
+  const City = [
+    { id: 1, name: "تهران" },
+    { id: 2, name: "شیراز" },
+    { id: 3, name: "اصفهان" },
+  ];
+
   return (
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] flex flex-col items-center ">
       <div className="flex flex-col items-center gap-[22px]">
@@ -65,6 +81,7 @@ export default function Home() {
           defaultValue={"رشته تحصیلی خود را انتخاب کنید."}
           labename={"رشته تحصیلی"}
           classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+          options={education}
         />
         <Input
           lable={"سابقه کاری در درمان زخم (به سال)"}
@@ -92,11 +109,13 @@ export default function Home() {
           defaultValue={"استان را انتخاب کنید."}
           labename={"استان"}
           classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+          options={Province}
         />
         <DropDown
           defaultValue={"شهر را انتخاب کنید."}
           labename={"شهر"}
           classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px] "
+          options={City}
         />
         <Input
           lable={"نام و آدرس محل کار فعلی"}

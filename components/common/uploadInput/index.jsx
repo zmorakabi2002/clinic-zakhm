@@ -28,7 +28,7 @@ export default function UploadInput() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="relative flex flex-col items-center">
       <label
         htmlFor="nursing-card"
         className=" flex justify-center items-center gap-[8px] px-[8px] w-[125px] h-[40px] bg-[#FF8039] cursor-pointer rounded-[100px] font-samim font-bold text-[#F9FAFB] leading-6  "
@@ -48,17 +48,13 @@ export default function UploadInput() {
         <div>
           <Image
             src={imageis}
-            alt="khkhg"
+            alt="nmidnm"
             width={100}
             height={100}
-            className=""
+            className="rounded-[10px] blur-[1px] absolute left-[330px] bottom-[0px] "
           />{" "}
-          <button className="" onClick={() => {}}>
-            {" "}
-          </button>{" "}
         </div>
       )}
-      {/* {preview && <img src={preview} className="" />} */}
     </div>
   );
 }

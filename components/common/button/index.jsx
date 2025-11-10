@@ -6,7 +6,7 @@ export default function ButtonRes({
   isDisable,
   type = "first",
   onClickButton,
-  classStyle = "md:text-[1.25rem] text-[1rem] md:px-[26px] px-[20px]  ",
+  classStyle = "md:text-[1.25rem] text-[1rem] md:px-[26px] px-[20px] md:h-[52px] h-[40px] ",
 }) {
   return (
     <>
@@ -17,7 +17,7 @@ export default function ButtonRes({
             isDisable
               ? "bg-[#CED2DA] text-[#637083] focus:bg-[#CED2DA]"
               : "bg-[#FF8039] border-[#FF8039] hover:bg-[#FF5B00] text-white focus:bg-[#FF8039]"
-          }   flex justify-center items-center font-bold  border-[1px] w-fit md:h-[52px] h-[40px] md:rounded-[50px] rounded-[100px] md:px-[26px] px-[20px] md:py-[12px] py-[8px] gap-2 cursor-pointer ${classStyle}`}
+          }   flex justify-center items-center font-bold  border-[1px]  md:rounded-[50px] rounded-[100px] md:px-[26px] px-[20px] md:py-[12px] py-[8px] gap-2 cursor-pointer  ${classStyle}`}
           onClick={onClickButton}
         >
           {firstIcon ? (

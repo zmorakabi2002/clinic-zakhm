@@ -1,14 +1,19 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function DropDown({ defaultValue, labename, classStyle = "" }) {
+export default function DropDown({
+  defaultValue,
+  labename,
+  classStyle = "",
+  options,
+}) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(defaultValue);
-  const options = [
-    { id: 1, name: "مهندسی کامپیوتر" },
-    { id: 2, name: "مهندسی پزشکی" },
-    { id: 3, name: "روانشناسی" },
-  ];
+  // const options = [
+  //   { id: 1, name: "مهندسی کامپیوتر" },
+  //   { id: 2, name: "مهندسی پزشکی" },
+  //   { id: 3, name: "روانشناسی" },
+  // ];
 
   return (
     <div className=" flex flex-col relative ">
@@ -37,7 +42,7 @@ export default function DropDown({ defaultValue, labename, classStyle = "" }) {
           open === false && "hidden"
         }`}
       >
-        {options.map((item, index) => {
+        {options?.map((item, index) => {
           return (
             <li
               key={`${index}-dropDown`}

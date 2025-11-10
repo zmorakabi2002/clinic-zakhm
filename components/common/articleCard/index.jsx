@@ -18,8 +18,12 @@ export default function ArticleCard({ cardData }) {
       <p className="font-[samim] font-bold md:text-[24px] text-[20px] px-[24px] md:py-0 py-[22px] md:leading-[44px] leading-[36px] text-[#F9FAFB] ">
         {cardData?.title}
       </p>
-      <div className="pr-[24px] pb-[24px]">
-        <ButtonRes lable={"ادامه مطلب"} secondIcon={"/images/arrow-left.svg"} />
+      <div className=" pr-[24px]">
+        <ButtonRes
+          lable={"ادامه مطلب"}
+          secondIcon={"/images/arrow-left.svg"}
+          classStyle="w-[187px] h-[52px]"
+        />
       </div>
     </div>
   );

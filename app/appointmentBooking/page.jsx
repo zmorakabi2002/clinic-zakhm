@@ -67,10 +67,7 @@ export default function Home() {
           <ButtonRes
             lable={"ارسال"}
             classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[329.5px] px-[161.5px]  "
-            onClickButton={() => {
-              if (valueErrors()) {
-              }
-            }}
+            onClickButton={() => {}}
           />
         </div>
       </div>

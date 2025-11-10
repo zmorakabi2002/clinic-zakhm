@@ -40,20 +40,20 @@ const SocialMedia = [
 export default function Footer() {
   return (
     <div className="relative bg-[#043249] w-full md:h-[553px] h-[806px] mt-[80px] ">
-      <div className=" absolute w-full flex flex-col md:flex-row gap-[24px] justify-between z-10 px-[40px] md:pt-[36px] pt-[61px] pb-[31px] text-[#FFFFFF]">
-        <div className=" ">
-          <p className="text-center font-samim font-bold  md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
+      <div className=" absolute w-full flex flex-col md:flex-row gap-[24px] justify-between z-10 px-[40px] md:py-[10px] lg:py-[32px] py-[61px] text-[#FFFFFF]">
+        <div className=" flex flex-col ">
+          <p className="text-center font-samim font-bold md:text-[20px]  [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
             هدف ما
           </p>
-          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
+          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle truncate ">
             ما سلامتی و جوانی را به شما هدیه می دهیم
           </p>
         </div>
-        <div className="">
-          <p className="text-center font-samim font-bold  md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
+        <div className="flex flex-col ">
+          <p className="text-center font-samim font-bold  md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
             ساعات کاری
           </p>
-          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle">
+          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle truncate">
             روزهای زوج: 8:00 الی 18:00 | روزهای فرد: 10:00 الی 20:00
           </p>
         </div>
@@ -133,6 +133,7 @@ export default function Footer() {
                     alt={item.name}
                     width={24}
                     height={24}
+                    className=" min-w-[20px] "
                   ></Image>
                 </a>
               );
