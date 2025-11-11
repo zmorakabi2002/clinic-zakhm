@@ -11,7 +11,6 @@ export default function Home() {
   const [titleInput, setTitleInput] = useState("");
   const [numberInput, setNumberInput] = useState("");
   const [messageInput, setMessageInput] = useState("");
-  const [errors, setErrors] = useState({});
 
   const oninputChange = (e, setinput) => {
     setinput(e.target.value);

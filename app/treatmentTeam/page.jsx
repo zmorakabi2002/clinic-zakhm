@@ -11,114 +11,132 @@ const drCard = [
   {
     id: 1,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
+    name: "دکتر علی خشنودی",
     Expertise: "متخصص ترمیم بافت",
-    Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
+    Description: "متخصص در ترمیم بافت‌های آسیب‌دیده با بیش از 5 سال تجربه",
     workHistory: 5,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " شنبه ",
+      toDay: " دوشنبه ",
+      fromTime: " 8 صبح  ",
+      toTime: " 10 شب  ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["ترمیم بافت ", "زخم بستر", "زخم مزمن"],
+    degree: {
+      major: " دکترای تخصصی ترمیم بافت ",
+      university: "دانشگاه علوم پزشکی تهران",
+    },
   },
   {
     id: 2,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
-    Expertise: "متخصص ترمیم بافت",
+    name: "دکتر محمد رضایی",
+    Expertise: "متخصص زخم دیابتی",
     Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
-    workHistory: 5,
+      "متخصص در درمان زخم‌های دیابتی و ترمیم بافت‌های آسیب‌دیده با بیش از 3 سال تجربه",
+    workHistory: 3,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " دوشنبه ",
+      toDay: " چهارشنبه ",
+      fromTime: " 10 صبح ",
+      toTime: " 6 عصر ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["زخم دیابتی", "زخم مزمن", "زخم بستر"],
+    degree: {
+      major: " لیسانس زخم دیابتی  ",
+      university: " دانشگاه علوم پزشکی اصفهان ",
+    },
   },
   {
     id: 3,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
+    name: "دکتر رضا سلطانی ",
     Expertise: "متخصص ترمیم بافت",
     Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
-    workHistory: 5,
+      "متخصص در درمان زخم‌های بستر و ترمیم بافت‌های آسیب‌دیده با بیش از 1 سال تجربه",
+    workHistory: 1,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " چهارشنبه  ",
+      toDay: " شنبه ",
+      fromTime: " 12 ظهر ",
+      toTime: " 4 عصر ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["زخم بستر", "ترمیم بافت", "زخم مزمن"],
+    degree: {
+      major: " دیپلم ترمیم بافت  ",
+      university: " دانشگاه علوم پزشکی شیراز ",
+    },
   },
   {
     id: 4,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
-    Expertise: "متخصص ترمیم بافت",
+    name: "دکتر محمدعلی کشاورز",
+    Expertise: "متخصص زخم بستر",
     Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
-    workHistory: 5,
+      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از 4 سال تجربه",
+    workHistory: 4,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " شنبه ",
+      toDay: " سه شنبه ",
+      fromTime: " 9 صبح ",
+      toTime: " 5 عصر ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["زخم مزمن", "ترمیم بافت", "زخم بستر"],
+    degree: {
+      major: " دکترای تخصصی زخم بستر  ",
+      university: " دانشگاه علوم پزشکی شیراز ",
+    },
   },
   {
     id: 5,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
+    name: "دکتر علی محمد همایون",
     Expertise: "متخصص ترمیم بافت",
-    Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
+    Description: "متخصص در درمان بافت‌های آسیب‌دیده با بیش از 5 سال تجربه",
     workHistory: 5,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " دوشنبه ",
+      toDay: " پنج شنبه ",
+      fromTime: " 5 عصر ",
+      toTime: " 10 شب ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["ترمیم بافت", "زخم دیابتی", "زخم مزمن"],
+    degree: {
+      major: " دیپلم ترمیم بافت  ",
+      university: " دانشگاه علوم پزشکی تهران ",
+    },
   },
   {
     id: 6,
     imgSrc: "/images/professionalDoctor.jpg",
-    name: "دکتر علی رضایی",
-    Expertise: "متخصص ترمیم بافت",
+    name: "دکتر علیرضا رزمی",
+    Expertise: "متخصص زخم مزمن",
     Description:
-      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از ۱۰ سال تجربه",
-    workHistory: 5,
+      "متخصص در درمان زخم‌های مزمن و ترمیم بافت‌های آسیب‌دیده با بیش از 8 سال تجربه",
+    workHistory: 8,
     attendanceTime: {
-      fromDay: "",
-      toDay: "",
-      fromTime: "",
-      toTime: "",
+      fromDay: " یکشنبه ",
+      toDay: " سه شنبه ",
+      fromTime: " 9 صبح ",
+      toTime: " 9 شب ",
     },
-    specializedAreas: ["sdwsd", "wdwdd", "wdwdwd"],
-    degree: { major: "", university: "" },
+    specializedAreas: ["زخم مزمن", "زخم دیابتی", "زخم بستر"],
+    degree: {
+      major: " دکترای تخصصی زخم مزمن  ",
+      university: " دانشگاه علوم پزشکی اصفهان ",
+    },
   },
 ];
 
 export default function Home() {
   const [isModal, setISModal] = useState(false);
+
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
     router.push("/woundTherapistsLogin");
   };
+
   return (
     <div className="flex flex-col md:items-start items-center px-[65px]">
       <div className="md:w-full w-[360px] md:mb-[22px] mb-[32px] md:pt-[182px] pt-[126px]  flex flex-col gap-[22px] md:items-start items-center ">
@@ -138,7 +156,7 @@ export default function Home() {
             <DoctorCard
               key={`${index}-DoctorCard`}
               doctorCardData={item}
-              onShowModal={() => setISModal(true)}
+              onShowModal={() => {}}
             />
           );
         })}
