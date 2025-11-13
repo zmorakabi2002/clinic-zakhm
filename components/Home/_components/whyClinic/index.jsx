@@ -1,4 +1,5 @@
 "use client";
+import WhyCard from "@/components/common/whyCard";
 import Image from "next/image";
 const Whycard = [
   {
@@ -51,33 +52,11 @@ export default function WhyClinic() {
       <div className="flex flex-wrap md:px-[65px] px-[18px] md:pt-[52px] pt-[24px] justify-center md:gap-[35px] gap-[8px]">
         {Whycard.map((item, index) => {
           return (
-            <div
+            <WhyCard
               key={index}
+              cardData={item}
               className="md:w-[360px] w-[184px] md:h-[328px] h-[153px] flex flex-col justify-center items-center md:gap-[12px] gap-[8px] px-[30px] py-[32px] md:rounded-[37px] rounded-[28px] border border-[#E4E7EC] md:shadow-[0px_0px_12.2px_0px_#00000040] shadow-[0px_0px_5px_0px_#00000040] opacity-100"
-            >
-              <div>
-                <Image
-                  src={item.url}
-                  alt={`whyUs`}
-                  width={100}
-                  height={100}
-                  className=" hidden md:flex "
-                />
-                <Image
-                  src={item.url}
-                  alt={`whyUs`}
-                  width={59}
-                  height={59}
-                  className="flex md:hidden pt-[17px] pb-[12px]"
-                />
-              </div>
-              <div className="font-samim md:w-[300px] md:h-[38px] h-[48px] w-[146px] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-center align-middle">
-                <p> {item.title}</p>
-              </div>
-              <div className="hidden md:flex text-[#333333] font-samim font-normal text-[16px] leading-[24px] tracking-[0.01em] text-justify align-middle">
-                <p>{item.explain}</p>
-              </div>
-            </div>
+            />
           );
         })}
       </div>

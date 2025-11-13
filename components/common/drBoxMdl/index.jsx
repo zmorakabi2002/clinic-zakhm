@@ -11,7 +11,7 @@ const specializedArea = [
 export default function DrBox({ data, onPageClick }) {
   return (
     <div
-      className="fixed bg-[#000000ad] z-20 w-full h-screen top-0 right-0 flex justify-center items-center "
+      className="fixed bg-[#000000ad] z-20 w-full h-screen px-[27px] top-0 right-0 flex justify-center items-center "
       onClick={onPageClick}
     >
       <div className="w-[500px]  rounded-[22px] px-[24px] py-[32px] flex flex-col bg-[#F9FAFB] gap-[18px]">

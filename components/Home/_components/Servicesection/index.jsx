@@ -1,5 +1,6 @@
 "use client";
 
+import ServicesCard from "@/components/common/serviceCard";
 import Image from "next/image";
 
 export default function ServicesectionDesk() {
@@ -102,31 +103,7 @@ export default function ServicesectionDesk() {
 
         <div className="flex justify-center flex-wrap md:gap-x-[8px] gap-x-[10px] md:gap-y-[52px] gap-y-[10px] pt-[52px] md:px-[50px] px-[28px]">
           {services.map((item, index) => (
-            <div
-              key={`${index}-${item.name}`}
-              className="md:w-[210.6px] lg:w-[230px] w-[163px] md:h-[306px] h-[154px] bg-[#FF9E66] border-[#FF8039] shadow-sm flex flex-col items-center text-center  border-2 rounded-[28px] py-[24px] px-[18px] gap-2 opacity-100"
-            >
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={100}
-                height={100}
-                className=" hidden md:flex md:rounded-[16px] rounded-[12px] object-cover aspect-square"
-              />
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={78}
-                height={78}
-                className=" flex md:hidden md:rounded-[16px] rounded-[12px] object-cover aspect-square"
-              />
-              <h3 className="font-samim font-bold md:text-[20px] text-[16px] leading-[38px] tracking-[0.01em] text-center text-[#141C24]">
-                {item.title}
-              </h3>
-              <p className="hidden md:flex font-samim font-normal text-[14px] leading-[26px] tracking-[0.01em] text-justify align-middle text-[#202B37] ">
-                {item.text}
-              </p>
-            </div>
+            <ServicesCard key={`${index}-${item.name}`} cardData={item} />
           ))}
         </div>
       </div>
