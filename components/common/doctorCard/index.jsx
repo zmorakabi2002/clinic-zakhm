@@ -1,13 +1,10 @@
 "use client";
 import Image from "next/image";
 import ButtonRes from "../button";
-// import { useRouter } from "next/router";
-// import { useRouter } from "next/navigation";
 
 export default function DoctorCard({ doctorCardData, onShowModal }) {
-  // const router = useRouter();
   return (
-    <div className="md:w-[327px] w-[310px] md:h-[418px] h-[336px] px-[24px] py-[22px] flex flex-col gap-[22px] items-center text-justify bg-[#F9FAFB] border-[1px] border-[#E4E7EC] rounded-[22px] shadow-[0px_0px_6.8px_0px_#00000025] bg-red-600">
+    <div className="md:w-[327px] w-[310px] md:h-[418px] h-[336px] px-[24px] py-[22px] flex flex-col gap-[22px] items-center text-justify bg-[#F9FAFB] border-[1px] border-[#E4E7EC] rounded-[22px] shadow-[0px_0px_6.8px_0px_#00000025] ">
       <div className="flex flex-col justify-center items-center md:gap-[12px] gap-[8px] ">
         <Image
           src={doctorCardData?.imgSrc}

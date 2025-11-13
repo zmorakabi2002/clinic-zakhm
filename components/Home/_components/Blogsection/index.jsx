@@ -4,8 +4,6 @@ import ArticleCard from "@/components/common/articleCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import { Key } from "lucide-react";
 
 const articles = [
   {

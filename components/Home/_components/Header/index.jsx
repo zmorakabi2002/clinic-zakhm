@@ -15,7 +15,7 @@ const HEADER_OPTION = [
   },
   { id: 2, name: "services", label: "خدمات", url: "/services", className: "" },
   { id: 3, name: "contact", label: "تماس", url: "/contact", className: "" },
-  { id: 4, name: "about", label: "درباره ما", url: "/about", className: "" },
+  { id: 4, name: "about", label: "درباره ما", url: "/aboutUs", className: "" },
 ];
 
 export default function Header() {
@@ -24,12 +24,12 @@ export default function Header() {
     e.preventDefault();
     router.push("/appointmentBooking");
   };
-  const handleClicktwo = (e) => {
+  const handleClickTreatmentTeam = (e) => {
     e.preventDefault();
     router.push("/treatmentTeam");
   };
   return (
-    <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px]">
+    <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px] z-10">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-[32px] px-[14px] bg-[#FFF0E5]">
         {/* Right side - Logo + Menu */}
         <div className="flex items-center gap-[28px]">
@@ -71,7 +71,7 @@ export default function Header() {
               lable={"ثبت نام همکاران "}
               type="secend"
               classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate md:w-[187px] w-[148px] "
-              onClickButton={handleClicktwo}
+              onClickButton={handleClickTreatmentTeam}
             />
           </div>
 

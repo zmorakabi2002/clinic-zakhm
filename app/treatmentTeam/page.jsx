@@ -130,7 +130,12 @@ const drCard = [
 
 export default function Home() {
   const [isModal, setISModal] = useState(false);
-
+  const [modalData, setModalData] = useState({});
+  const handleShowModal = (e, item) => {
+    e.preventDefault();
+    setModalData(item);
+    setISModal(true);
+  };
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
@@ -156,7 +161,7 @@ export default function Home() {
             <DoctorCard
               key={`${index}-DoctorCard`}
               doctorCardData={item}
-              onShowModal={() => {}}
+              onShowModal={(e) => handleShowModal(e, item)}
             />
           );
         })}
@@ -177,7 +182,9 @@ export default function Home() {
           onClickButton={handleClick}
         />
       </div>
-      {isModal && <DrBox onPageClick={() => setISModal(false)} />}
+      {isModal && (
+        <DrBox onPageClick={() => setISModal(false)} data={modalData} />
+      )}
     </div>
   );
 }

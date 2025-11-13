@@ -6,7 +6,7 @@ import ButtonRes from "@/components/common/button";
 import TelInput from "@/components/common/telInput";
 import TextArea from "@/components/common/textArea";
 
-export default function Home() {
+export default function Page() {
   const [inputValue, setInputvalue] = useState("");
   const [titleInput, setTitleInput] = useState("");
   const [numberInput, setNumberInput] = useState("");
