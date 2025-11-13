@@ -9,7 +9,7 @@ import { Key } from "lucide-react";
 import { useData } from "@/app/context/dataContext";
 
 export default function MethodsSection() {
-  const methods = useData();
+  const { methodData } = useData();
 
   // const Methods = [
   //   {
@@ -73,7 +73,7 @@ export default function MethodsSection() {
           grabCursor={true}
           className="md:w-[365px] w-[281px] md:h-[382px] h-[294px] !overflow-visible !mx-0 "
         >
-          {methods.map((item, i) => (
+          {methodData.map((item, i) => (
             <SwiperSlide key={i} className="mx-0 pb-4">
               <MethodCard
                 title={item.title}

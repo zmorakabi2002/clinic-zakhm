@@ -1,7 +1,8 @@
 import Image from "next/image";
 import ButtonRes from "../button";
+import Link from "next/link";
 
-export default function ArticleCard({ cardData }) {
+export default function ArticleCard({ cardData, moreLink }) {
   return (
     <div className="md:w-[372px] w-[273px] md:h-[484px] h-[378px] bg-[#075379] flex flex-col md:gap-[20px] rounded-[24px] shadow-[0px_0px_9.2px_0px_#00000025] ">
       <Image
@@ -18,13 +19,13 @@ export default function ArticleCard({ cardData }) {
       <p className="font-[samim] font-bold md:text-[24px] text-[20px] px-[24px] md:py-0 py-[22px] md:leading-[44px] leading-[36px] text-[#F9FAFB] ">
         {cardData?.title}
       </p>
-      <div className=" pr-[24px]">
+      <Link href={`${moreLink}`} className=" pr-[24px]">
         <ButtonRes
           lable={"ادامه مطلب"}
           secondIcon={"/images/arrow-left.svg"}
           classStyle="w-[187px] h-[52px]"
         />
-      </div>
+      </Link>
     </div>
   );
 }

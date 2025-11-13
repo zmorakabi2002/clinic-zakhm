@@ -7,15 +7,15 @@ export default function MethodCard({ image, title, explain, onLoadData }) {
       <div className=" md:w-[365px] w-[281px] md:h-[182px] h-[140px] border-[#B6E4FB] border-[1px] contain-content md:rounded-t-[28px] rounded-t-[20px]">
         <Image src={image} alt={`Image-${image}`} width={365} height={182} />
       </div>
-      <div className="h-[200px] flex flex-col justify-between px-[18px] py-[12px] ">
+      <div className="md:h-[200px] h-[153px] flex flex-col justify-between px-[18px] py-[12px] ">
         <p className="font-[Samim] font-bold text-[20px] md:leading-[38px] leading-[36px] tracking-[1%] text-right align-middle">
           {title}
         </p>
-        <p className="font-[Samim] font-normal md:text-[16px] text-[14px] leading-[24px] tracking-[1%] text-justify align-middle">
+        <p className="font-[Samim] h-[75px] w-full line-clamp-3 font-normal md:text-[16px] text-[14px] leading-[24px] tracking-[1%] text-justify align-middle">
           {explain}
         </p>
         <Link
-          href={onLoadData}
+          href={`${onLoadData}`}
           className="hidden md:flex font-samim font-normal text-[18px] leading-[24px] tracking-[1%]"
         >
           اطلاعات بیشتر
