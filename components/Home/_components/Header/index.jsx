@@ -1,9 +1,7 @@
 "use client";
-// import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Home } from "lucide-react";
 import ButtonRes from "@/components/common/button";
 const HEADER_OPTION = [
   {
