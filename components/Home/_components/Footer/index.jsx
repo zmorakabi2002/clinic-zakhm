@@ -39,21 +39,21 @@ const SocialMedia = [
 ];
 export default function Footer() {
   return (
-    <div className="relative bg-[#043249] w-full md:h-[553px] h-[806px] mt-[80px] ">
-      <div className=" absolute w-full flex flex-col md:flex-row gap-[24px] justify-between z-10 px-[40px] md:py-[10px] lg:py-[32px] py-[61px] text-[#FFFFFF]">
+    <div className="relative bg-[#043249] w-full md:h-[553px] h-[806px] mt-20 ">
+      <div className=" absolute w-full flex flex-col md:flex-row gap-6 justify-between z-10 px-10 md:py-2.5 lg:py-8 py-[61px] text-[#FFFFFF]">
         <div className=" flex flex-col ">
-          <p className="text-center font-samim font-bold md:text-[20px]  [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
+          <p className="text-center font-samim font-bold md:text-[20px]  [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle ">
             هدف ما
           </p>
-          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle truncate ">
+          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle truncate ">
             ما سلامتی و جوانی را به شما هدیه می دهیم
           </p>
         </div>
         <div className="flex flex-col ">
-          <p className="text-center font-samim font-bold  md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle ">
+          <p className="text-center font-samim font-bold  md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle ">
             ساعات کاری
           </p>
-          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-[24px] tracking-[0.01em] align-middle truncate">
+          <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[12px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle truncate">
             روزهای زوج: 8:00 الی 18:00 | روزهای فرد: 10:00 الی 20:00
           </p>
         </div>
@@ -72,20 +72,20 @@ export default function Footer() {
         alt="bale"
         className="hidden md:flex w-full z-0 "
       />
-      <div className="flex flex-col md:flex-row justify-around text-[#FFFFFF] md:gap-[154px] gap-[32px] md:pt-[47px] pt-[213px] pr-[33px]">
+      <div className="flex flex-col md:flex-row justify-around text-[#FFFFFF] md:gap-[154px] gap-8 md:pt-[47px] pt-[213px] pr-[33px]">
         <div className="flex flex-col w-[377px] gap-[22px]">
-          <div className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-right align-middle">
+          <div className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-right align-middle">
             <p>ارتباط با ما</p>
           </div>
-          <div className="flex  font-[Samim] font-normal not-italic md:text-[18px] text-[14px] leading-[24px] tracking-[0.01em] text-right align-middle">
-            <div className="flex justify-between items-center gap-[12px]">
+          <div className="flex  font-[Samim] font-normal not-italic md:text-[18px] text-[14px] leading-6 tracking-[0.01em] text-right align-middle">
+            <div className="flex justify-between items-center gap-3">
               {" "}
               <Image
                 src={"/images/location.svg"}
                 alt=""
                 width={34}
                 height={34}
-                className="md:w-[34px] w-[24px] h-[24px] md:h-[34px] "
+                className="md:w-[34px] w-6 h-6 md:h-[34px] "
               />{" "}
               <p>
                 شیراز، صدرا، خیابان امام، نبش خیابان مهرزاد، ساختمان بنیامین،
@@ -93,35 +93,35 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <div className="flex justify-between font-[Samim] font-normal not-italic md:text-[18px] text-[14px] leading-[24px] tracking-[0.01em] text-right align-middle">
-            <div className="flex justify-between items-center gap-[12px]">
+          <div className="flex justify-between font-[Samim] font-normal not-italic md:text-[18px] text-[14px] leading-6 tracking-[0.01em] text-right align-middle">
+            <div className="flex justify-between items-center gap-3">
               {" "}
               <Image
                 src={"/images/call.svg"}
                 alt="call"
                 width={34}
                 height={34}
-                className="md:w-[34px] w-[24px] h-[24px] md:h-[34px] "
+                className="md:w-[34px] w-6 h-6 md:h-[34px] "
               />
               <p>071-36448965</p>
             </div>
           </div>
           <div className="flex justify-between font-[Samim] font-normal not-italic md:text-[18px] text-[14px]tracking-[0.01em] text-right align-middle">
-            <div className="flex justify-between items-center gap-[12px]">
+            <div className="flex justify-between items-center gap-3s">
               {" "}
               <Image
                 src={"/images/telephone.svg"}
                 alt=""
                 width={34}
                 height={34}
-                className="md:w-[34px] w-[24px] h-[24px] md:h-[34px] "
+                className="md:w-[34px] w-6 h-6 md:h-[34px] "
               />{" "}
               <p> 09170628816 </p>
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-[22px] ">
-          <div className="font-[Samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-right align-middle ">
+          <div className="font-[Samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-right align-middle ">
             <p>شبکه های اجتماعی</p>
           </div>
           <div className="flex gap-[22px] ">
@@ -133,7 +133,7 @@ export default function Footer() {
                     alt={item.name}
                     width={24}
                     height={24}
-                    className=" min-w-[20px] "
+                    className=" min-w-5 "
                   ></Image>
                 </a>
               );
