@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Header from "@/components/Home/_components/Header";
 import Herosection from "@/components/Home/_components/Herosection";
@@ -10,7 +11,15 @@ import Questions from "@/components/Home/_components/Questions";
 import Blogsection from "@/components/Home/_components/Blogsection";
 import Commentssection from "@/components/Home/_components/Commentssection";
 import Footer from "@/components/Home/_components/Footer";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/sample");
+  };
   return (
     <div>
       <div className=" bg-[#075379] pt-[150px]">
@@ -24,6 +33,7 @@ export default function Home() {
           lable={" نمونه زخم های بهبود یافته کلینیک زخم نیک "}
           type="second"
           classStyle="text-center lg:mt-[2.6rem] mt-[1.5rem] font-Samim font-bold not-italic md:text-[1.25rem] text-[1rem] leading-[38px] tracking-[1%]"
+          onClickButton={handleClick}
         />
       </div>
       <Servicesection />
