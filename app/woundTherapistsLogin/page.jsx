@@ -6,7 +6,7 @@ import Input from "@/components/common/input";
 import TelInput from "@/components/common/telInput";
 import UploadInput from "@/components/common/uploadInput";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
@@ -18,21 +18,61 @@ export default function Home() {
   const [inputWorkHistoryWound, setInputWorkHistoryWound] = useState("");
   const [inputWorkHistoryEduction, setInputWorkHistoryEduction] = useState("");
   const [inputcurrentWork, setInputCarrentWork] = useState("");
+  const [inputProvince, setInputProvince] = useState("");
+  const [inputCity, setInputCity] = useState("");
+  const [inputEducation, setInputEducation] = useState("");
+  const STORAGE_KEY = "uploadedImages";
+  const [image, setImage] = useState(null);
 
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) setImage(saved);
+  }, []);
+
+  // کنترل آپلود فایل
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (errorMessage["imageis"]) {
+      setErroreMesssage((prev) => {
+        const newErr = { ...prev };
+        delete newErr["imageis"];
+        return newErr;
+      });
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result;
+      localStorage.setItem(STORAGE_KEY, base64);
+      setImage(base64);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleClickCancel = (e) => {
+    e.preventDefault();
+    router.push("/");
+  };
   const handleClick = (e) => {
     const newError = {};
-    if (!inputValue.trim()) newError.name = " نام و نام خانوادگی را وارد کنید ";
+    if (!inputValue.trim())
+      newError.name = " نام و نام خانوادگی را وارد کنید .";
     if (!inputNumber.trim()) newError.number = "شماره را وارد کنید .";
     if (inputNumber.length < 10)
       newError.number = " شماره تلفن را به درستی وارد کنید . ";
     if (!inputId.trim()) newError.id = "کدملی را وارد کنید.";
     if (!inputWorkHistoryWound.trim())
-      newError.WorkHistoryWound = "سابقه کاری را وارد کنید";
+      newError.WorkHistoryWound = "سابقه کاری را وارد کنید.";
     if (!inputWorkHistoryEduction.trim())
-      newError.WorkHistoryEduction = "سابقه کاری را وارد کنید";
+      newError.WorkHistoryEduction = "سابقه کاری را وارد کنید.";
     if (!inputcurrentWork.trim())
       newError.currentWork = "نام و آدرس محل کار فعلی را وارد کنید .";
-
+    if (!image) newError.imageis = "تصویر را وارد کنید .";
+    if (!inputProvince.trim()) newError.province = "استان را وارد کنید.";
+    if (!inputCity.trim()) newError.city = "شهر را وارد کنید .";
+    if (!inputEducation.trim())
+      newError.education = "رشته تحصیلی را وارد کنید.";
     setErroreMesssage(newError);
     if (Object.keys(newError).length === 0) {
       router.push("/");
@@ -46,10 +86,12 @@ export default function Home() {
         return newErr;
       });
     }
-    setInput(e.target.value);
-    setErroreMesssage("");
+
+    setInput(e?.target.value);
+    // setErroreMesssage("");
     setResult("");
   };
+
   const education = [
     { id: 1, name: "مهندسی کامپیوتر" },
     { id: 2, name: "مهندسی پزشکی" },
@@ -84,7 +126,7 @@ export default function Home() {
             lable={"نام و نام خانوادگی "}
             placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
             inputValue={inputValue}
-            inputChange={(e) => onInputChange(e, setInputvalue)}
+            inputChange={(e) => onInputChange(e, setInputvalue, "name")}
             classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
           />
           {errorMessage.name && (
@@ -99,7 +141,7 @@ export default function Home() {
             maxNum={10}
             inputChange={(e) =>
               /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputNumber)
+                ? onInputChange(e, setInputNumber, "number")
                 : undefined
             }
             classStyle="md:w-[304.5px] md:h-[60px] w-[297px] h-[52px]"
@@ -115,7 +157,7 @@ export default function Home() {
             inputValue={inputId}
             inputChange={(e) =>
               /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputId)
+                ? onInputChange(e, setInputId, "id")
                 : undefined
             }
             classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
@@ -124,12 +166,20 @@ export default function Home() {
             <div className=" text-red-500 ">{errorMessage.id} </div>
           )}
         </div>
-        <DropDown
-          defaultValue={"رشته تحصیلی خود را انتخاب کنید."}
-          labename={"رشته تحصیلی"}
-          classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          options={education}
-        />
+        <div>
+          <DropDown
+            defaultValue={"رشته تحصیلی خود را انتخاب کنید."}
+            labename={"رشته تحصیلی"}
+            classStyle="md:w-[375.5px] w-[360px] "
+            options={education}
+            onOptionClick={(e) =>
+              onInputChange(e, setInputEducation, "education")
+            }
+          />
+          {errorMessage.education && (
+            <div className="text-red-500">{errorMessage.education}</div>
+          )}
+        </div>
         <div>
           <Input
             lable={"سابقه کاری در درمان زخم (به سال)"}
@@ -137,7 +187,7 @@ export default function Home() {
             inputValue={inputWorkHistoryWound}
             inputChange={(e) =>
               /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputWorkHistoryWound)
+                ? onInputChange(e, setInputWorkHistoryWound, "WorkHistoryWound")
                 : undefined
             }
             classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
@@ -155,7 +205,11 @@ export default function Home() {
             inputValue={inputWorkHistoryEduction}
             inputChange={(e) =>
               /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputWorkHistoryEduction)
+                ? onInputChange(
+                    e,
+                    setInputWorkHistoryEduction,
+                    "WorkHistoryEduction"
+                  )
                 : undefined
             }
             classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
@@ -166,25 +220,42 @@ export default function Home() {
             </div>
           )}
         </div>
-        <DropDown
-          defaultValue={"استان را انتخاب کنید."}
-          labename={"استان"}
-          classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          options={Province}
-        />
-        <DropDown
-          defaultValue={"شهر را انتخاب کنید."}
-          labename={"شهر"}
-          classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px] "
-          options={City}
-        />
+        <div>
+          <DropDown
+            defaultValue={"استان را انتخاب کنید."}
+            labename={"استان"}
+            classStyle="md:w-[375.5px] w-[360px] "
+            options={Province}
+            onOptionClick={(e) =>
+              onInputChange(e, setInputProvince, "province")
+            }
+          />
+          {errorMessage.province && (
+            <div className=" text-red-500 ">{errorMessage.province} </div>
+          )}
+        </div>
+        <div>
+          <DropDown
+            defaultValue={"شهر را انتخاب کنید."}
+            labename={"شهر"}
+            classStyle="md:w-[375.5px] w-[360px] "
+            options={City}
+            onOptionClick={(e) => onInputChange(e, setInputCity, "city")}
+          />{" "}
+          {errorMessage.city && (
+            <div className="text-red-500">{errorMessage.city}</div>
+          )}
+        </div>
+
         <div>
           <Input
             lable={"نام و آدرس محل کار فعلی"}
             placeHolder={"نام و آدرس محل کار فعلی خود را وارد کنید."}
             inputValue={inputcurrentWork}
-            inputChange={(e) => onInputChange(e, setInputCarrentWork)}
-            classStyle="md:w-[783px] md:h-[60px] w-[360px] h-[161px]"
+            inputChange={(e) =>
+              onInputChange(e, setInputCarrentWork, "currentWork")
+            }
+            classStyle="md:w-[783px] w-[360px]"
           />
           {errorMessage.currentWork && (
             <div className=" text-red-500 ">{errorMessage.currentWork} </div>
@@ -198,19 +269,17 @@ export default function Home() {
           <p className="flex md:hidden font-normal text-[18px] leading-[24px] tracking-[1%] text-center font-[Samim]  text-[#637083]">
             کارت نظام پرستاری معتبر خود را آپلود کنید.
           </p>
-          <UploadInput />
-          {/* <ButtonRes
-            type="first"
-            lable={"بارگذاری"}
-            secondIcon={"/images/upload.svg"}
-            classStyle="w-[125px] h-[40px]"
-          /> */}
+          <UploadInput image={image} onFileChange={handleFileChange} />
+          {errorMessage.imageis && (
+            <div className=" text-red-500 ">{errorMessage.imageis} </div>
+          )}
         </div>
         <div className="flex gap-[22px]">
           <ButtonRes
             type="second"
             lable={"انصراف"}
             classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[159.5px] px-[60px]"
+            onClickButton={handleClickCancel}
           />
           <ButtonRes
             type="first"

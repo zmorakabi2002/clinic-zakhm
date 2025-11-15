@@ -6,14 +6,10 @@ export default function DropDown({
   labename,
   classStyle = "",
   options,
+  onOptionClick,
 }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(defaultValue);
-  // const options = [
-  //   { id: 1, name: "مهندسی کامپیوتر" },
-  //   { id: 2, name: "مهندسی پزشکی" },
-  //   { id: 3, name: "روانشناسی" },
-  // ];
 
   return (
     <div className=" flex flex-col relative ">
@@ -38,7 +34,7 @@ export default function DropDown({
         />
       </button>
       <ul
-        className={` border-[#CED2DA] absolute w-full top-25 ${classStyle} ${
+        className={`border-t-0 border-[1px] border-[#CED2DA] rounded-b-[20px] absolute w-full top-25 ${classStyle} ${
           open === false && "hidden"
         }`}
       >
@@ -46,9 +42,9 @@ export default function DropDown({
           return (
             <li
               key={`${index}-dropDown`}
-              className="md:text-[16px] text-[12px] bg-[#ffffff] text-[#637083] hover:bg-[#e3ebf7] last:rounded-b-[50px] cursor-pointer py-4 px-8 "
+              className="md:text-[16px] text-[12px] bg-[#ffffff] text-[#637083] hover:bg-[#e3ebf7] last:rounded-b-[20px] cursor-pointer py-4 px-8 "
               onClick={(e) => {
-                setSelected(item.name), setOpen(!open);
+                setSelected(item.name), setOpen(!open), onOptionClick();
               }}
             >
               {item.name}
