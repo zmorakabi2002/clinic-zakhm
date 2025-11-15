@@ -2,25 +2,17 @@
 import Image from "next/image";
 import { useData } from "@/app/context/dataContext";
 import { useParams } from "next/navigation";
-import Input from "@/components/common/input";
-import { useState } from "react";
-import ButtonRes from "@/components/common/button";
+
+import UserOpinion from "@/components/common/userOpinion";
 
 export default function Home() {
-  const [inputValue, setInputvalue] = useState("");
-  const [inputValueEmail, setInputvalueEmail] = useState("");
-
   const params = useParams();
   const { articles } = useData();
   const item = articles.find((i) => i.id === params.id);
   if (!item) return <p> آیتم مورد نظر یافت نشد</p>;
 
-  const oninputChange = (e, setinput) => {
-    setinput(e.target.value);
-  };
-
   return (
-    <div className="pt-[202px] mx-[65px] mb-[153px] flex flex-col ">
+    <div className="pt-[202px] mx-[65px] mb-[153px] flex flex-col">
       <div className="flex flex-col items-center gap-[32px] mb-[52px]">
         <Image
           src={"/images/blog1.jpg"}
@@ -44,7 +36,9 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-row justify-between ">
+      <UserOpinion />
+
+      {/* <div className="flex flex-row justify-between items-end ">
         <div className="md:w-[515px] flex flex-col gap-[32px]">
           <p className="font-[samim] font-bold md:text-[32px] text-[24px] ">
             دیدگاه مراجعه کنندگان
@@ -66,21 +60,50 @@ export default function Home() {
             دیدگاه خود را ثبت کنید
           </p>
           <div className="flex flex-col gap-[20px]">
-            <Input
-              lable={"نام و نام خانوادگی "}
-              placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
-              inputValue={inputValue}
-              inputChange={(e) => oninputChange(e, setInputvalue)}
-              classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
+            <div>
+              <Input
+                lable={"نام و نام خانوادگی "}
+                placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
+                inputValue={inputValue}
+                inputChange={(e) => oninputChange(e, setInputvalue)}
+                classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
+              />
+              {errorMessage.name && (
+                <p className="text-red-600">{errorMessage.name}</p>
+              )}
+            </div>
+
+            <div>
+              <Input
+                lable={"ایمیل"}
+                placeHolder={"ایمیل خود را وارد کنید."}
+                inputValue={inputValueEmail}
+                inputChange={(e) => oninputChange(e, setInputvalueEmail)}
+                classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
+              />
+              {errorMessage.email && (
+                <p className="text-red-600">{errorMessage.email}</p>
+              )}
+            </div>
+
+            <div>
+              <TextArea
+                lable={"دیدگاه"}
+                placeHolder={"دیدگاه خود را وارد کنید...."}
+                inputValue={messageInput}
+                inputChange={(e) => oninputChange(e, setMessageInput)}
+                classStyle="md:w-[515px] md:h-[176px] w-full h-[176px]"
+              />
+              {errorMessage.text && (
+                <p className="text-red-600">{errorMessage.text}</p>
+              )}
+            </div>
+
+            <ButtonRes
+              lable={"ثبت دیدگاه"}
+              classStyle="  "
+              onClickButton={inputError}
             />
-            <Input
-              lable={"ایمیل"}
-              placeHolder={"ایمیل خود را وارد کنید."}
-              inputValue={inputValueEmail}
-              inputChange={(e) => oninputChange(e, setInputvalueEmail)}
-              classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
-            />
-            <ButtonRes lable={"ثبت دیدگاه"} classStyle="  " />
           </div>
         </div>
         <Image
@@ -88,9 +111,9 @@ export default function Home() {
           width={557}
           height={538}
           alt="commentimg "
-          className="lg:flex hidden h-[538px]"
+          className="lg:flex hidden h-[538px] "
         />
-      </div>
+      </div> */}
     </div>
   );
 }
