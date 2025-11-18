@@ -4,34 +4,45 @@ import { useState } from "react";
 import ButtonRes from "@/components/common/button";
 import TextArea from "@/components/common/textArea";
 import Image from "next/image";
+import * as Yup from "yup";
+import { Formik, Form } from "formik";
 
 export default function UserOpinion({ image, title, explain, onLoadData }) {
-  const [inputValue, setInputvalue] = useState("");
-  const [inputValueEmail, setInputvalueEmail] = useState("");
-  const [messageInput, setMessageInput] = useState("");
-  const [errorMessage, setErrorMessage] = useState({});
+  // const [errorMessage, setErrorMessage] = useState({});
 
-  const oninputChange = (e, setinput) => {
-    setinput(e.target.value);
+  const ValidationSchema = Yup.object({
+    fullName: Yup.string().required("نام و نام خانوادگی خود را وارد کنید ."),
+    email: Yup.string()
+      .email("ایمیل معتبر نیست.")
+      .required("ایمیل خود را وارد کنید."),
+    message: Yup.string().required("دیدگاه خود را وارد کنید . "),
+  });
+  const initialValues = {
+    fullName: "",
+    email: "",
+    message: "",
   };
+  const handleCheckErrors = async (values, validateForm, setTouched) => {
+    // همه فیلدها را touched کن تا خطاها نمایش داده شوند
+    setTouched(
+      Object.keys(values).reduce((acc, key) => {
+        acc[key] = true;
+        return acc;
+      }, {})
+    );
 
-  const inputError = () => {
-    const newError = {};
-
-    if (!inputValue.trim()) newError.name = "لطفا نام را وارد کنید.";
-    if (!messageInput.trim()) newError.text = "لطفا متن را وارد کنید.";
-    if (!inputValueEmail.trim()) newError.email = "لطفا ایمیل را وارد کنید.";
-    else if (!/\S+@\S+\.\S+/.test(inputValueEmail))
-      newError.email = "فرمت ایمیل اشتباه است";
-
-    setErrorMessage(newError);
-    if (Object.keys(newError).length === 0) {
-      console.log("اطلاعات ارسال شد");
+    // اعتبارسنجی فرم
+    const errors = await validateForm(values);
+    if (Object.keys(errors).length === 0) {
+      return true;
+    } else {
+      return false;
     }
   };
+
   return (
     <div className="flex flex-row justify-between items-end ">
-      <div className="md:w-[515px] flex flex-col gap-[32px]">
+      <div className="md:w-[515px] flex flex-col gap-8">
         <p className="font-[samim] font-bold md:text-[32px] text-[24px] ">
           دیدگاه مراجعه کنندگان
         </p>
@@ -51,52 +62,82 @@ export default function UserOpinion({ image, title, explain, onLoadData }) {
         <p className="font-[samim] font-bold md:text-[24px] text-[20px] ">
           دیدگاه خود را ثبت کنید
         </p>
-        <div className="flex flex-col gap-5">
-          <div>
-            <Input
-              lable={"نام و نام خانوادگی "}
-              placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
-              inputValue={inputValue}
-              inputChange={(e) => oninputChange(e, setInputvalue)}
-              classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
-            />
-            {errorMessage.name && (
-              <p className="text-red-600">{errorMessage.name}</p>
-            )}
-          </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={ValidationSchema}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            validateForm,
+            setTouched,
+            handleSubmit,
+            setFieldValue,
+          }) => (
+            <Form>
+              <div className="flex flex-col gap-5">
+                <div>
+                  <Input
+                    name="fullName"
+                    lable={"نام و نام خانوادگی "}
+                    placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
+                    inputValue={values.fullName}
+                    inputChange={(e) =>
+                      setFieldValue("fullName", e.target.value)
+                    }
+                    classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
+                  />
+                  {errors.fullName && touched.fullName && (
+                    <p className="text-red-600">{errors.fullName}</p>
+                  )}
+                </div>
 
-          <div>
-            <Input
-              lable={"ایمیل"}
-              placeHolder={"ایمیل خود را وارد کنید."}
-              inputValue={inputValueEmail}
-              inputChange={(e) => oninputChange(e, setInputvalueEmail)}
-              classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
-            />
-            {errorMessage.email && (
-              <p className="text-red-600">{errorMessage.email}</p>
-            )}
-          </div>
+                <div>
+                  <Input
+                    name="email"
+                    lable={"ایمیل"}
+                    placeHolder={"ایمیل خود را وارد کنید."}
+                    inputValue={values.email}
+                    inputChange={(e) => setFieldValue("email", e.target.value)}
+                    classStyle="md:w-[515px] md:h-[66px] w-full h-[52px]"
+                  />
+                  {errors.email && touched.email && (
+                    <p className="text-red-600">{errors.email}</p>
+                  )}
+                </div>
 
-          <div>
-            <TextArea
-              lable={"دیدگاه"}
-              placeHolder={"دیدگاه خود را وارد کنید...."}
-              inputValue={messageInput}
-              inputChange={(e) => oninputChange(e, setMessageInput)}
-              classStyle="md:w-[515px] md:h-[176px] w-full h-[176px]"
-            />
-            {errorMessage.text && (
-              <p className="text-red-600">{errorMessage.text}</p>
-            )}
-          </div>
-
-          <ButtonRes
-            lable={"ثبت دیدگاه"}
-            classStyle="  "
-            onClickButton={inputError}
-          />
-        </div>
+                <div>
+                  <TextArea
+                    name="message"
+                    lable={"دیدگاه"}
+                    placeHolder={"دیدگاه خود را وارد کنید...."}
+                    inputValue={values.message}
+                    inputChange={(e) =>
+                      setFieldValue("message", e.target.value)
+                    }
+                    classStyle="md:w-[515px] md:h-[176px] w-full h-[176px]"
+                  />
+                  {errors.message && touched.message && (
+                    <p className="text-red-600">{errors.message}</p>
+                  )}
+                </div>
+                <ButtonRes
+                  lable={"ثبت دیدگاه"}
+                  classStyle="  "
+                  onClickButton={() =>
+                    handleCheckErrors(
+                      values,
+                      validateForm,
+                      setTouched,
+                      handleSubmit
+                    )
+                  }
+                />
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
       <Image
         src={"/images/commentimg.png"}

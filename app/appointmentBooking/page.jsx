@@ -5,7 +5,7 @@ import Input from "@/components/common/input";
 import ButtonRes from "@/components/common/button";
 import TelInput from "@/components/common/telInput";
 import TextArea from "@/components/common/textArea";
-import { Formik, Form, Field, FormikHelpers } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { object } from "yup";
@@ -51,10 +51,10 @@ export default function Page() {
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] md:mb-[180px] flex flex-col items-center mb-[101px]">
       <div className="md:w-[706px]">
         <div className="flex flex-col items-center gap-[22px]  ">
-          <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[1%] text-right">
+          <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[1%] text-right">
             رزرو نوبت آنلاین
           </p>
-          <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">
+          <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">
             برای دریافت نوبت لطفا فرم زیر را پر کنید.
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function Page() {
             setFieldValue,
           }) => (
             <Form>
-              <div className=" flex flex-wrap gap-[14px] justify-center mt-[22px]  ">
+              <div className=" flex flex-wrap gap-3.5 justify-center mt-[22px]  ">
                 <div>
                   <Input
                     name="fullName"
