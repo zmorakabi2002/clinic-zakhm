@@ -144,7 +144,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col md:items-start items-center px-[65px]">
-      <div className="md:w-full w-[360px] md:mb-[22px] mb-[32px] md:pt-[182px] pt-[126px]  flex flex-col gap-[22px] md:items-start items-center ">
+      <div className="md:w-full w-[360px] md:mb-[22px] mb-8 md:pt-[182px] pt-[126px]  flex flex-col gap-[22px] md:items-start items-center ">
         <p className=" font-[samim] font-bold md:text-[32px] text-[24px] text-[#202B37] ">
           {" "}
           تیم درمان کلینیک زخم نیک
@@ -155,7 +155,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-x-[84.5px] gap-y-[32px] items-center justify-center">
+      <div className="flex flex-wrap gap-x-[84.5px] gap-y-8 items-center justify-center">
         {drCard.map((item, index) => {
           return (
             <DoctorCard
