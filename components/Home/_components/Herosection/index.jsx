@@ -29,9 +29,8 @@ export default function Herosection() {
 
           <div className="hidden md:flex flex-col justify-between ">
             {/* توضیح */}
-            <p className="text-[1.125rem] md:gap-10 gap-4  md:text-[1.25rem] lg:text-[1.5rem] leading-11 text-[#e4e7ec] tracking-[0.01em] font-medium text-justify align-middle">
+            <p className="w-[600px] font-samim text-[1.125rem] md:gap-10 gap-4 md:text-[1.25rem] lg:text-[1.5rem] leading-11 text-[#e4e7ec] font-medium align-middle">
               تیم متخصص ما با تکنولوژی روز دنیا، درمان مرحله‌به‌مرحله و پیگیری
-              <br />
               کامل، شما را همراهی می‌کند.
             </p>
           </div>
@@ -41,7 +40,7 @@ export default function Herosection() {
             <h1 className="font-[Samim] font-bold not-italic text-[24px] leading-10 tracking-[1%] text-right text-[#E4E7EC] ">
               هر زخم، داستانی با پایان خوش.
             </h1>
-            <p className="font-[Samim] font-bold not-italic text-[16px] leading-6 tracking-[1%] text-justify align-middle text-[#F9FAFB]">
+            <p className="font-[Samim] font-bold  text-[16px] leading-6 text-justify align-middle text-[#F9FAFB]">
               تیم متخصص با فناوری روز، درمان مرحله‌ای و پیگیری کامل.
             </p>
           </div>

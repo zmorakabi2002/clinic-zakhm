@@ -21,11 +21,11 @@ export default function ButtonRes({
           onClick={onClickButton}
         >
           {firstIcon ? (
-            <img src={firstIcon} alt="firsticon" className="w-7" />
+            <img src={firstIcon} alt="firsticon" className="md:w-7 w-6" />
           ) : (
             ""
           )}
-          <div>{lable}</div>
+          <div className="truncate ">{lable}</div>
           {loading ? (
             <div role="status">
               <svg
@@ -49,7 +49,11 @@ export default function ButtonRes({
           ) : (
             <>
               {secondIcon ? (
-                <img src={secondIcon} alt="secondIcon" className={`w-7`} />
+                <img
+                  src={secondIcon}
+                  alt="secondIcon"
+                  className={`md:w-7 w-6`}
+                />
               ) : (
                 ""
               )}

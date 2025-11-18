@@ -104,7 +104,7 @@ export default function ServicesectionDesk() {
         </div>
         {/* کارت‌ها */}
 
-        <div className="flex justify-center flex-wrap md:gap-x-2 gap-x-2.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] md:px-[50px] px-7">
+        <div className="flex justify-center flex-wrap gap-x-1.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] px-[50px]">
           {services.map((item, index) => (
             <ServicesCard key={`${index}-${item.name}`} cardData={item} />
           ))}

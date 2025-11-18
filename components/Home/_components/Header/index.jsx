@@ -67,9 +67,22 @@ export default function Header() {
                     isActive ? "text-[#ff5b00]" : "text-[#141C24]"
                   }`}
                 >
-                  {item.name === "Home" && (
-                    <img src="/images/Home.svg" width="32px" height="32px" />
-                  )}
+                  {item.name === "Home" &&
+                    (isActive ? (
+                      <Image
+                        alt="home1"
+                        src="/images/Home.svg"
+                        width={32}
+                        height={32}
+                      />
+                    ) : (
+                      <Image
+                        alt="alt2"
+                        src="/images/homeBlack.svg"
+                        width={32}
+                        height={32}
+                      />
+                    ))}
                   {item.label}
                 </Link>
               );
