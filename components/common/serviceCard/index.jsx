@@ -9,7 +9,7 @@ export default function ServicesCard({
 }) {
   return (
     <div
-      className={` flex flex-col items-center text-center  border-2 rounded-[28px] md:py-[24px] py-[14px] px-[18px] gap-2 opacity-100 ${classStyle} `}
+      className={` flex flex-col items-center text-center  border-2 rounded-[28px] md:py-6 py-3.5 px-[18px] gap-2 opacity-100 ${classStyle} `}
     >
       <Image
         src={cardData?.img}

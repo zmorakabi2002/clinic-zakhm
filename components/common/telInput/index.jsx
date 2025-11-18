@@ -2,10 +2,10 @@ import { useState } from "react";
 export default function TelInput({
   lable,
   placeHolder,
-  inputValue,
   inputChange,
   classStyle = "",
   maxNum,
+  inputValue,
 }) {
   const cityNumCode = [
     { id: 1, city: "IR", code: "+98" },
@@ -18,17 +18,17 @@ export default function TelInput({
   const [inputCodeValue, setInputCodevalue] = useState("");
   return (
     <div className="">
-      <p className="pb-[8px] font-iransans font-medium md:text-[18px] text-[16px] leading-[24px] tracking-[1%] text-right text-[#344051]">
+      <p className="pb-2 font-iransans font-medium md:text-[18px] text-[16px] leading-6 tracking-[1%] text-right text-[#344051]">
         {lable}
       </p>
-      <div className="flex gap-[6px]">
+      <div className="flex gap-1.5">
         <input
           type="tel"
-          value={inputValue}
           maxLength={maxNum}
           onChange={inputChange}
+          value={inputValue}
           placeholder={placeHolder}
-          className={`border-[1.5px] rounded-[50px] border-[#CED2DA] pt-1  px-[20px] md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] placeholder:flex placeholder: ${classStyle}`}
+          className={`border-[1.5px] rounded-[50px] border-[#CED2DA] pt-1  px-5 md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] placeholder:flex placeholder: ${classStyle}`}
         />
         <div className="w-[65px] opacity-100 rounded-[20px] relative text-[15px]">
           <input
@@ -36,7 +36,7 @@ export default function TelInput({
             value={inputCodeValue}
             onChange={() => {}}
             placeholder={"+98"}
-            className="md:w-[65px] md:h-[60px] w-[57px] h-[52px]  text-center rounded-[20px] opacity-100 pt-1 px-[10px] border md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] border-[#CED2DA] placeholder:flex placeholder:items-center placeholder:justify-center "
+            className="md:w-[65px] md:h-[60px] w-[57px] h-[52px]  text-center rounded-[20px] opacity-100 pt-1 px-2.5 border md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-[#637083] border-[#CED2DA] placeholder:flex placeholder:items-center placeholder:justify-center "
             onClick={(e) => setIsOpen(!isOpen)}
           />
           {isOpen === true && (

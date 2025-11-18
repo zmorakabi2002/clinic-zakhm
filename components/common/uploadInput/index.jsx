@@ -6,7 +6,7 @@ export default function UploadInput({ image, onClickUpload, onFileChange }) {
       <label
         htmlFor="nursing-card"
         onClick={onClickUpload} // کلیک از والد کنترل می‌شود
-        className="flex justify-center items-center gap-2 px-2 w-[125px] h-[40px] bg-[#FF8039] cursor-pointer rounded-[100px] font-samim font-bold text-[#F9FAFB]"
+        className="flex justify-center items-center gap-2 px-2 w-[125px] h-10 bg-[#FF8039] cursor-pointer rounded-[100px] font-samim font-bold text-[#F9FAFB]"
       >
         بارگذاری
         <Image alt="upload" src={"/images/upload.svg"} width={24} height={24} />
@@ -17,7 +17,10 @@ export default function UploadInput({ image, onClickUpload, onFileChange }) {
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={onFileChange} // این هم از والد کنترل می‌شود
+        onChange={(e) => {
+          const file = e.target.files?.[0] || null;
+          onFileChange(file); // فقط فایل را بفرست، نه event
+        }}
       />
 
       {image && (

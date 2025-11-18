@@ -13,12 +13,12 @@ export default function DropDown({
 
   return (
     <div className=" flex flex-col relative ">
-      <p className="font-medium md:text-[18px] text-[16px] text-[#344051] mb-[8px] placeholder: ">
+      <p className="font-medium md:text-[18px] text-[16px] text-[#344051] mb-2 placeholder: ">
         {labename}
       </p>
       <button
-        className={`px-[20px] py-[18px] rounded-[50px] border-[1px] border-[#CED2DA] flex justify-between ${classStyle} ${
-          open === true && "rounded-b-[0px]"
+        className={`px-5 py-[18px] rounded-[50px] border border-[#CED2DA] flex justify-between ${classStyle} ${
+          open === true && "rounded-b-none"
         }`}
         onClick={(e) => setOpen(!open)}
       >
@@ -34,7 +34,7 @@ export default function DropDown({
         />
       </button>
       <ul
-        className={`border-t-0 border-[1px] border-[#CED2DA] rounded-b-[20px] absolute w-full top-25 ${classStyle} ${
+        className={`border-t-0 border border-[#CED2DA] rounded-b-[20px] absolute w-full top-25 ${classStyle} ${
           open === false && "hidden"
         }`}
       >

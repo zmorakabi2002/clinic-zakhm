@@ -7,7 +7,7 @@ export default function TextArea({
 }) {
   return (
     <div>
-      <p className=" pb-[8px] font-iransans font-medium md:text-[18px] text-[16px] leading-[24px] tracking-[1%] text-right text-[#344051] ">
+      <p className=" pb-2 font-iransans font-medium md:text-[18px] text-[16px] leading-6 tracking-[1%] text-right text-[#344051] ">
         {lable}
       </p>
       <textarea
@@ -15,7 +15,7 @@ export default function TextArea({
         value={inputValue}
         placeholder={placeHolder}
         onChange={inputChange}
-        className={`pt-[18px] border-[1.5px] rounded-[34px] border-[#CED2DA] px-[20px] md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-right placeholder:text-[#637083] ${classStyle}`}
+        className={`pt-[18px] border-[1.5px] rounded-[34px] border-[#CED2DA] px-5 md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-right placeholder:text-[#637083] ${classStyle}`}
       />
     </div>
   );

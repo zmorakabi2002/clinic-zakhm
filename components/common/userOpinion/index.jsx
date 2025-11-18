@@ -1,3 +1,4 @@
+"use client";
 import Input from "@/components/common/input";
 import { useState } from "react";
 import ButtonRes from "@/components/common/button";
@@ -34,7 +35,7 @@ export default function UserOpinion({ image, title, explain, onLoadData }) {
         <p className="font-[samim] font-bold md:text-[32px] text-[24px] ">
           دیدگاه مراجعه کنندگان
         </p>
-        <div className=" h-[206px] px-[22px] py-[27px] flex flex-col justify-between bg-[#F9FAFB] border-[#CED2DA] border-[1px] rounded-[26px] ">
+        <div className=" h-[206px] px-[22px] py-[27px] flex flex-col justify-between bg-[#F9FAFB] border-[#CED2DA] border rounded-[26px] ">
           <p className="font-[samim] font-bold md:text-[20px] text-[16px]">
             {" "}
             فاطمه زارع
@@ -42,7 +43,7 @@ export default function UserOpinion({ image, title, explain, onLoadData }) {
           <p className="font-[samim] font-normal md:text-[18px] text-[14px] text-[#414E62]">
             ٢٢ مهر ١٤٠٤
           </p>
-          <p className="font-[samim] font-normal md:text-[18px] text-[14px] md:leading-[30px] leading-[24px] text-justify">
+          <p className="font-[samim] font-normal md:text-[18px] text-[14px] md:leading-[30px] leading-6 text-justify">
             برای درمان زخم دیابت مادربزرگ م مراجعه کردم بسیار با دقت ، صبر و
             حوصله کار کردن و زخمشون کامل خوب شد
           </p>
@@ -50,7 +51,7 @@ export default function UserOpinion({ image, title, explain, onLoadData }) {
         <p className="font-[samim] font-bold md:text-[24px] text-[20px] ">
           دیدگاه خود را ثبت کنید
         </p>
-        <div className="flex flex-col gap-[20px]">
+        <div className="flex flex-col gap-5">
           <div>
             <Input
               lable={"نام و نام خانوادگی "}

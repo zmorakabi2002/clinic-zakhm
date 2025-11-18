@@ -114,7 +114,7 @@ export default function Page() {
         />
       </section>
       {/* Services  */}
-      <section className="md:px-[65px] px-[26px] ">
+      <section className="md:px-[65px] px-[26px]" id="servicesid">
         <p className="font-bold md:text-[32px] text-[24px] md:leading-[44px] pb-[20px] leading[40px] tracking-[0.01em] text-center">
           خدمات کلینیک زخم نیک
         </p>
