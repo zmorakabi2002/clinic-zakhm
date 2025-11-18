@@ -24,7 +24,7 @@ export default function QuestionBox({ lable, explain }) {
       <div
         className={`${
           isOpen === true
-            ? "w-full text-right break-words whitespace-normal pt-3 text-[#2e2e2eb5]"
+            ? "w-full text-right wrap-break-word whitespace-normal pt-3 text-[#2e2e2eb5]"
             : "hidden"
         }`}
       >

@@ -39,7 +39,10 @@ const SocialMedia = [
 ];
 export default function Footer() {
   return (
-    <div className="relative bg-[#043249] w-full md:h-[553px] h-[806px] mt-20 ">
+    <div
+      className="relative bg-[#043249] w-full md:h-[553px] h-[806px] mt-20 "
+      id="Footerid"
+    >
       <div className=" absolute w-full flex flex-col md:flex-row gap-6 justify-between z-10 px-10 md:py-2.5 lg:py-8 py-[61px] text-[#FFFFFF]">
         <div className=" flex flex-col ">
           <p className="text-center font-samim font-bold md:text-[20px]  [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle ">

@@ -46,16 +46,16 @@ const Whycard = [
 export default function WhyClinic() {
   return (
     <div className="">
-      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[0.01em] text-center pt-[68px] gap-[52px] ">
+      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-center pt-[68px] gap-[52px] ">
         <p>چرا کلینیک زخم نیک؟</p>
       </div>
-      <div className="flex flex-wrap md:px-[65px] px-[18px] md:pt-[52px] pt-[24px] justify-center md:gap-[35px] gap-[8px]">
+      <div className="flex flex-wrap md:px-[65px] px-[18px] md:pt-[52px] pt-6 justify-center md:gap-[35px] gap-2">
         {Whycard.map((item, index) => {
           return (
             <WhyCard
               key={index}
               cardData={item}
-              className="md:w-[360px] w-[184px] md:h-[328px] h-[153px] flex flex-col justify-center items-center md:gap-[12px] gap-[8px] px-[30px] py-[32px] md:rounded-[37px] rounded-[28px] border border-[#E4E7EC] md:shadow-[0px_0px_12.2px_0px_#00000040] shadow-[0px_0px_5px_0px_#00000040] opacity-100"
+              className="md:w-[360px] w-[184px] md:h-[328px] h-[153px] flex flex-col justify-center items-center md:gap-3 gap-2 px-[30px] py-8 md:rounded-[37px] rounded-[28px] border border-[#E4E7EC] md:shadow-[0px_0px_12.2px_0px_#00000040] shadow-[0px_0px_5px_0px_#00000040] opacity-100"
             />
           );
         })}

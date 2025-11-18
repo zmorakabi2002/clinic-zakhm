@@ -1,5 +1,7 @@
+"use client";
 import ButtonRes from "@/components/common/button";
 import CommentCard from "@/components/common/commentCard";
+import { useRouter } from "next/navigation";
 
 const stars = [
   {
@@ -27,14 +29,18 @@ const stars = [
 ];
 
 export default function Commentssection() {
+  const router = useRouter();
+  const handleClick = (e) => {
+    router.push("/clientSatisfaction");
+  };
   return (
-    <div className="lg:mt-[4.25rem] mt-[3.125rem] lg:mx-[4rem] mx-[1.93rem] flex flex-col">
-      <div className="lg:h-[418px] h-[505px] lg:flex lg:flex-row lg:gap-[0px] flex flex-col gap-[26px] lg:items-end items-center justify-between">
-        <div className="lg:w-[36.187rem] w-[22.3rem] lg:h-[312px] h-[120px] flex flex-col justify-center gap-[2rem]">
-          <p className="font-[samim] font-bold lg:text-[2rem] text-[1.5rem] lg:leading-[2.75rem] leading-[2.5rem] text-[#141C24] ">
+    <div className="lg:mt-17 mt-12.5 lg:mx-16 mx-[1.93rem] flex flex-col">
+      <div className="lg:h-[418px] h-[505px] lg:flex lg:flex-row lg:gap-0 flex flex-col gap-[26px] lg:items-end items-center justify-between">
+        <div className="lg:w-[36.187rem] w-[22.3rem] lg:h-[312px] h-[120px] flex flex-col justify-center gap-8">
+          <p className="font-[samim] font-bold lg:text-[2rem] text-[1.5rem] lg:leading-11 leading-10 text-[#141C24] ">
             در مورد کلینیک نیک چه میشنویم؟
           </p>
-          <p className="font-[samim] font-bold lg:text-[1.5rem] text-[1rem] lg:leading-[2.75rem] leading-[1.5rem] text-[#414E62] ">
+          <p className="font-[samim] font-bold lg:text-[1.5rem] text-[1rem] lg:leading-11 leading-6 text-[#414E62] ">
             این ها، بخش خیلی کوچکی از نظراتی هستند که افراد مختلف در مورد کلینیک
             نیک دارند.
           </p>
@@ -61,8 +67,8 @@ export default function Commentssection() {
         </div>
       </div>
 
-      <div className="lg:flex hidden justify-center mt-[32px] ">
-        <ButtonRes lable={"ثبت و مشاهده نظرات"} />
+      <div className="lg:flex hidden justify-center mt-8 ">
+        <ButtonRes lable={"ثبت و مشاهده نظرات"} onClickButton={handleClick} />
       </div>
     </div>
   );

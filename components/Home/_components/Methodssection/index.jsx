@@ -63,7 +63,7 @@ export default function MethodsSection() {
   // ];
   return (
     <div className="contain-content md:pr-[65px] pr-[18px]">
-      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[0.01em] text-right text-[#202B37]">
+      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-right text-[#202B37]">
         <p>روش‌های نوین درمان زخم</p>
       </div>
       <div className="py-[52px] ">
@@ -71,7 +71,7 @@ export default function MethodsSection() {
           spaceBetween={18}
           slidesPerView={"auto"}
           grabCursor={true}
-          className="md:w-[365px] w-[281px] md:h-[382px] h-[294px] !overflow-visible !mx-0 "
+          className="md:w-[365px] w-[281px] md:h-[382px] h-[294px] overflow-visible! mx-0! "
         >
           {methodData.map((item, i) => (
             <SwiperSlide key={i} className="mx-0 pb-4">

@@ -57,7 +57,10 @@ export default function ServicesectionDesk() {
     },
   ];
   return (
-    <section className="w-full flex justify-center py-[80px] text-[#141C24]">
+    <section
+      className="w-full flex justify-center py-20 text-[#141C24]"
+      id="servicesid"
+    >
       <div className="w-full flex flex-col items-center ">
         {/* عنوان */}
         <div className="">
@@ -76,7 +79,7 @@ export default function ServicesectionDesk() {
               height={24}
               className=" flex md:hidden"
             />
-            <h2 className="font-samim font-bold md:text-[32px] text-[20px] md:leading-[44px] leading-[36px] tracking-[0.01em] text-center text-[#202B37] ">
+            <h2 className="font-samim font-bold md:text-[32px] text-[20px] md:leading-11 leading-9 tracking-[0.01em] text-center text-[#202B37] ">
               خدمات تخصصی درمان زخم
             </h2>
             <Image
@@ -94,14 +97,14 @@ export default function ServicesectionDesk() {
               className=" hidden md:flex"
             />
           </div>
-          <p className="font-samim font-bold md:text-[24px] md-[16px] md:leading-[44px] leading-[24px] tracking-[0.01em] text-[#414E62] text-center">
+          <p className="font-samim font-bold md:text-[24px] md-[16px] md:leading-11 leading-6 tracking-[0.01em] text-[#414E62] text-center">
             ما انواع زخم‌های مزمن و پیچیده را با روش‌های پیشرفته، سریع‌تر و
             مطمئن‌تر درمان می‌کنیم.
           </p>
         </div>
         {/* کارت‌ها */}
 
-        <div className="flex justify-center flex-wrap md:gap-x-[8px] gap-x-[10px] md:gap-y-[52px] gap-y-[10px] pt-[52px] md:px-[50px] px-[28px]">
+        <div className="flex justify-center flex-wrap md:gap-x-2 gap-x-2.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] md:px-[50px] px-7">
           {services.map((item, index) => (
             <ServicesCard key={`${index}-${item.name}`} cardData={item} />
           ))}

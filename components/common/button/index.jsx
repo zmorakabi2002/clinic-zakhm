@@ -17,11 +17,11 @@ export default function ButtonRes({
             isDisable
               ? "bg-[#CED2DA] text-[#637083] focus:bg-[#CED2DA]"
               : "bg-[#FF8039] border-[#FF8039] hover:bg-[#FF5B00] text-white focus:bg-[#FF8039]"
-          }   flex justify-center items-center font-bold  border-[1px]  md:rounded-[50px] rounded-[100px] md:px-[26px] px-[20px] md:py-[12px] py-[8px] gap-2 cursor-pointer  ${classStyle}`}
+          }   flex justify-center items-center font-bold  border  md:rounded-[50px] rounded-[100px] md:px-[26px] px-5 md:py-3 py-2 gap-2 cursor-pointer  ${classStyle}`}
           onClick={onClickButton}
         >
           {firstIcon ? (
-            <img src={firstIcon} alt="firsticon" className="w-[28px]" />
+            <img src={firstIcon} alt="firsticon" className="w-7" />
           ) : (
             ""
           )}
@@ -49,7 +49,7 @@ export default function ButtonRes({
           ) : (
             <>
               {secondIcon ? (
-                <img src={secondIcon} alt="secondIcon" className={`w-[28px]`} />
+                <img src={secondIcon} alt="secondIcon" className={`w-7`} />
               ) : (
                 ""
               )}
@@ -61,13 +61,13 @@ export default function ButtonRes({
           tabIndex={0}
           className={` ${
             isDisable
-              ? "bg-[#FFFFFF] border-[2px] border-[#CED2DA] text-[#637083] "
-              : "bg-[#FFFFFF] border-[#086391] border-[2px] text-[#141C24]  hover:bg-[#FFFFFF] hover:text-[#202B37] hover:border-[#075379] hover:border-[2px] "
-          }   flex justify-center items-center  font-bold  border-[2px] focus:bg-[#F2F4F7] focus:border-[#086391] focus:border-[2px] focus:text-[#086391] w-fit md:h-[52px] h-[40px] rounded-[50px] px-[26px] py-[12px] gap-2 cursor-pointer ${classStyle} `}
+              ? "bg-[#FFFFFF] border-2 border-[#CED2DA] text-[#637083] "
+              : "bg-[#FFFFFF] border-[#086391] border-2 text-[#141C24]  hover:bg-[#FFFFFF] hover:text-[#202B37] hover:border-[#075379] hover:border-2 "
+          }   flex justify-center items-center  font-bold  border-2 focus:bg-[#F2F4F7] focus:border-[#086391] focus:border-2 focus:text-[#086391] w-fit md:h-[52px] h-10 rounded-[50px] px-[26px] py-3 gap-2 cursor-pointer ${classStyle} `}
           onClick={onClickButton}
         >
           {firstIcon ? (
-            <img src={firstIcon} alt="firsticon" className="w-[28px]" />
+            <img src={firstIcon} alt="firsticon" className="w-7" />
           ) : (
             ""
           )}
@@ -95,7 +95,7 @@ export default function ButtonRes({
           ) : (
             <>
               {secondIcon ? (
-                <img src={secondIcon} alt="secondIcon" className={`w-[28px]`} />
+                <img src={secondIcon} alt="secondIcon" className={`w-7`} />
               ) : (
                 ""
               )}

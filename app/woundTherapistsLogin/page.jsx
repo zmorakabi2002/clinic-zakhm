@@ -7,91 +7,93 @@ import TelInput from "@/components/common/telInput";
 import UploadInput from "@/components/common/uploadInput";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import * as Yup from "yup";
+import { Formik, Form, Field, FormikHelpers } from "formik";
 
-export default function Home() {
+export default function Page() {
+  const ValidationSchema = Yup.object({
+    fullName: Yup.string().required("نام و نام خانوادگی را وارد کنید ."),
+
+    number: Yup.number()
+      .required("شماره همراه را وارد کنید.")
+      .min(10, "شماره همراه را به درستی وارد کنید ."),
+    code: Yup.number().required("کد ملی را وارد کنید."),
+    education: Yup.string().required("رشته تحصیلی را وارد کنید ."),
+    WorkHistoryWound: Yup.string().required(
+      "سابقه کاری خود را در درمان زخم وارد کنید . "
+    ),
+    WorkHistoryEduction: Yup.string().required(
+      "سابقه کاری در رشته خود را وارد کنید."
+    ),
+    provincee: Yup.string().required("استان را وارد کنید."),
+    cityis: Yup.string().required("شهر را وارد کنید."),
+    currentWork: Yup.string().required(
+      "نام و آدرس محل کار فعلی را وارد کنید ."
+    ),
+    imagesis: Yup.mixed()
+      .required("تصویر را آپلود کنید .")
+      .test("fileSize", "حجم تصویر باید کمتر از 2MB باشد", (file) =>
+        file ? file.size <= 2 * 1024 * 1024 : false
+      )
+      .test("fileType", "فقط فرمت jpg یا png", (file) =>
+        file ? ["image/jpeg", "image/png"].includes(file.type) : false
+      ),
+  });
   const router = useRouter();
-  const [errorMessage, setErroreMesssage] = useState("");
-  const [result, setResult] = useState("");
-  const [inputValue, setInputvalue] = useState("");
-  const [inputNumber, setInputNumber] = useState("");
-  const [inputId, setInputId] = useState("");
-  const [inputWorkHistoryWound, setInputWorkHistoryWound] = useState("");
-  const [inputWorkHistoryEduction, setInputWorkHistoryEduction] = useState("");
-  const [inputcurrentWork, setInputCarrentWork] = useState("");
-  const [inputProvince, setInputProvince] = useState("");
-  const [inputCity, setInputCity] = useState("");
-  const [inputEducation, setInputEducation] = useState("");
+  // const [inputValue, setInputvalue] = useState("");
+  // const [inputNumber, setInputNumber] = useState("");
+  // const [inputId, setInputId] = useState("");
+  // const [inputWorkHistoryWound, setInputWorkHistoryWound] = useState("");
+  // const [inputWorkHistoryEduction, setInputWorkHistoryEduction] = useState("");
+  // const [inputcurrentWork, setInputCarrentWork] = useState("");
   const STORAGE_KEY = "uploadedImages";
   const [image, setImage] = useState(null);
+
+  // const onInputChange = (e, setInputvalue) => {
+  //   setInputvalue(e.target.value);
+  // };
+  const handleClickCancel = (e) => {
+    e.preventDefault();
+    router.push("/");
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) setImage(saved);
   }, []);
-
   // کنترل آپلود فایل
-  const handleFileChange = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (errorMessage["imageis"]) {
-      setErroreMesssage((prev) => {
-        const newErr = { ...prev };
-        delete newErr["imageis"];
-        return newErr;
-      });
-    }
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files?.[0];
+  //   // if (!file) return;
+  //   // if (errorMessage["imageis"]) {
+  //   //   setErroreMesssage((prev) => {
+  //   //     const newErr = { ...prev };
+  //   //     delete newErr["imageis"];
+  //   //     return newErr;
+  //   //   });
+  //   // }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64 = reader.result;
-      localStorage.setItem(STORAGE_KEY, base64);
-      setImage(base64);
-    };
-    reader.readAsDataURL(file);
-  };
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     const base64 = reader.result;
+  //     localStorage.setItem(STORAGE_KEY, base64);
+  //     setImage(base64);
+  //   };
+  //   reader.readAsDataURL(file);
+  // };
 
-  const handleClickCancel = (e) => {
-    e.preventDefault();
-    router.push("/");
+  const initialValues = {
+    fullName: "",
+    code: "",
+    number: "",
+    education: null,
+    WorkHistoryWound: "",
+    WorkHistoryEduction: "",
+    provincee: null,
+    cityis: null,
+    currentWork: "",
+    imagesis: null,
   };
-  const handleClick = (e) => {
-    const newError = {};
-    if (!inputValue.trim())
-      newError.name = " نام و نام خانوادگی را وارد کنید .";
-    if (!inputNumber.trim()) newError.number = "شماره را وارد کنید .";
-    if (inputNumber.length < 10)
-      newError.number = " شماره تلفن را به درستی وارد کنید . ";
-    if (!inputId.trim()) newError.id = "کدملی را وارد کنید.";
-    if (!inputWorkHistoryWound.trim())
-      newError.WorkHistoryWound = "سابقه کاری را وارد کنید.";
-    if (!inputWorkHistoryEduction.trim())
-      newError.WorkHistoryEduction = "سابقه کاری را وارد کنید.";
-    if (!inputcurrentWork.trim())
-      newError.currentWork = "نام و آدرس محل کار فعلی را وارد کنید .";
-    if (!image) newError.imageis = "تصویر را وارد کنید .";
-    if (!inputProvince.trim()) newError.province = "استان را وارد کنید.";
-    if (!inputCity.trim()) newError.city = "شهر را وارد کنید .";
-    if (!inputEducation.trim())
-      newError.education = "رشته تحصیلی را وارد کنید.";
-    setErroreMesssage(newError);
-    if (Object.keys(newError).length === 0) {
-      router.push("/");
-    }
-  };
-  const onInputChange = (e, setInput, feild) => {
-    if (errorMessage[feild]) {
-      setErroreMesssage((prev) => {
-        const newErr = { ...prev };
-        delete newErr[feild];
-        return newErr;
-      });
-    }
-
-    setInput(e?.target.value);
-    // setErroreMesssage("");
-    setResult("");
-  };
-
   const education = [
     { id: 1, name: "مهندسی کامپیوتر" },
     { id: 2, name: "مهندسی پزشکی" },
@@ -107,6 +109,23 @@ export default function Home() {
     { id: 2, name: "شیراز" },
     { id: 3, name: "اصفهان" },
   ];
+  const handleCheckErrors = async (values, validateForm, setTouched) => {
+    // همه فیلدها را touched کن تا خطاها نمایش داده شوند
+    setTouched(
+      Object.keys(values).reduce((acc, key) => {
+        acc[key] = true;
+        return acc;
+      }, {})
+    );
+
+    // اعتبارسنجی فرم
+    const errors = await validateForm(values);
+    if (Object.keys(errors).length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] flex flex-col items-center ">
@@ -119,177 +138,227 @@ export default function Home() {
           درمانگران نیک کلینیک بپیوندید.{" "}
         </p>
       </div>
+      <Formik initialValues={initialValues} validationSchema={ValidationSchema}>
+        {({
+          values,
+          errors,
+          touched,
+          validateForm,
+          setTouched,
+          handleSubmit,
+          setFieldValue,
+        }) => (
+          <Form>
+            <div className=" md:w-[783px] w-[360px] flex flex-wrap gap-[32px] pt-[32px] justify-center items-center ">
+              <div className="flex flex-col">
+                <Input
+                  name="fullName"
+                  lable="نام و نام خانوادگی"
+                  placeHolder="نام و نام خانوادگی خود را وارد کنید."
+                  inputValue={values.fullName} // ← مقدار از Formik
+                  inputChange={(e) => setFieldValue("fullName", e.target.value)} // ← تغییر فارمیک
+                  classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+                />
 
-      <div className=" md:w-[783px] w-[360px] flex flex-wrap gap-[32px] pt-[32px] justify-center items-center ">
-        <div className="flex flex-col">
-          <Input
-            lable={"نام و نام خانوادگی "}
-            placeHolder={"نام و نام خانوادگی خود را وارد کنید."}
-            inputValue={inputValue}
-            inputChange={(e) => onInputChange(e, setInputvalue, "name")}
-            classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          />
-          {errorMessage.name && (
-            <div className=" text-red-500 ">{errorMessage.name} </div>
-          )}
-        </div>
-        <div>
-          <TelInput
-            lable={"شماره همراه "}
-            placeHolder={"9999999999"}
-            inputValue={inputNumber}
-            maxNum={10}
-            inputChange={(e) =>
-              /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputNumber, "number")
-                : undefined
-            }
-            classStyle="md:w-[304.5px] md:h-[60px] w-[297px] h-[52px]"
-          />
-          {errorMessage.number && (
-            <div className=" text-red-500 ">{errorMessage.number} </div>
-          )}
-        </div>
-        <div>
-          <Input
-            lable={"کدملی"}
-            placeHolder={"کدملی خود را وارد کنید."}
-            inputValue={inputId}
-            inputChange={(e) =>
-              /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputId, "id")
-                : undefined
-            }
-            classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          />
-          {errorMessage.id && (
-            <div className=" text-red-500 ">{errorMessage.id} </div>
-          )}
-        </div>
-        <div>
-          <DropDown
-            defaultValue={"رشته تحصیلی خود را انتخاب کنید."}
-            labename={"رشته تحصیلی"}
-            classStyle="md:w-[375.5px] w-[360px] "
-            options={education}
-            onOptionClick={(e) =>
-              onInputChange(e, setInputEducation, "education")
-            }
-          />
-          {errorMessage.education && (
-            <div className="text-red-500">{errorMessage.education}</div>
-          )}
-        </div>
-        <div>
-          <Input
-            lable={"سابقه کاری در درمان زخم (به سال)"}
-            placeHolder={"سابقه کاری در درمان زخم را وارد کنید."}
-            inputValue={inputWorkHistoryWound}
-            inputChange={(e) =>
-              /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(e, setInputWorkHistoryWound, "WorkHistoryWound")
-                : undefined
-            }
-            classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          />
-          {errorMessage.WorkHistoryWound && (
-            <div className=" text-red-500 ">
-              {errorMessage.WorkHistoryWound}{" "}
-            </div>
-          )}
-        </div>
-        <div>
-          <Input
-            lable={"سابقه کاری در رشته خود (به سال)"}
-            placeHolder={"سابقه کاری در رشته خود را وارد کنید."}
-            inputValue={inputWorkHistoryEduction}
-            inputChange={(e) =>
-              /^[0-9]*$/.test(e.target.value)
-                ? onInputChange(
-                    e,
-                    setInputWorkHistoryEduction,
-                    "WorkHistoryEduction"
-                  )
-                : undefined
-            }
-            classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
-          />
-          {errorMessage.WorkHistoryEduction && (
-            <div className=" text-red-500 ">
-              {errorMessage.WorkHistoryEduction}{" "}
-            </div>
-          )}
-        </div>
-        <div>
-          <DropDown
-            defaultValue={"استان را انتخاب کنید."}
-            labename={"استان"}
-            classStyle="md:w-[375.5px] w-[360px] "
-            options={Province}
-            onOptionClick={(e) =>
-              onInputChange(e, setInputProvince, "province")
-            }
-          />
-          {errorMessage.province && (
-            <div className=" text-red-500 ">{errorMessage.province} </div>
-          )}
-        </div>
-        <div>
-          <DropDown
-            defaultValue={"شهر را انتخاب کنید."}
-            labename={"شهر"}
-            classStyle="md:w-[375.5px] w-[360px] "
-            options={City}
-            onOptionClick={(e) => onInputChange(e, setInputCity, "city")}
-          />{" "}
-          {errorMessage.city && (
-            <div className="text-red-500">{errorMessage.city}</div>
-          )}
-        </div>
+                {errors.fullName && touched.fullName && (
+                  <p className="text-red-500 text-sm">{errors.fullName}</p>
+                )}
+              </div>
+              <div>
+                <TelInput
+                  name="number"
+                  lable={"شماره همراه "}
+                  placeHolder={"917 *** ****"}
+                  inputValue={values.number}
+                  maxNum={10}
+                  inputChange={(e) =>
+                    /^[0-9]*$/.test(e.target.value)
+                      ? setFieldValue("number", e.target.value)
+                      : undefined
+                  }
+                  classStyle="md:w-[304.5px] md:h-[60px] w-[297px] h-[52px]"
+                />
+                {errors.number && touched.number && (
+                  <p className="text-red-500 text-sm">{errors.number}</p>
+                )}
+              </div>
+              <div>
+                <Input
+                  name="code"
+                  lable={"کدملی"}
+                  placeHolder={"کدملی خود را وارد کنید."}
+                  inputValue={values.code}
+                  inputChange={(e) =>
+                    /^[0-9]*$/.test(e.target.value)
+                      ? setFieldValue("code", e.target.value)
+                      : undefined
+                  }
+                  classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+                />
 
-        <div>
-          <Input
-            lable={"نام و آدرس محل کار فعلی"}
-            placeHolder={"نام و آدرس محل کار فعلی خود را وارد کنید."}
-            inputValue={inputcurrentWork}
-            inputChange={(e) =>
-              onInputChange(e, setInputCarrentWork, "currentWork")
-            }
-            classStyle="md:w-[783px] w-[360px]"
-          />
-          {errorMessage.currentWork && (
-            <div className=" text-red-500 ">{errorMessage.currentWork} </div>
-          )}
-        </div>
-        <div className="flex flex-col py-[38px] gap-[21px] items-center rounded-[8px] border border-dashed md:w-[778px] w-[360px] md:h-[185px] h-[162px] border-[#97A1AF] ">
-          <p className="hidden md:flex font-[Samim] font-normal text-[18px] leading-[24px] tracking-[1%] text-center text-[#637083]">
-            برای تأیید صلاحیت حرفه‌ای، کارت نظام پرستاری معتبر خود را آپلود
-            کنید.
-          </p>{" "}
-          <p className="flex md:hidden font-normal text-[18px] leading-[24px] tracking-[1%] text-center font-[Samim]  text-[#637083]">
-            کارت نظام پرستاری معتبر خود را آپلود کنید.
-          </p>
-          <UploadInput image={image} onFileChange={handleFileChange} />
-          {errorMessage.imageis && (
-            <div className=" text-red-500 ">{errorMessage.imageis} </div>
-          )}
-        </div>
-        <div className="flex gap-[22px]">
-          <ButtonRes
-            type="second"
-            lable={"انصراف"}
-            classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[159.5px] px-[60px]"
-            onClickButton={handleClickCancel}
-          />
-          <ButtonRes
-            type="first"
-            lable={"ارسال"}
-            classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[159.5px] px-[66px]"
-            onClickButton={handleClick}
-          />
-          {result && <div className="result"> {result} </div>}
-        </div>
-      </div>
+                {errors.code && touched.code && (
+                  <p className="text-red-500 text-sm">{errors.code}</p>
+                )}
+              </div>
+              <div>
+                <DropDown
+                  name="education"
+                  defaultValue={"رشته تحصیلی خود را انتخاب کنید."}
+                  labename={"رشته تحصیلی"}
+                  classStyle="md:w-[375.5px] w-[360px] "
+                  options={education}
+                  onOptionClick={(value) => {
+                    setFieldValue("education", value);
+                    setTouched({ ...touched, education: true });
+                  }}
+                />
+                {errors.education && touched.education && (
+                  <p className="text-red-500 text-sm">{errors.education}</p>
+                )}
+              </div>
+              <div>
+                <Input
+                  name="WorkHistoryWound"
+                  lable={"سابقه کاری در درمان زخم (به سال)"}
+                  placeHolder={"سابقه کاری در درمان زخم را وارد کنید."}
+                  inputValue={values.WorkHistoryWound}
+                  inputChange={(e) =>
+                    /^[0-9]*$/.test(e.target.value)
+                      ? setFieldValue("WorkHistoryWound", e.target.value)
+                      : undefined
+                  }
+                  classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+                />
+
+                {errors.WorkHistoryWound && touched.WorkHistoryWound && (
+                  <p className="text-red-500 text-sm">
+                    {errors.WorkHistoryWound}
+                  </p>
+                )}
+              </div>
+              <div>
+                <Input
+                  name="WorkHistoryEduction"
+                  lable={"سابقه کاری در رشته خود (به سال)"}
+                  placeHolder={"سابقه کاری در رشته خود را وارد کنید."}
+                  inputValue={values.WorkHistoryEduction}
+                  inputChange={(e) =>
+                    /^[0-9]*$/.test(e.target.value)
+                      ? setFieldValue("WorkHistoryEduction", e.target.value)
+                      : undefined
+                  }
+                  classStyle="md:w-[375.5px] md:h-[60px] w-[360px] h-[52px]"
+                />
+                {errors.WorkHistoryEduction && touched.WorkHistoryEduction && (
+                  <p className="text-red-500 text-sm">
+                    {errors.WorkHistoryEduction}
+                  </p>
+                )}
+              </div>
+              <div>
+                <DropDown
+                  name="provincee"
+                  defaultValue={"استان را انتخاب کنید."}
+                  labename={"استان"}
+                  classStyle="md:w-[375.5px] w-[360px] "
+                  options={Province}
+                  onOptionClick={(value) => {
+                    setFieldValue("provincee", value);
+                    setTouched({ ...touched, provincee: true });
+                  }}
+                />
+                {errors.provincee && touched.provincee && (
+                  <p className="text-red-500 text-sm">{errors.provincee}</p>
+                )}
+              </div>
+              <div>
+                <DropDown
+                  name="cityis"
+                  defaultValue={"شهر را انتخاب کنید."}
+                  labename={"شهر"}
+                  classStyle="md:w-[375.5px] w-[360px] "
+                  options={City}
+                  onOptionClick={(value) => {
+                    setFieldValue("cityis", value);
+                    setTouched({ ...touched, cityis: true });
+                  }}
+                />{" "}
+                {errors.cityis && touched.cityis && (
+                  <p className="text-red-500 text-sm">{errors.cityis}</p>
+                )}
+              </div>
+              <div>
+                <Input
+                  name="currentWork"
+                  lable={"نام و آدرس محل کار فعلی"}
+                  placeHolder={"نام و آدرس محل کار فعلی خود را وارد کنید."}
+                  inputValue={values.currentWork}
+                  inputChange={(e) =>
+                    setFieldValue("currentWork", e.target.value)
+                  }
+                  classStyle="md:w-[783px] w-[360px]"
+                />
+                {errors.currentWork && touched.currentWork && (
+                  <p className="text-red-500 text-sm">{errors.currentWork}</p>
+                )}
+              </div>
+              <div className="flex flex-col py-[38px] gap-[21px] items-center rounded-[8px] border border-dashed md:w-[778px] w-[360px] md:h-[185px] h-[162px] border-[#97A1AF] ">
+                <p className="hidden md:flex font-[Samim] font-normal text-[18px] leading-[24px] tracking-[1%] text-center text-[#637083]">
+                  برای تأیید صلاحیت حرفه‌ای، کارت نظام پرستاری معتبر خود را
+                  آپلود کنید.
+                </p>{" "}
+                <p className="flex md:hidden font-normal text-[18px] leading-[24px] tracking-[1%] text-center font-[Samim]  text-[#637083]">
+                  کارت نظام پرستاری معتبر خود را آپلود کنید.
+                </p>
+                <UploadInput
+                  image={image}
+                  onFileChange={(file) => {
+                    // ۱. فایل را به Formik بده
+                    setFieldValue("imagesis", file);
+
+                    // ۲. اگر برای preview هم می‌خوای
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = () => {
+                        const base64 = reader.result;
+                        localStorage.setItem(STORAGE_KEY, base64);
+                        setImage(base64);
+                      };
+                      reader.readAsDataURL(file);
+                    } else {
+                      setImage(null);
+                    }
+                  }}
+                />
+                {errors.imagesis && touched.imagesis && (
+                  <p className="text-red-500 text-sm">{errors.imagesis}</p>
+                )}
+              </div>
+              <div className="flex gap-[22px]">
+                <ButtonRes
+                  type="second"
+                  lable={"انصراف"}
+                  classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[159.5px] px-[60px]"
+                  onClickButton={handleClickCancel}
+                />
+                <ButtonRes
+                  type="first"
+                  lable="ارسال"
+                  classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] md:px-[159.5px] px-[66px]"
+                  onClickButton={() =>
+                    handleCheckErrors(
+                      values,
+                      validateForm,
+                      setTouched,
+                      handleSubmit
+                    )
+                  }
+                />
+              </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }
