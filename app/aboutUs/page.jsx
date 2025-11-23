@@ -58,10 +58,6 @@ export default function Page() {
     e.preventDefault();
     router.push("/appointmentBooking");
   };
-  // const handleClickservices = (e) => {
-  //   e.preventDefault();
-  //   router.push("/services");
-  // };
 
   return (
     <div className="flex flex-col md:gap-16 gap-[52px] ">
@@ -70,7 +66,7 @@ export default function Page() {
         <div className="md:bg-[url('/images/bg_aboutus.jpg')] bg-none w-full h-[832px] bg-cover opacity-35 bg-repeat-round absolute z-0"></div>
         <div className="relative flex flex-col items-center md:gap-8 gap-5 md:pt-[353px] pt-[163px] md:px-[143px] px-[26px]">
           <div className="flex flex-col md:gap-8 gap-5 items-center">
-            <p className="font-bold md:text-8 text-[24px] md:leading-11 leading-10ntracking-[0.01em] text-[#202B37] text-center">
+            <p className="font-bold md:text-[32px] text-[24px] md:leading-11 leading-10ntracking-[0.01em] text-[#202B37] text-center">
               کلینیک پزشکی نیک دکتر سید هدایت حسینی{" "}
             </p>
             <p className=" font-bold md:text-[24px] text-[24px] text-justify md:leading-11 leading-9 tracking-[0.01em] md:text-[#202B37] text-[#414E62] ">
@@ -85,7 +81,9 @@ export default function Page() {
             <ButtonRes
               lable={"مشاهده خدمات"}
               classStyle="md:w-[182px] w-[144px] md:h-[48px] h-[40px]"
-              // onClickButton={}
+              onClickButton={() => {
+                router.push("#servicesid");
+              }}
             />
           </div>
         </div>
@@ -115,15 +113,15 @@ export default function Page() {
       </section>
       {/* Services  */}
       <section className="md:px-[65px] px-[26px]" id="servicesid">
-        <p className="font-bold md:text-[32px] text-[24px] md:leading-[44px] pb-[20px] leading[40px] tracking-[0.01em] text-center">
+        <p className="font-bold md:text-[32px] text-[24px] md:leading-11 pb-5 leading[40px] tracking-[0.01em] text-center">
           خدمات کلینیک زخم نیک
         </p>
-        <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[0.01em] text-center text-[#637083]">
+        <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-center text-[#637083]">
           ما در کلینیک زخم نیک، به درمان زخم‌های مزمن با استفاده از روش‌ های
           نوین و مبتنی بر علم روز دنیا می‌پردازیم. این درمان‌ها شامل موارد زیر
           می‌باشند:
         </p>
-        <div className="flex flex-wrap md:gap-[22px] gap-[12px] justify-center pt-[32px] ">
+        <div className="flex flex-wrap md:gap-[22px] gap-3 justify-center pt-8 ">
           {services.map((item, index) => (
             <ServicesCard
               key={`${index}-${item.name}`}
@@ -171,7 +169,7 @@ export default function Page() {
       {/* Why Clinic */}
       <section className=" md:px-[65px] px-[26px] ">
         <div className="flex flex-col items-center gap-5">
-          <p className="font-[Samim] font-bold md:text-8 text-6 md:leading-11 leading-10 text-center">
+          <p className="font-[Samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-center text-[#202B37]">
             چرا کلینیک درمان زخم نیک را انتخاب کنید؟
           </p>
           <p className="font-[Samim] font-bold md:text-5 text-[16px] leading-[38px] text-[#637083] text-center ">
@@ -189,23 +187,23 @@ export default function Page() {
         </div>
       </section>
       {/* Location */}
-      <section className="md:px-[65px] md:px-[65px] px-[26px] ">
-        <p className="font-[Samim] font-bold md:text-8 text-[24px] md:leading-11 leading-10">
+      <section className="md:px-[65px] px-[26px] ">
+        <p className="font-[Samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 pb-5">
           {" "}
           موقعیت مکانی{" "}
         </p>
-        <p className="font-[Samim] font-bold md:text-5 text-[16px] md:leading-[38px] leading-6 text-[#637083] text-justify">
+        <p className="font-[Samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-[#637083] text-justify">
           کلینیک زخم نیک در شهر شیراز شهرجدید صدرا واقع شده است و با دسترسی آسان
           به امکانات درمانی و خدمات بهداشتی، آماده ارائه بهترین خدمات به شما
           عزیزان می‌باشد.
         </p>
       </section>
       {/* More Information */}
-      <section className="md:px-[65px] px-[26px] flex flex-col justify-center items-center gap-5 md:pb-[114px] pb-[79px] ">
-        <p className="font-[Samim] font-bold md:text-8 text-[24px] md:leading-11 leading-10 text-center">
+      <section className="md:px-[65px] px-[26px] flex flex-col justify-center items-center gap-5 md:pb-[110px] pb-[69px] ">
+        <p className="font-[Samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-center">
           برای اطلاعات بیشتر یا رزرو نوبت، لطفاً با ما تماس بگیرید{" "}
         </p>
-        <p className="font-[Samim] font-bold md:text-5 text-[16px] md:leading-[38px] leading-6 text-[#637083] text-center">
+        <p className="font-[Samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-[#637083] text-center">
           ما در کلینیک زخم نیک، منتظر خدمت‌رسانی به شما عزیزان هستیم تا گامی
           مؤثر در درمان و بهبودی شما برداریم.{" "}
         </p>

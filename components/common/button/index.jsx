@@ -7,11 +7,13 @@ export default function ButtonRes({
   type = "first",
   onClickButton,
   classStyle = "md:text-[1.25rem] text-[1rem] md:px-[26px] px-[20px] md:h-[52px] h-[40px] ",
+  buttonType = "button",
 }) {
   return (
     <>
       {type === "first" ? (
         <div
+          type={buttonType}
           tabIndex={0}
           className={` ${
             isDisable
@@ -62,6 +64,7 @@ export default function ButtonRes({
         </div>
       ) : (
         <div
+          type={buttonType}
           tabIndex={0}
           className={` ${
             isDisable

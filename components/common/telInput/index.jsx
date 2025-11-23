@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+import { useState, useRef, useEffect } from "react";
+
 export default function TelInput({
   lable,
   placeHolder,
@@ -7,6 +9,7 @@ export default function TelInput({
   maxNum,
   inputValue,
 }) {
+  const dropDownRef = useRef();
   const cityNumCode = [
     { id: 1, city: "IR", code: "+98" },
     { id: 1, city: "IQ", code: "+964" },
@@ -14,10 +17,20 @@ export default function TelInput({
     { id: 1, city: "TK", code: "+90" },
   ];
   const [isOpen, setIsOpen] = useState(false);
-
+  useEffect(() => {
+    function handleClickOutSide(e) {
+      if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
   const [inputCodeValue, setInputCodevalue] = useState("");
   return (
-    <div className="">
+    <div ref={dropDownRef} className="">
       <p className="pb-2 font-iransans font-medium md:text-[18px] text-[16px] leading-6 tracking-[1%] text-right text-[#344051]">
         {lable}
       </p>
@@ -46,7 +59,9 @@ export default function TelInput({
                   <div
                     key={`${index}-cityNumCode`}
                     className="hover:bg-[#efefef] cursor-pointer rounded"
-                    onClick={(e) => setInputCodevalue(item.code)}
+                    onClick={(e) => {
+                      setInputCodevalue(item.code), setIsOpen(false);
+                    }}
                   >
                     {item.code}
                   </div>

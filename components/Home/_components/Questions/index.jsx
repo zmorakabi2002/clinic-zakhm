@@ -5,9 +5,9 @@ import QuestionBox from "@/components/common/questionBox";
 
 export default function Questions() {
   return (
-    <section className="w-full h-full flex gap-[22px] md:pt-[72px] pt-[42px] lg:bg-[url('/images/elements.png')] bg-none bg-cover lg:bg-no-repeat pb-[100px]">
+    <section className=" h-full flex gap-[22px] md:pt-[72px] pt-[42px] lg:bg-[url('/images/elements.png')] bg-none bg-size-[100%] lg:bg-no-repeat md:pb-[100px] pb-11">
       <div className="flex flex-col gap-[22px] ">
-        <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-right pt-[102px] pr-[65px] ">
+        <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-right md:mt-[102px] pr-[65px] ">
           <p>سوالات پرتکرار بیماران</p>
         </div>
         <div className="flex flex-col gap-[22px] md:pr-[65px] pr-7 ">

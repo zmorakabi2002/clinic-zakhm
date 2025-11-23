@@ -64,7 +64,7 @@ export default function ServicesectionDesk() {
       <div className="w-full flex flex-col items-center ">
         {/* عنوان */}
         <div className="">
-          <div className="flex justify-center gap-[18px] pb-[18px] ">
+          <div className="flex justify-center gap-[18px]  pb-[18px] ">
             <Image
               src="/images/band-aid.svg"
               alt="band-aid"
@@ -97,14 +97,13 @@ export default function ServicesectionDesk() {
               className=" hidden md:flex"
             />
           </div>
-          <p className="font-samim font-bold md:text-[24px] md-[16px] md:leading-11 leading-6 tracking-[0.01em] text-[#414E62] text-center">
+          <p className="font-samim font-bold md:text-[24px] md-[16px] md:leading-11 leading-6 text-[#414E62] px-[26px] text-center">
             ما انواع زخم‌های مزمن و پیچیده را با روش‌های پیشرفته، سریع‌تر و
             مطمئن‌تر درمان می‌کنیم.
           </p>
         </div>
         {/* کارت‌ها */}
-
-        <div className="flex justify-center flex-wrap gap-x-1.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] px-[50px]">
+        <div className="flex justify-center flex-wrap gap-x-1.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] [@media(min-width:768px)_and_(max-width:1294px)]:px-5 md:px-[60px]">
           {services.map((item, index) => (
             <ServicesCard key={`${index}-${item.name}`} cardData={item} />
           ))}

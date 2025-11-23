@@ -45,12 +45,14 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-[#004b6b] flex items-center justify-center">
-              <Image
-                src="/images/logo.png"
-                alt="لوگو کلینیک زخم"
-                width={56}
-                height={56}
-              />
+              <Link href={"/"}>
+                <Image
+                  src="/images/logo.png"
+                  alt="لوگو کلینیک زخم"
+                  width={56}
+                  height={56}
+                />
+              </Link>
             </div>
           </div>
 

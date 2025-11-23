@@ -22,7 +22,7 @@ export default function Home() {
   };
   return (
     <div>
-      <div className=" bg-[#075379] pt-[150px]">
+      <div className=" bg-[#075379] md:pt-[150px] pt-[100px] ">
         {/* <Header /> */}
 
         <Herosection />

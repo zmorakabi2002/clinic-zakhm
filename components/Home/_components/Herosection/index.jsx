@@ -19,7 +19,7 @@ export default function Herosection() {
     <section className=" relative flex justify-center text-white overflow-hidden w-full ">
       <div className="w-full flex items-end justify-between md:pr-[65px] pr-[26px] ">
         {/*  متن سمت راست */}
-        <div className="h-[300px] md:h-[431px] w-[654px] flex flex-col md:gap-10 gap-4 mb-7 md:mt-[136px] mt-[58px] ">
+        <div className="h-[300px] md:h-[431px] w-[654px] flex flex-col md:gap-10 gap-4 mb-7 md:mt-[136px] mt-[50px] ">
           {/* تیتر */}
           <div className="hidden md:flex flex-col justify-between ">
             <h1 className=" w-[654px] h-[88px] font-[Samim] font-bold text-[1.875rem] md:text-[2.125rem] md:gap-10 gap-5 lg:text-[2.375rem] leading-11 ">

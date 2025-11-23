@@ -14,9 +14,9 @@ export default function Page() {
   const ValidationSchema = Yup.object({
     fullName: Yup.string().required("نام و نام خانوادگی را وارد کنید ."),
 
-    number: Yup.number()
+    number: Yup.string()
       .required("شماره همراه را وارد کنید.")
-      .min(10, "شماره همراه را به درستی وارد کنید ."),
+      .matches(/^[0-9]{10}$/, "شماره همراه به درستی وارد کنید."),
     code: Yup.number().required("کد ملی را وارد کنید."),
     education: Yup.string().required("رشته تحصیلی را وارد کنید ."),
     WorkHistoryWound: Yup.string().required(
@@ -40,18 +40,10 @@ export default function Page() {
       ),
   });
   const router = useRouter();
-  // const [inputValue, setInputvalue] = useState("");
-  // const [inputNumber, setInputNumber] = useState("");
-  // const [inputId, setInputId] = useState("");
-  // const [inputWorkHistoryWound, setInputWorkHistoryWound] = useState("");
-  // const [inputWorkHistoryEduction, setInputWorkHistoryEduction] = useState("");
-  // const [inputcurrentWork, setInputCarrentWork] = useState("");
+  const [city, setCity] = useState();
   const STORAGE_KEY = "uploadedImages";
   const [image, setImage] = useState(null);
 
-  // const onInputChange = (e, setInputvalue) => {
-  //   setInputvalue(e.target.value);
-  // };
   const handleClickCancel = (e) => {
     e.preventDefault();
     router.push("/");
@@ -61,26 +53,6 @@ export default function Page() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) setImage(saved);
   }, []);
-  // کنترل آپلود فایل
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files?.[0];
-  //   // if (!file) return;
-  //   // if (errorMessage["imageis"]) {
-  //   //   setErroreMesssage((prev) => {
-  //   //     const newErr = { ...prev };
-  //   //     delete newErr["imageis"];
-  //   //     return newErr;
-  //   //   });
-  //   // }
-
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     const base64 = reader.result;
-  //     localStorage.setItem(STORAGE_KEY, base64);
-  //     setImage(base64);
-  //   };
-  //   reader.readAsDataURL(file);
-  // };
 
   const initialValues = {
     fullName: "",
@@ -99,16 +71,15 @@ export default function Page() {
     { id: 2, name: "مهندسی پزشکی" },
     { id: 3, name: "روانشناسی" },
   ];
-  const Province = [
-    { id: 1, name: "تهران" },
-    { id: 2, name: "فارس" },
-    { id: 3, name: "اصفهان" },
-  ];
-  const City = [
-    { id: 1, name: "تهران" },
-    { id: 2, name: "شیراز" },
-    { id: 3, name: "اصفهان" },
-  ];
+
+  const provinces = {
+    تهران: ["تهران", "شمیرانات", "ری", "اسلام‌شهر", "بهارستان"],
+    فارس: ["شیراز", "مرودشت", "کازرون", "لار", "جهرم"],
+    اصفهان: ["اصفهان", "کاشان", "نجف‌آباد", "خمینی‌شهر"],
+    "خراسان رضوی": ["مشهد", "نیشابور", "تربت‌حیدریه", "سبزوار"],
+    // هر استان خواستی اضافه کن
+  };
+
   const handleCheckErrors = async (values, validateForm, setTouched) => {
     // همه فیلدها را touched کن تا خطاها نمایش داده شوند
     setTouched(
@@ -130,10 +101,10 @@ export default function Page() {
   return (
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] flex flex-col items-center ">
       <div className="flex flex-col items-center gap-[22px]">
-        <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-[44px] leading-[40px] tracking-[1%] text-right">
+        <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[1%] text-right">
           فرم ثبت‌نام درمانگران زخم{" "}
         </p>
-        <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-[24px] tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">
+        <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-center  md:text-[#637083] text-[#414E62] ">
           اگر در حوزه‌ی درمان زخم فعالیت دارید، با تکمیل فرم زیر به جمع
           درمانگران نیک کلینیک بپیوندید.{" "}
         </p>
@@ -149,7 +120,7 @@ export default function Page() {
           setFieldValue,
         }) => (
           <Form>
-            <div className=" md:w-[783px] w-[360px] flex flex-wrap gap-[32px] pt-[32px] justify-center items-center ">
+            <div className=" md:w-[783px] w-[360px] flex flex-wrap gap-8 pt-8 justify-center items-center ">
               <div className="flex flex-col">
                 <Input
                   name="fullName"
@@ -168,7 +139,7 @@ export default function Page() {
                 <TelInput
                   name="number"
                   lable={"شماره همراه "}
-                  placeHolder={"917 *** ****"}
+                  placeHolder={"9** *** ****"}
                   inputValue={values.number}
                   maxNum={10}
                   inputChange={(e) =>
@@ -209,7 +180,7 @@ export default function Page() {
                   options={education}
                   onOptionClick={(value) => {
                     setFieldValue("education", value);
-                    setTouched({ ...touched, education: true });
+                    setTouched({ ...touched, education: false });
                   }}
                 />
                 {errors.education && touched.education && (
@@ -221,6 +192,7 @@ export default function Page() {
                   name="WorkHistoryWound"
                   lable={"سابقه کاری در درمان زخم (به سال)"}
                   placeHolder={"سابقه کاری در درمان زخم را وارد کنید."}
+                  maxLenght={2}
                   inputValue={values.WorkHistoryWound}
                   inputChange={(e) =>
                     /^[0-9]*$/.test(e.target.value)
@@ -241,6 +213,7 @@ export default function Page() {
                   name="WorkHistoryEduction"
                   lable={"سابقه کاری در رشته خود (به سال)"}
                   placeHolder={"سابقه کاری در رشته خود را وارد کنید."}
+                  maxLenght={2}
                   inputValue={values.WorkHistoryEduction}
                   inputChange={(e) =>
                     /^[0-9]*$/.test(e.target.value)
@@ -260,11 +233,13 @@ export default function Page() {
                   name="provincee"
                   defaultValue={"استان را انتخاب کنید."}
                   labename={"استان"}
-                  classStyle="md:w-[375.5px] w-[360px] "
-                  options={Province}
+                  classStyle="md:w-[375.5px] w-[360px]"
+                  options={Object.keys(provinces).map((p) => ({ name: p }))} // ✔️ استان‌ها
                   onOptionClick={(value) => {
                     setFieldValue("provincee", value);
-                    setTouched({ ...touched, provincee: true });
+                    setCity(""); // ✔️ ریست کردن شهر
+                    setFieldValue("cityis", ""); // ✔️ ریست داخل Formik
+                    setTouched({ ...touched, provincee: false });
                   }}
                 />
                 {errors.provincee && touched.provincee && (
@@ -276,13 +251,17 @@ export default function Page() {
                   name="cityis"
                   defaultValue={"شهر را انتخاب کنید."}
                   labename={"شهر"}
-                  classStyle="md:w-[375.5px] w-[360px] "
-                  options={City}
+                  classStyle="md:w-[375.5px] w-[360px]"
+                  options={
+                    values.provincee
+                      ? provinces[values.provincee].map((c) => ({ name: c })) // ✔️ شهرهای استان انتخاب‌شده
+                      : []
+                  }
                   onOptionClick={(value) => {
                     setFieldValue("cityis", value);
-                    setTouched({ ...touched, cityis: true });
+                    setTouched({ ...touched, cityis: false });
                   }}
-                />{" "}
+                />
                 {errors.cityis && touched.cityis && (
                   <p className="text-red-500 text-sm">{errors.cityis}</p>
                 )}
@@ -302,12 +281,12 @@ export default function Page() {
                   <p className="text-red-500 text-sm">{errors.currentWork}</p>
                 )}
               </div>
-              <div className="flex flex-col py-[38px] gap-[21px] items-center rounded-[8px] border border-dashed md:w-[778px] w-[360px] md:h-[185px] h-[162px] border-[#97A1AF] ">
-                <p className="hidden md:flex font-[Samim] font-normal text-[18px] leading-[24px] tracking-[1%] text-center text-[#637083]">
+              <div className="flex flex-col py-[38px] gap-[21px] items-center rounded-lg border border-dashed md:w-[778px] w-[360px] md:h-[185px] h-[162px] border-[#97A1AF] ">
+                <p className="hidden md:flex font-[Samim] font-normal text-[18px] leading-6 tracking-[1%] text-center text-[#637083]">
                   برای تأیید صلاحیت حرفه‌ای، کارت نظام پرستاری معتبر خود را
                   آپلود کنید.
                 </p>{" "}
-                <p className="flex md:hidden font-normal text-[18px] leading-[24px] tracking-[1%] text-center font-[Samim]  text-[#637083]">
+                <p className="flex md:hidden font-normal text-[18px] leading-6 tracking-[1%] text-center font-[Samim]  text-[#637083]">
                   کارت نظام پرستاری معتبر خود را آپلود کنید.
                 </p>
                 <UploadInput

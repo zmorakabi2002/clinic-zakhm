@@ -61,6 +61,14 @@ export default function Aboutsection() {
             className="object-cover ml-0 md:mt-21.5 mt-6 lg:mb-0 mb-6 "
             priority
           />
+          <div className="lg:hidden flex lg:justify-start justify-center gap-8 mt-auto ">
+            <ButtonRes
+              lable={" مطالعه بیشتر"}
+              type="second"
+              onClickButton={handleClick}
+            />
+            <ButtonRes lable={"تماس با ما"} onClickButton={handleClickCon} />
+          </div>
         </div>
       </div>
     </section>
