@@ -12,31 +12,27 @@ export default function Home() {
   if (!item) return <p> آیتم مورد نظر یافت نشد</p>;
 
   return (
-    <div className="pt-[202px] mx-[65px] mb-[153px] flex flex-col">
-      <div className="flex flex-col items-center gap-8 mb-[52px]">
-        <Image
-          src={"/images/blog1.jpg"}
-          width={605}
-          height={511}
-          alt={"blog"}
-          className="md:flex hidden rounded-sm "
-        />
-        <Image
-          src={"/images/blog1.jpg"}
-          width={360}
-          height={304}
-          alt={"blog"}
-          className="md:hidden flex rounded-sm "
-        />
-        <p className="font-[samim] font-bold md:text-[32px] text-[24px] text-center text-[#202B37] ">
-          {item.title}
-        </p>
-        <p className="font-[samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-justify text-[#414E62] ">
-          {item.Introduction}
-        </p>
-      </div>
-
-      <UserOpinion />
+    <div className=" md:pt-[182px] pt-[126px] md:px-[65px] px-[26px] md:mb-[179px] mb-[69px] flex flex-col items-center gap-8">
+      <Image
+        src={"/images/article.jpg"}
+        width={611}
+        height={511}
+        alt={"blog"}
+        className="md:flex hidden rounded-sm"
+      />
+      <Image
+        src={"/images/article.jpg"}
+        width={360}
+        height={301}
+        alt={"blog"}
+        className="md:hidden rounded-sm"
+      />
+      <p className="font-[samim] font-bold md:text-[32px] text-[24px] text-center text-[#202B37] ">
+        {item.title}
+      </p>
+      <p className="font-[samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-justify text-[#344051] ">
+        {item.Introduction}
+      </p>
     </div>
   );
 }
