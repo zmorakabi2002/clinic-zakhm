@@ -29,7 +29,7 @@ export default function UploadInput({ image, onClickUpload, onFileChange }) {
           alt="uploaded"
           width={100}
           height={100}
-          className="rounded-[10px] blur-[1px] absolute left-[330px] bottom-0"
+          className="rounded-[10px] blur-[1px] absolute md:left-[330px] left-33 bottom-0 top-0.5"
         />
       )}
     </div>

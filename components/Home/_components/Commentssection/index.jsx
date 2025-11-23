@@ -2,6 +2,8 @@
 import ButtonRes from "@/components/common/button";
 import CommentCard from "@/components/common/commentCard";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const stars = [
   {
@@ -14,24 +16,72 @@ const stars = [
   },
   {
     id: 2,
-    user: "ali",
+    user: "نیما",
     url: "/images/userimg.jpg",
-    explainText: "lskdnflsddkcmnflbednflsebf",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
     stars: 1,
   },
   {
     id: 3,
-    user: "zahra",
+    user: "علی",
     url: "/images/userimg.jpg",
-    explainText: "weirj",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
     stars: 3,
+  },
+  {
+    id: 4,
+    user: "محمد",
+    url: "/images/userimg.jpg",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+    stars: 4,
+  },
+  {
+    id: 5,
+    user: "رضا",
+    url: "/images/userimg.jpg",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+    stars: 4,
+  },
+  {
+    id: 6,
+    user: "سارا",
+    url: "/images/userimg.jpg",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+    stars: 4,
+  },
+  {
+    id: 7,
+    user: "کیمیا",
+    url: "/images/userimg.jpg",
+    explainText:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است",
+    stars: 4,
   },
 ];
 
 export default function Commentssection() {
   const router = useRouter();
-  const handleClick = (e) => {
+  const [cards, setCards] = useState(stars);
+
+  const handleClick = () => {
     router.push("/clientSatisfaction");
+  };
+  const handleCardClick = () => {
+    const first = cards[0];
+    setCards((prev) => [...prev]);
+    setTimeout(() => {
+      setCards((prev) => {
+        const newArr = [...prev];
+        const f = newArr.shift();
+        newArr.push(f);
+        return newArr;
+      });
+    }, 300);
   };
   return (
     <div className="lg:mt-17 mt-12.5 lg:mx-16 mx-[1.93rem] flex flex-col">
@@ -47,27 +97,49 @@ export default function Commentssection() {
         </div>
 
         <div className="lg:w-[485px] lg:h-[418px] w-[22.3rem] h-full flex items-end ">
-          {stars.slice(0, 3).map((item, index) => {
-            return (
-              <div
-                key={`${index}-stars`}
-                className=" absolute"
-                style={{
-                  transformOrigin: "",
-                  transform: `translate(${index * -20}px, ${
-                    -index * 32
-                  }px) rotate(${index * -5}deg)`,
-                  zIndex: 10 - index,
-                }}
-              >
-                <CommentCard userData={item} />
-              </div>
-            );
-          })}
+          <AnimatePresence>
+            {cards.slice(0, 3).map((item, index) => {
+              const offsetX = index * -20;
+              const offsetY = index * -32;
+              const rotate = index * -5;
+
+              return (
+                <motion.div
+                  key={item.id}
+                  layout
+                  onClick={index === 0 ? handleCardClick : undefined}
+                  className="absolute cursor-pointer"
+                  style={{ zIndex: 10 - index }}
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    rotate,
+                    x: offsetX,
+                    y: offsetY,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.9,
+                    y: -80, // 💥 حرکت کارت به بالا
+                    transition: { duration: 0.3 },
+                  }}
+                  transition={{
+                    duration: 0.35,
+                    type: "spring",
+                    stiffness: 120,
+                  }}
+                >
+                  <CommentCard userData={item} />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
       </div>
 
-      <div className="lg:flex hidden justify-center mt-8 ">
+      <div className="flex justify-center mt-[26px] ">
         <ButtonRes lable={"ثبت و مشاهده نظرات"} onClickButton={handleClick} />
       </div>
     </div>

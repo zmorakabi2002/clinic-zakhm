@@ -45,7 +45,7 @@ export default function Footer() {
     >
       <div className=" absolute w-full flex flex-col md:flex-row gap-6 justify-between z-10 px-10 md:py-2.5 lg:py-8 py-[61px] text-[#FFFFFF]">
         <div className=" flex flex-col ">
-          <p className="text-center font-samim font-bold md:text-[20px]  [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle ">
+          <p className="text-center font-samim font-bold md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle ">
             هدف ما
           </p>
           <p className="text-center font-samim md:font-bold font-normal md:text-[20px] [@media(min-width:768px)_and_(max-width:1000px)]:text-[13px] text-[14px] md:leading-[38px] leading-6 tracking-[0.01em] align-middle truncate ">

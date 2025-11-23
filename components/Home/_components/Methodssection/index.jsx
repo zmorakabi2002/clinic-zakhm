@@ -62,7 +62,7 @@ export default function MethodsSection() {
   //   },
   // ];
   return (
-    <div className="contain-content md:pr-[65px] pr-[18px]">
+    <div className="contain-content md:pr-[65px] pr-7">
       <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-right text-[#202B37]">
         <p>روش‌های نوین درمان زخم</p>
       </div>

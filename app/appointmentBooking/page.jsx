@@ -17,11 +17,10 @@ export default function Page() {
   // const [messageInput, setMessageInput] = useState("");
   const ValidationSchema = Yup.object({
     fullName: Yup.string().required("نام و نام خانوادگی را وارد کنید ."),
-    number: Yup.number()
+    number: Yup.string()
       .required("شماره همراه را وارد کنید.")
-      .min(10, "شماره همراه را به درستی وارد کنید ."),
+      .matches(/^[0-9]{10}$/, "شماره همراه به درستی وارد کنید."),
     title: Yup.string().required(" عنوان را وارد کنید . "),
-    message: Yup.string().required("پیام را وارد کنید . "),
   });
   const initialValues = {
     fullName: "",
@@ -92,8 +91,9 @@ export default function Page() {
                   <TelInput
                     name="number"
                     lable={"شماره همراه"}
-                    placeHolder={"9999999999"}
+                    placeHolder={"9** *** ****"}
                     inputValue={values.number}
+                    maxNum={10}
                     inputChange={(e) =>
                       /^[0-9]*$/.test(e.target.value)
                         ? setFieldValue("number", e.target.value)
@@ -129,9 +129,6 @@ export default function Page() {
                     }
                     classStyle="md:w-[706px] h-[176px] w-[360px]"
                   />
-                  {errors.message && touched.message && (
-                    <p className="text-red-500 text-sm">{errors.message}</p>
-                  )}
                 </div>
                 <div>
                   <ButtonRes

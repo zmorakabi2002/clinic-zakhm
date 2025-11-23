@@ -6,6 +6,7 @@ export default function Input({
   inputValue,
   inputChange,
   errors,
+  maxLenght,
   classStyle = "md:w-[337px] md:h-[60px] w-[360px] h-[52px] ",
 }) {
   return (
@@ -16,6 +17,7 @@ export default function Input({
       </p>
       <input
         type="text"
+        maxLength={maxLenght}
         value={inputValue}
         onChange={inputChange}
         placeholder={placeHolder}
