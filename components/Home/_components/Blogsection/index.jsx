@@ -10,10 +10,10 @@ import Link from "next/link";
 
 export default function Blogsection() {
   const { articles } = useData();
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push("/appointmentBooking");
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   router.push("/appointmentBooking");
+  // };
 
   return (
     <div className="contain-content flex flex-col  gap-8 md:px-[65px] px-7 pt-[50px] md:pb-20 pb-[46px]">
@@ -53,11 +53,15 @@ export default function Blogsection() {
           )}
         </Swiper>
       </div>
-      <div className="md:flex gap-[17px] hidden pb-20">
+      <div className="md:flex justify-center gap-[17px] hidden pb-20">
         {articles.map(
           (item, index) =>
             index < 3 && (
-              <ArticleCard cardData={item} moreLink={`/blogs/${item.id}`} />
+              <ArticleCard
+                key={`${index}-${item.name}`}
+                cardData={item}
+                moreLink={`/blogs/${item.id}`}
+              />
             )
         )}
       </div>

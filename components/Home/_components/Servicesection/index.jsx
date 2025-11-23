@@ -2,60 +2,10 @@
 
 import ServicesCard from "@/components/common/serviceCard";
 import Image from "next/image";
+import { useData } from "@/app/context/dataContext";
 
 export default function ServicesectionDesk() {
-  const services = [
-    {
-      title: "زخم سوختگی",
-      text: "درمان تخصصی انواع سوختگی با جدیدترین روش‌ها برای کاهش عفونت و بازسازی پوست.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "میخچه",
-      text: "برداشت میخچه به‌صورت بدون درد با روش‌های غیرتهاجمی و تجهیزات نوین کلینیکی.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "زخم دیابتی",
-      text: "درمان مرحله‌به‌مرحله زخم پای دیابتی برای جلوگیری از عفونت و بهبود سریع‌تر.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "بیماری پسوریازیس",
-      text: "کنترل التهاب و پوسته‌ریزی ناشی از بیماری‌های خودایمنی با روش‌های تخصصی پوست.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "پاپیلودما گانگرنوزوم",
-      text: "درمان زخم‌های عمیق و مزمن با بهره‌گیری از درمان‌های ترکیبی و سلول‌درمانی.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "درمان عفونت زخم",
-      text: "با پاکسازی دقیق محل زخم و استفاده از آنتی‌بیوتیک‌های موضعی، از گسترش عفونت جلوگیری می‌کنیم.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "زخم‌های سرطانی",
-      text: "پوشش و درمان مرحله‌ای زخم‌های بدخیم با روش‌های نوین کنترل عفونت و ترمیم بافت.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "زخم‌های عروقی",
-      text: "بهبود زخم‌های مزمن ناشی از اختلال در گردش خون با روش‌های تخصصی ترمیمی.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "زخم بستر",
-      text: "پیشگیری و درمان زخم‌های فشاری بیماران بستری با روش‌های مدرن و پانسمان‌های هوشمند.",
-      img: "/images/aboutclinic.jpg",
-    },
-    {
-      title: "زخم جراحی",
-      text: "مراقبت از زخم‌های بعد از جراحی برای جلوگیری از عفونت و تسریع روند ترمیم پوست.",
-      img: "/images/aboutclinic.jpg",
-    },
-  ];
+  const { services } = useData();
   return (
     <section
       className="w-full flex justify-center py-20 text-[#141C24]"
@@ -105,7 +55,11 @@ export default function ServicesectionDesk() {
         {/* کارت‌ها */}
         <div className="flex justify-center flex-wrap gap-x-1.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] [@media(min-width:768px)_and_(max-width:1294px)]:px-5 md:px-[60px]">
           {services.map((item, index) => (
-            <ServicesCard key={`${index}-${item.name}`} cardData={item} />
+            <ServicesCard
+              key={`${index}-${item.name}`}
+              cardData={item}
+              moreLink={`/services/${item.id}`}
+            />
           ))}
         </div>
       </div>

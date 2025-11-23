@@ -7,8 +7,8 @@ import UserOpinion from "@/components/common/userOpinion";
 
 export default function Home() {
   const params = useParams();
-  const { articles } = useData();
-  const item = articles.find((i) => i.id === params.id);
+  const { services } = useData();
+  const item = services.find((i) => i.id === params.id);
   if (!item) return <p> آیتم مورد نظر یافت نشد</p>;
 
   return (

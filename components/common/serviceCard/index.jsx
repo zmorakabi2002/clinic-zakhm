@@ -1,14 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ServicesCard({
   classStyle = "bg-[#FF9E66] md:w-[210.6px] lg:w-[230px] w-[163px] md:h-[306px] h-[154px] border-[#FF8039] shadow-[0_0_0px_0_#00000000] ",
   cardData,
+  moreLink,
   isResText = false,
   ImageS_Desktop = 100,
   ImageS_Mobile = 78,
 }) {
   return (
-    <div
+    <Link
+      href={`${moreLink}`}
       className={` flex flex-col items-center text-center  border-2 rounded-[28px] md:py-6 py-3.5 px-[18px] gap-2 opacity-100 ${classStyle} `}
     >
       <Image
@@ -37,6 +40,6 @@ export default function ServicesCard({
       >
         {cardData?.text}
       </p>
-    </div>
+    </Link>
   );
 }
