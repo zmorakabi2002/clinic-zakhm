@@ -6,7 +6,7 @@ export default function ButtonRes({
   isDisable,
   type = "first",
   onClickButton,
-  classStyle = "md:text-[1.25rem] text-[1rem] md:px-[26px] px-[20px] md:h-[52px] h-[40px] ",
+  classStyle = "md:text-[1.25rem] text-[1rem] text-[#141C24] md:px-[26px] px-[20px] md:h-[52px] h-[40px] ",
   buttonType = "button",
 }) {
   return (

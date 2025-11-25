@@ -1,3 +1,5 @@
+import { resize } from "framer-motion";
+
 export default function TextArea({
   lable,
   placeHolder,
@@ -15,7 +17,7 @@ export default function TextArea({
         value={inputValue}
         placeholder={placeHolder}
         onChange={inputChange}
-        className={`pt-[18px] border-[1.5px] rounded-[34px] border-[#CED2DA] px-5 md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-right placeholder:text-[#637083] ${classStyle}`}
+        className={`pt-[18px] border-[1.5px] rounded-[34px] border-[#CED2DA] px-5 md:placeholder:text-[18px] placeholder:text-[14px] placeholder:text-right placeholder:text-[#637083] resize-none ${classStyle}`}
       />
     </div>
   );

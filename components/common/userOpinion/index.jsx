@@ -41,7 +41,7 @@ export default function UserOpinion({ image, title, explain, onLoadData }) {
   };
 
   return (
-    <div className="flex flex-row justify-between items-end ">
+    <div className="flex flex-row justify-between md:px-[65px] px-[26px] items-end ">
       <div className="md:w-[515px] flex flex-col gap-8">
         <p className="font-[samim] font-bold md:text-[32px] text-[24px] ">
           دیدگاه مراجعه کنندگان

@@ -18,7 +18,7 @@ export default function Blogsection() {
   return (
     <div className="contain-content flex flex-col  gap-8 md:px-[65px] px-7 pt-[50px] md:pb-20 pb-[46px]">
       <div className="flex justify-between items-center">
-        <p className="font-[samim] font-bold md:text-[32px] text-[24px] leading-11 ">
+        <p className="font-[samim] font-bold md:text-[32px] text-[24px] text-[#141C24] leading-11 ">
           مجله کلینیک زخم شیراز
         </p>
         <Link
@@ -36,7 +36,7 @@ export default function Blogsection() {
           />
         </Link>
       </div>
-      <div className="md:hidden pb-20 flex justify-center">
+      <div className="md:hidden pb-20 justify-center">
         <Swiper
           spaceBetween={17}
           slidesPerView={"auto"}

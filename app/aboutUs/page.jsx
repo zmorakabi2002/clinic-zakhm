@@ -90,7 +90,7 @@ export default function Page() {
       </section>
       {/* About */}
       <section className="md:px-[65px] px-[26px] ">
-        <p className="font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-center pb-5">
+        <p className="font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-[#202B37] text-center pb-5">
           درباره کلینیک زخم نیک
         </p>
         <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-center text-[#637083] pb-8">
@@ -113,7 +113,7 @@ export default function Page() {
       </section>
       {/* Services  */}
       <section className="md:px-[65px] px-[26px]" id="servicesid">
-        <p className="font-bold md:text-[32px] text-[24px] md:leading-11 pb-5 leading[40px] tracking-[0.01em] text-center">
+        <p className="font-bold md:text-[32px] text-[24px] md:leading-11 pb-5 leading[40px] text-[#202B37] text-center">
           خدمات کلینیک زخم نیک
         </p>
         <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-center text-[#637083]">
@@ -137,7 +137,7 @@ export default function Page() {
       {/* Video  */}
       <section className="flex flex-col md:flex md:flex-row gap-8 md:px-[65px] px-[26px]">
         <div className="flex flex-col gap-5">
-          <p className="font-[Samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-center">
+          <p className="font-[Samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-center text-[#202B37]">
             تخصص، تجربه و دقت در درمان
           </p>
           <p className="font-[Samim] font-bold md:text-5 text-[16px] leading-[38px] text-[#637083] text-justify ">

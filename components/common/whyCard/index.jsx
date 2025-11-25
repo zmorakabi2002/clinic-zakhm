@@ -25,11 +25,11 @@ export default function WhyCard({
         />
       </div>
       <div
-        className={`font-samim md:w-[300px] md:h-[38px] h-12 w-[146px] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[0.01em] text-center align-middle `}
+        className={`font-samim md:w-[300px] text-[#202B37] md:h-[38px] h-12 w-[146px] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-center align-middle `}
       >
         <p> {cardData?.title}</p>
       </div>
-      <div className="hidden md:flex text-[#333333] font-samim font-normal text-[16px] leading-6 tracking-[0.01em] text-justify align-middle">
+      <div className="hidden md:flex text-[#333333] font-samim font-normal text-[16px] leading-6 text-justify align-middle">
         <p>{cardData?.explain}</p>
       </div>
     </div>

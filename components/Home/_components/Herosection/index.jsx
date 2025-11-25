@@ -16,7 +16,7 @@ export default function Herosection() {
     router.push("/appointmentBooking");
   };
   return (
-    <section className=" relative flex justify-center text-white overflow-hidden w-full ">
+    <section className=" relative flex justify-center text-[#F9FAFB] overflow-hidden w-full ">
       <div className="w-full flex items-end justify-between md:pr-[65px] pr-[26px] ">
         {/*  متن سمت راست */}
         <div className="h-[300px] md:h-[431px] w-[654px] flex flex-col md:gap-10 gap-4 mb-7 md:mt-[136px] mt-[50px] ">

@@ -38,7 +38,7 @@ export default function Header() {
   };
 
   return (
-    <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px] z-10">
+    <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px] z-10 text-[#141C24]">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-8 px-3.5 bg-[#FFF0E5]">
         {/* Right side - Logo + Menu */}
         <div className="flex items-center gap-7">
