@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, FormikHelpers } from "formik";
+import TextArea from "@/components/common/textArea";
 
 export default function Page() {
   const ValidationSchema = Yup.object({
@@ -267,7 +268,7 @@ export default function Page() {
                 )}
               </div>
               <div>
-                <Input
+                <TextArea
                   name="currentWork"
                   lable={"نام و آدرس محل کار فعلی"}
                   placeHolder={"نام و آدرس محل کار فعلی خود را وارد کنید."}
@@ -275,7 +276,7 @@ export default function Page() {
                   inputChange={(e) =>
                     setFieldValue("currentWork", e.target.value)
                   }
-                  classStyle="md:w-[783px] w-[360px]"
+                  classStyle="md:w-[783px] w-[360px] md:h-[60px] h-[161px] "
                 />
                 {errors.currentWork && touched.currentWork && (
                   <p className="text-red-500 text-sm">{errors.currentWork}</p>

@@ -12,7 +12,7 @@ export default function Home() {
   if (!item) return <p> آیتم مورد نظر یافت نشد</p>;
 
   return (
-    <div className="pt-[202px] mx-[65px] mb-[153px] flex flex-col">
+    <div className="md:pt-[202px] pt-[126px] mx-[65px] mb-[153px] flex flex-col">
       <div className="flex flex-col items-center gap-8 mb-[52px]">
         <Image
           src={"/images/blog1.jpg"}

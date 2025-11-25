@@ -7,12 +7,12 @@ export default function page() {
   const { sampleWounds } = useData();
 
   return (
-    <div className=" md:px-[65px] px-[26px]">
-      <div className=" flex flex-col gap-[22px] pt-[182px] pb-8">
-        <p className="font-[samim] font-bold text-[32px] leading-11 text-[#202B37]">
+    <div className=" md:px-[65px] px-[27px]">
+      <div className=" flex flex-col gap-[22px] md:pt-[182px] pt-[126px] pb-8">
+        <p className="font-[samim] font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-[#202B37]">
           نمونه زخم‌های بهبود یافته در کلینیک نیک
         </p>
-        <p className="font-[samim] font-bold text-[20px] leading-[38px] text-[#637083]">
+        <p className="font-[samim] font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-[#637083]">
           نتایج واقعی درمان زخم‌های مزمن توسط تیم تخصصی ما
         </p>
       </div>
@@ -29,14 +29,14 @@ export default function page() {
         ))}
       </div>
       <div className="flex flex-col  items-center">
-        <p className="py-[68px] font-samim font-bold text-[20px] leading-[38px] text-center text-[#637083]">
+        <p className="py-[68px] font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-center text-[#637083]">
           تمام تصاویر با رضایت بیماران منتشر شده‌اند و نشان‌دهنده بخشی از نتایج
           واقعی درمان در کلینیک زخم نیک هستند.
         </p>
-        <p className="font-samim font-bold text-[32px] leading-11 text-center">
+        <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 text-center text-[#202B37]">
           آیا شما یا عزیزانتان نیاز به درمان تخصصی زخم دارید؟
         </p>
-        <p className="font-samim py-5 font-bold text-[20px] leading-[38px] text-center text-[#637083]">
+        <p className="font-samim py-5 font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-center text-[#637083]">
           {" "}
           اگر شما یا یکی از عزیزانتان نیاز به درمان تخصصی زخم دارید، با ما تماس
           بگیرید.

@@ -14,7 +14,7 @@ export default function DrBox({ data, onPageClick }) {
       className="fixed bg-[#000000ad] z-20 w-full h-screen px-[27px] top-0 right-0 flex justify-center items-center "
       onClick={onPageClick}
     >
-      <div className="w-[500px]  rounded-[22px] px-6 py-8 flex flex-col bg-[#F9FAFB] gap-[18px]">
+      <div className="md:w-[500px] w-[400px] rounded-[22px] px-6 py-8 flex flex-col bg-[#F9FAFB] gap-[18px]">
         <div className=" flex flex-col items-center gap-[18px]">
           <p className=" font-bold text-[24px] leading-11">
             {data?.name}
@@ -34,12 +34,12 @@ export default function DrBox({ data, onPageClick }) {
           </p>
         </div>
 
-        <div className="gap-3">
-          <p className=" font-bold text-[20px] leading-[38px] tracking-[1%] text-justify">
+        <div className="flex flex-col gap-3">
+          <p className=" font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-justify text-[#202B37]">
             مدرک تحصیلی
           </p>
           <div className="flex flex-col gap-2">
-            <p className="font-normal text-[18px] leading-6 tracking-[1%] text-justify text-[#414E62] ">
+            <p className="font-normal md:text-[18px] text-[14px] leading-6 tracking-[1%] text-justify text-[#414E62] ">
               {data?.degree?.major}
               {/* baghal */}
             </p>
@@ -50,26 +50,26 @@ export default function DrBox({ data, onPageClick }) {
           </div>
         </div>
 
-        <div className="gap-3">
-          <p className="font-bold text-[20px] leading-[38px] tracking-[1%] text-justify">
+        <div className="flex flex-col gap-3">
+          <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-justify text-[#202B37]">
             {" "}
             سابقه کاری
           </p>
-          <p className="font-normal text-[18px] leading-6 tracking-[1%] text-justify text-[#414E62]">
+          <p className="font-normal md:text-[18px] text-[14px] leading-6 tracking-[1%] text-justify text-[#414E62]">
             {data?.workHistory}
             سال
           </p>
         </div>
 
-        <div className="gap-3">
-          <p className="font-bold text-[20px] leading-[38px] tracking-[1%] text-justify">
+        <div className="flex flex-col gap-3">
+          <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-justify text-[#202B37]">
             حوزه های تخصصی
           </p>
           <div className="flex gap-2">
             {data?.specializedAreas?.map((item, index) => {
               return (
                 <div key={`${index}-specializedArea`}>
-                  <p className="font-medium text-[14px] text-[#202B37] bg-[#F9FAFB] border-2 border-[#086391] rounded-[36px] px-[18px] py-2 ">
+                  <p className="font-medium text-[14px] text-[#202B37] bg-[#F9FAFB] border-2 border-[#086391] rounded-[36px] md:px-[18px] px-3 py-1 md:py-2 ">
                     {" "}
                     {item}
                   </p>
@@ -80,11 +80,11 @@ export default function DrBox({ data, onPageClick }) {
         </div>
 
         <div className="flex flex-col gap-3">
-          <p className="font-bold text-[20px] leading-[38px] tracking-[1%] text-justify">
+          <p className="font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-justify">
             {" "}
             ساعات حضور
           </p>
-          <p className="font-normal text-[18px] leading-6 tracking-[1%] text-justify text-[#414E62]">
+          <p className="font-normal md:text-[18px] text-[14px] leading-6 tracking-[1%] text-justify text-[#414E62]">
             {" "}
             شنبه تا چهارشنبه، ۹ صبح تا ۵ عصر{" "}
           </p>

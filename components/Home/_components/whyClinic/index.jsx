@@ -46,7 +46,7 @@ const Whycard = [
 export default function WhyClinic() {
   return (
     <div className="">
-      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-center pt-[68px] gap-[52px] ">
+      <div className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[0.01em] text-center pt-[68px] gap-[52px] text-[#202B37] ">
         <p>چرا کلینیک زخم نیک؟</p>
       </div>
       <div className="flex flex-wrap md:px-[65px] px-[18px] md:pt-[52px] pt-6 justify-center md:gap-[35px] gap-2">

@@ -50,7 +50,7 @@ export default function Page() {
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] md:mb-[180px] flex flex-col items-center mb-[101px]">
       <div className="md:w-[706px]">
         <div className="flex flex-col items-center gap-[22px]  ">
-          <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[1%] text-right">
+          <p className="font-samim font-bold md:text-[32px] text-[24px] md:leading-11 leading-10 tracking-[1%] text-right text-[#202B37]">
             رزرو نوبت آنلاین
           </p>
           <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 tracking-[1%] text-right md:text-[#637083] text-[#414E62] ">

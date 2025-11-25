@@ -26,7 +26,10 @@ export default function ArticleCard({
           className={`flex justify-between mx-6 font-[samim] font-normal md:text-[18px] text-[14px] leading-6 ${firstTexts}`}
         >
           <p> {cardData?.date} </p>
-          <p> {cardData?.commentNum} دیدگاه</p>
+          <p>
+            {" "}
+            {cardData?.commentNum} {cardData?.topLeftTxt}
+          </p>
         </div>
         <p
           className={`font-[samim] font-bold md:text-[24px] text-[20px] px-6 md:py-0 py-[22px] md:leading-11 leading-9 ${secondTexts}`}
