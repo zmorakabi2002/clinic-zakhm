@@ -9,6 +9,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { object } from "yup";
+import DropDown from "@/components/common/dropDown";
 
 export default function Page() {
   // const [inputValue, setInputvalue] = useState("");
@@ -45,6 +46,14 @@ export default function Page() {
       return false;
     }
   };
+
+  const titles = [
+    { id: 1, name: "زخم دیابتی" },
+    { id: 2, name: "زخم بستر" },
+    { id: 3, name: "زخم سرطان" },
+    { id: 4, name: "زخم عروقی" },
+    { id: 5, name: "سایر" },
+  ];
 
   return (
     <div className=" px-[26px] md:px-[65px] md:pt-[182px] pt-[126px] md:mb-[180px] flex flex-col items-center mb-[101px]">
@@ -106,13 +115,16 @@ export default function Page() {
                   )}
                 </div>
                 <div>
-                  <Input
+                  <DropDown
                     name="title"
-                    lable="عنوان "
-                    placeHolder={"عنوان را وارد کنید."}
-                    inputValue={values.title}
-                    inputChange={(e) => setFieldValue("title", e.target.value)}
-                    classStyle="md:w-[706px] md:h-[60px] w-[360px] h-[52px]"
+                    defaultValue={"عنوان را وارد کنید"}
+                    labename={"عنوان"}
+                    classStyle="md:w-[706px] md:h-auto w-[360px] h-auto "
+                    options={titles}
+                    onOptionClick={(value) => {
+                      setFieldValue("titles", value);
+                      setTouched({ ...touched, titles: false });
+                    }}
                   />
                   {errors.title && touched.title && (
                     <p className="text-red-500 text-sm">{errors.title}</p>
