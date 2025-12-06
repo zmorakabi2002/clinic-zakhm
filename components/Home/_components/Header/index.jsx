@@ -3,6 +3,8 @@ import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonRes from "@/components/common/button";
+import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 const HEADER_OPTION = [
   {
@@ -24,6 +26,9 @@ const HEADER_OPTION = [
 ];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const btnRef = useRef();
+  const panelRef = useRef();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -31,12 +36,6 @@ export default function Header() {
     e.preventDefault();
     router.push("/appointmentBooking");
   };
-
-  const handleClickTreatmentTeam = (e) => {
-    e.preventDefault();
-    router.push("/woundTherapistsLogin");
-  };
-
   return (
     <div className="absolute w-full flex justify-center text-[1.25rem] px-[26px] pt-[26px] md:px-[65px] md:pt-[42px] z-10 text-[#141C24]">
       <div className="w-full md:h-[108px] h-[68px] flex justify-between opacity-100 md:rounded-[38px] rounded-[25px] py-[22px]  md:px-8 px-3.5 bg-[#FFF0E5]">
@@ -94,13 +93,35 @@ export default function Header() {
 
         {/* Left side - Buttons */}
         <div className="flex justify-center items-center gap-4">
-          <div className="">
+          <div className="relative inline-block group">
             <ButtonRes
+              ref={btnRef}
               lable={"ثبت نام همکاران "}
               type="secend"
               classStyle="text-[1rem] md:text-[0.9rem] lg:text-[1.25rem] truncate md:w-[187px] w-[148px] "
-              onClickButton={handleClickTreatmentTeam}
+              onClickButton={() => setOpen((s) => !s)}
+              ariaHaspopup={"true"}
+              ariaExpanded={open}
+              buttonType="butten"
             />
+            <div
+              className="absolute left-2 w-40 flex flex-col bg-white rounded-[20px] mt-1 shadow-lg contain-content
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                      transition-all duration-200 "
+            >
+              <Link
+                href={""}
+                className="py-2 px-3 text-bold hover:bg-gray-100 cursor-pointer"
+              >
+                پزشکان
+              </Link>
+              <Link
+                href={""}
+                className="py-2 px-3 text-bold hover:bg-gray-100 cursor-pointer"
+              >
+                درمانگران
+              </Link>
+            </div>
           </div>
 
           <div className="hidden md:flex">
