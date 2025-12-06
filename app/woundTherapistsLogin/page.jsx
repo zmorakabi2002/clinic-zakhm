@@ -43,7 +43,7 @@ export default function Page() {
   const router = useRouter();
   const [city, setCity] = useState();
   const STORAGE_KEY = "uploadedImages";
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
 
   const handleClickCancel = (e) => {
     e.preventDefault();
@@ -52,8 +52,13 @@ export default function Page() {
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) setImage(saved);
+    if (saved) setImages(JSON.parse(saved));
   }, []);
+  useEffect(() => {
+    if (images) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(images));
+    }
+  }, [images]);
 
   const initialValues = {
     fullName: "",
@@ -291,23 +296,34 @@ export default function Page() {
                   کارت نظام پرستاری معتبر خود را آپلود کنید.
                 </p>
                 <UploadInput
-                  image={image}
-                  onFileChange={(file) => {
-                    // ۱. فایل را به Formik بده
-                    setFieldValue("imagesis", file);
+                  images={images}
+                  onFileChange={(files) => {
+                    if (!files || files.length === 0) return;
 
-                    // ۲. اگر برای preview هم می‌خوای
-                    if (file) {
+                    const newImages = [];
+
+                    Array.from(files).forEach((file) => {
                       const reader = new FileReader();
                       reader.onload = () => {
-                        const base64 = reader.result;
-                        localStorage.setItem(STORAGE_KEY, base64);
-                        setImage(base64);
+                        newImages.push(reader.result);
+
+                        // وقتی همه فایل‌ها خوانده شد، استیت آپدیت کن
+                        if (newImages.length === files.length) {
+                          const updated = [...images, ...newImages];
+
+                          setImages(updated);
+                          localStorage.setItem(
+                            STORAGE_KEY,
+                            JSON.stringify(updated)
+                          );
+
+                          // فایل‌ها را بده به Formik → یک آرایه
+                          setFieldValue("imagesis", updated);
+                        }
                       };
+
                       reader.readAsDataURL(file);
-                    } else {
-                      setImage(null);
-                    }
+                    });
                   }}
                 />
                 {errors.imagesis && touched.imagesis && (

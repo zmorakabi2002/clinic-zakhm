@@ -1,12 +1,11 @@
 import Image from "next/image";
 
-export default function UploadInput({ image, onClickUpload, onFileChange }) {
+export default function UploadInput({ images = [], onFileChange }) {
   return (
-    <div className="relative flex flex-col items-center">
+    <div className=" flex flex-col items-center">
       <label
         htmlFor="nursing-card"
-        onClick={onClickUpload} // کلیک از والد کنترل می‌شود
-        className="flex justify-center items-center gap-2 px-2 w-[125px] h-10 bg-[#FF8039] cursor-pointer rounded-[100px] font-samim font-bold text-[#F9FAFB]"
+        className="flex justify-center items-center gap-2 px-2 w-[125px] h-10 bg-[#FF8039] cursor-pointer rounded-[100px] text-white"
       >
         بارگذاری
         <Image alt="upload" src={"/images/upload.svg"} width={24} height={24} />
@@ -15,23 +14,27 @@ export default function UploadInput({ image, onClickUpload, onFileChange }) {
       <input
         id="nursing-card"
         type="file"
+        multiple
         accept="image/*"
         className="hidden"
         onChange={(e) => {
-          const file = e.target.files?.[0] || null;
-          onFileChange(file); // فقط فایل را بفرست، نه event
+          const files = Array.from(e.target.files || []);
+          onFileChange(files);
         }}
       />
-
-      {image && (
-        <Image
-          src={image}
-          alt="uploaded"
-          width={100}
-          height={100}
-          className="rounded-[10px] blur-[1px] absolute md:left-[330px] left-33 bottom-0 top-0.5"
-        />
-      )}
+      <div className=" md:w-[200px] w-[100px] flex flex-wrap md:-mt-14 -mt-15 md:ml-100 ml-60 gap-1 ">
+        {images.length > 0 &&
+          images.map((img, index) => (
+            <Image
+              key={index}
+              src={img}
+              alt="uploaded"
+              width={75}
+              height={50}
+              className="blur-[1px] rounded-lg md:h-[50px] md:w-[75px] h-[45px] w-[45px] "
+            />
+          ))}
+      </div>
     </div>
   );
 }

@@ -29,7 +29,7 @@ export default function DropDown({
       </p>
       <button
         type="button"
-        className={`px-5 py-[18px] rounded-[50px] border border-[#CED2DA] flex justify-between  ${classStyle} ${
+        className={`px-5 py-[18px] rounded-[50px] border border-[#CED2DA] flex justify-between ${classStyle} ${
           open === true && "rounded-b-none"
         }`}
         onClick={(e) => setOpen(!open)}
