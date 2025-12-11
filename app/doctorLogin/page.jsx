@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 import TextArea from "@/components/common/textArea";
-import Image from "next/image";
 import UploadProf from "@/components/common/userProfInput";
 
 export default function Page() {
@@ -44,8 +43,9 @@ export default function Page() {
   });
   const router = useRouter();
   const [city, setCity] = useState();
-  const STORAGE_KEY = "uploadedImages";
-  const [image, setImage] = useState(null);
+  const STORAGE_KEY = "DeatilCardImage";
+  const [images, setImages] = useState([]);
+  const [profileImages, setProfileImages] = useState("");
 
   const handleClickCancel = (e) => {
     e.preventDefault();
@@ -54,8 +54,13 @@ export default function Page() {
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) setImage(saved);
+    if (saved) setImages(JSON.parse(saved));
   }, []);
+  useEffect(() => {
+    if (images) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(images));
+    }
+  }, [images]);
 
   const initialValues = {
     fullName: "",
@@ -75,13 +80,13 @@ export default function Page() {
     { id: 3, name: "روانشناسی" },
   ];
 
-  const provinces = {
-    تهران: ["تهران", "شمیرانات", "ری", "اسلام‌شهر", "بهارستان"],
-    فارس: ["شیراز", "مرودشت", "کازرون", "لار", "جهرم"],
-    اصفهان: ["اصفهان", "کاشان", "نجف‌آباد", "خمینی‌شهر"],
-    "خراسان رضوی": ["مشهد", "نیشابور", "تربت‌حیدریه", "سبزوار"],
-    // هر استان خواستی اضافه کن
-  };
+  // const provinces = {
+  //   تهران: ["تهران", "شمیرانات", "ری", "اسلام‌شهر", "بهارستان"],
+  //   فارس: ["شیراز", "مرودشت", "کازرون", "لار", "جهرم"],
+  //   اصفهان: ["اصفهان", "کاشان", "نجف‌آباد", "خمینی‌شهر"],
+  //   "خراسان رضوی": ["مشهد", "نیشابور", "تربت‌حیدریه", "سبزوار"],
+  //   // هر استان خواستی اضافه کن
+  // };
 
   const handleCheckErrors = async (values, validateForm, setTouched) => {
     // همه فیلدها را touched کن تا خطاها نمایش داده شوند
@@ -108,8 +113,8 @@ export default function Page() {
           فرم ثبت‌نام پزشکان{" "}
         </p>
         <p className="font-samim font-bold md:text-[20px] text-[16px] md:leading-[38px] leading-6 text-center  md:text-[#637083] text-[#414E62] ">
-          اگر در حوزه‌ی درمان زخم فعالیت دارید، با تکمیل فرم زیر به جمع پزشکان
-          نیک کلینیک بپیوندید.{" "}
+          اگر در حوزه‌ی درمان زخم فعالیت دارید، با تکمیل فرم زیر به جمع
+          درمانگران نیک کلینیک بپیوندید.{" "}
         </p>
       </div>
       <Formik initialValues={initialValues} validationSchema={ValidationSchema}>
@@ -124,8 +129,11 @@ export default function Page() {
         }) => (
           <Form>
             <div className=" md:w-[783px] w-[360px] flex flex-wrap gap-8 pt-8 justify-center items-center ">
-              <div className="w-full flex items-center gap-3">
-                <UploadProf />
+              <div className="w-full flex justify-center items-center gap-3">
+                <UploadProf
+                  onFileChange={(file) => setProfileImages(file.name)}
+                  images={profileImages}
+                />
               </div>
               <div className="flex flex-col">
                 <Input
@@ -235,34 +243,34 @@ export default function Page() {
                 )}
               </div>
               <div>
-                <DropDown
+                <Input
                   name="provincee"
                   defaultValue={"استان را انتخاب کنید."}
-                  labename={"استان"}
+                  lable={"استان"}
                   classStyle="md:w-[375.5px] w-[360px]"
-                  options={Object.keys(provinces).map((p) => ({ name: p }))} // ✔️ استان‌ها
-                  onOptionClick={(value) => {
-                    setFieldValue("provincee", value);
-                    setCity(""); // ✔️ ریست کردن شهر
-                    setFieldValue("cityis", ""); // ✔️ ریست داخل Formik
-                    setTouched({ ...touched, provincee: false });
-                  }}
+                  // options={Object.keys(provinces).map((p) => ({ name: p }))} // ✔️ استان‌ها
+                  // onOptionClick={(value) => {
+                  //   setFieldValue("provincee", value);
+                  //   setCity(""); // ✔️ ریست کردن شهر
+                  //   setFieldValue("cityis", ""); // ✔️ ریست داخل Formik
+                  //   setTouched({ ...touched, provincee: false });
+                  // }}
                 />
                 {errors.provincee && touched.provincee && (
                   <p className="text-red-500 text-sm">{errors.provincee}</p>
                 )}
               </div>
               <div>
-                <DropDown
+                <Input
                   name="cityis"
                   defaultValue={"شهر را انتخاب کنید."}
-                  labename={"شهر"}
+                  lable={"شهر"}
                   classStyle="md:w-[375.5px] w-[360px]"
-                  options={
-                    values.provincee
-                      ? provinces[values.provincee].map((c) => ({ name: c })) // ✔️ شهرهای استان انتخاب‌شده
-                      : []
-                  }
+                  // options={
+                  //   values.provincee
+                  //     ? provinces[values.provincee].map((c) => ({ name: c })) // ✔️ شهرهای استان انتخاب‌شده
+                  //     : []
+                  // }
                   onOptionClick={(value) => {
                     setFieldValue("cityis", value);
                     setTouched({ ...touched, cityis: false });
@@ -296,23 +304,34 @@ export default function Page() {
                   کارت نظام پرستاری معتبر خود را آپلود کنید.
                 </p>
                 <UploadInput
-                  image={image}
-                  onFileChange={(file) => {
-                    // ۱. فایل را به Formik بده
-                    setFieldValue("imagesis", file);
+                  images={images}
+                  onFileChange={(files) => {
+                    if (!files || files.length === 0) return;
 
-                    // ۲. اگر برای preview هم می‌خوای
-                    if (file) {
+                    const newImages = [];
+
+                    Array.from(files).forEach((file) => {
                       const reader = new FileReader();
                       reader.onload = () => {
-                        const base64 = reader.result;
-                        localStorage.setItem(STORAGE_KEY, base64);
-                        setImage(base64);
+                        newImages.push(reader.result);
+
+                        // وقتی همه فایل‌ها خوانده شد، استیت آپدیت کن
+                        if (newImages.length === files.length) {
+                          const updated = [...images, ...newImages];
+
+                          setImages(updated);
+                          localStorage.setItem(
+                            STORAGE_KEY,
+                            JSON.stringify(updated)
+                          );
+
+                          // فایل‌ها را بده به Formik → یک آرایه
+                          setFieldValue("imagesis", updated);
+                        }
                       };
+
                       reader.readAsDataURL(file);
-                    } else {
-                      setImage(null);
-                    }
+                    });
                   }}
                 />
                 {errors.imagesis && touched.imagesis && (
