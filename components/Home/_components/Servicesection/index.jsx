@@ -53,7 +53,7 @@ export default function ServicesectionDesk() {
           </p>
         </div>
         {/* کارت‌ها */}
-        <div className="flex justify-center flex-wrap gap-x-1.5 md:gap-y-[52px] gap-y-2.5 pt-[52px] [@media(min-width:768px)_and_(max-width:1294px)]:px-5 md:px-[60px]">
+        <div className="flex justify-center flex-wrap gap-x-2 md:gap-y-[15px] gap-y-2.5 pt-[40px] [@media(min-width:768px)_and_(max-width:1294px)]:px-5 md:px-[60px]">
           {services.map((item, index) => (
             <ServicesCard
               key={`${index}-${item.name}`}

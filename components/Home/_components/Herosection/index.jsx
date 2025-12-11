@@ -68,7 +68,7 @@ export default function Herosection() {
                 href={"/treatmentTeam"}
                 className="text-[20px] text-[#f9fafb] leading-7 tracking-[0.01em] font-medium align-middle"
               >
-                +۱۰ پزشک مجرب
+                اعضای تیم
               </Link>
             </div>
           </div>
